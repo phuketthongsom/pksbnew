@@ -5,14 +5,9 @@ Thumbs.db
 # Claude
 .claude/
 
-# Uploaded files & timetable images (managed per-server)
+# Uploaded files (managed per-server)
 assets/uploads/*
 !assets/uploads/.gitkeep
-assets/images/timetable/*
-!assets/images/timetable/.gitkeep
-
-# Content data (managed via admin panel per-server)
-data/*.json
 
 # PHP logs
 *.log

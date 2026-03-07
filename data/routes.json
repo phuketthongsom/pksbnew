@@ -1,0 +1,229 @@
+[
+    {
+        "id": "route1",
+        "number": "8357",
+        "color": "#003087",
+        "name": {
+            "th": "สาย 1 สนามบิน - หาดราไวย์",
+            "en": "Route 1 Airport - Rawai Beach"
+        },
+        "description": {
+            "th": "สนามบินนานาชาติภูเก็ต → ป่าตอง → กะรน → กะตะ → หาดราไวย์",
+            "en": "Phuket International Airport → Patong → Karon → Kata → Rawai Beach"
+        },
+        "stops": [
+            {
+                "id": "airport",
+                "name": {
+                    "th": "สนามบินภูเก็ต",
+                    "en": "Phuket Airport"
+                },
+                "lat": 8.1132,
+                "lng": 98.3017
+            },
+            {
+                "id": "thalang",
+                "name": {
+                    "th": "สาธารณสุขอำเภอถลาง",
+                    "en": "Thalang Public Health"
+                },
+                "lat": 8.0869,
+                "lng": 98.33
+            },
+            {
+                "id": "baan_khian",
+                "name": {
+                    "th": "บ้านเขียน",
+                    "en": "Baan Khian"
+                },
+                "lat": 8.065,
+                "lng": 98.34
+            },
+            {
+                "id": "cherngtalay",
+                "name": {
+                    "th": "โรงเรียนเชิงทะเล",
+                    "en": "Cherngtalay School"
+                },
+                "lat": 8.021,
+                "lng": 98.2968
+            },
+            {
+                "id": "lotus",
+                "name": {
+                    "th": "โลตัสเชิงทะเล",
+                    "en": "Lotus Cherngtalay"
+                },
+                "lat": 8.0195,
+                "lng": 98.296
+            },
+            {
+                "id": "surin",
+                "name": {
+                    "th": "หาดสุรินทร์",
+                    "en": "Surin Beach"
+                },
+                "lat": 7.9998,
+                "lng": 98.278
+            },
+            {
+                "id": "kubur_kamala",
+                "name": {
+                    "th": "กูบูร์ กมลา",
+                    "en": "Kubur Kamala"
+                },
+                "lat": 7.985,
+                "lng": 98.274
+            },
+            {
+                "id": "kamala",
+                "name": {
+                    "th": "ภูเก็ตแฟนตาซี กมลา",
+                    "en": "Phuket Fantasea Kamala"
+                },
+                "lat": 7.9797,
+                "lng": 98.272
+            },
+            {
+                "id": "big_c",
+                "name": {
+                    "th": "บิ๊กซีป่าตอง",
+                    "en": "Big C Patong"
+                },
+                "lat": 7.928,
+                "lng": 98.3
+            },
+            {
+                "id": "pea",
+                "name": {
+                    "th": "กฟภ.ป่าตอง",
+                    "en": "PEA Patong"
+                },
+                "lat": 7.9107,
+                "lng": 98.2962
+            },
+            {
+                "id": "karon_circle",
+                "name": {
+                    "th": "วงเวียนกะรน",
+                    "en": "Karon Circle"
+                },
+                "lat": 7.8898,
+                "lng": 98.2985
+            },
+            {
+                "id": "karon_night",
+                "name": {
+                    "th": "การไฟฟ้าไนท์พลาซา",
+                    "en": "Karon Night Plaza"
+                },
+                "lat": 7.882,
+                "lng": 98.302
+            },
+            {
+                "id": "kata_stadium",
+                "name": {
+                    "th": "สนามกีฬากะตะ",
+                    "en": "Kata Stadium"
+                },
+                "lat": 7.8695,
+                "lng": 98.301
+            },
+            {
+                "id": "kata_palm",
+                "name": {
+                    "th": "กะตะปาล์ม",
+                    "en": "Kata Palm"
+                },
+                "lat": 7.863,
+                "lng": 98.303
+            },
+            {
+                "id": "sal_yuan",
+                "name": {
+                    "th": "ซอยหยวน",
+                    "en": "Sal Yuan"
+                },
+                "lat": 7.8568,
+                "lng": 98.335
+            },
+            {
+                "id": "rawai",
+                "name": {
+                    "th": "หาดราไวย์",
+                    "en": "Rawai Beach"
+                },
+                "lat": 7.781,
+                "lng": 98.334
+            }
+        ],
+        "active": true
+    },
+    {
+        "id": "route2",
+        "number": "8537",
+        "color": "#01aaa8",
+        "name": {
+            "th": "สาย 2 สถานีขนส่ง 1 - ป่าตอง",
+            "en": "Route 2 Bus Terminal 1 - Patong"
+        },
+        "description": {
+            "th": "สถานีขนส่งภูเก็ต 1 → สามกอง → กะทู้ → ป่าตอง",
+            "en": "Phuket Bus Terminal 1 → Samkong → Kathu → Patong"
+        },
+        "stops": [
+            {
+                "id": "terminal1",
+                "name": {
+                    "th": "สถานีขนส่งภูเก็ต 1",
+                    "en": "Phuket Bus Terminal 1"
+                },
+                "lat": 7.9836,
+                "lng": 98.3922
+            },
+            {
+                "id": "samkong",
+                "name": {
+                    "th": "สามกอง",
+                    "en": "Samkong"
+                },
+                "lat": 7.9701,
+                "lng": 98.3831
+            },
+            {
+                "id": "kathu",
+                "name": {
+                    "th": "กะทู้",
+                    "en": "Kathu"
+                },
+                "lat": 7.94,
+                "lng": 98.335
+            },
+            {
+                "id": "patong",
+                "name": {
+                    "th": "ป่าตอง",
+                    "en": "Patong Beach"
+                },
+                "lat": 7.9107,
+                "lng": 98.2962
+            }
+        ],
+        "active": true
+    },
+    {
+        "id": "route3",
+        "number": "4",
+        "color": "#e72323",
+        "name": {
+            "th": "สาย 3 (เพิ่มเติม)",
+            "en": "Route 3 (Additional)"
+        },
+        "description": {
+            "th": "เส้นทางเพิ่มเติม - กรุณาติดต่อสอบถาม",
+            "en": "Additional route - please contact us for details"
+        },
+        "stops": [],
+        "active": true
+    }
+]

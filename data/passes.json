@@ -1,0 +1,53 @@
+{
+  "passes": [
+    {
+      "id": "1day",
+      "name": {"th": "1 วัน", "en": "1 DAY PASS"},
+      "price": 299,
+      "validity": {"th": "ใช้ได้ 24 ชั่วโมง", "en": "Valid 24 hours"},
+      "color": "#4a90d9",
+      "image": "assets/images/icons/pass-1day.png",
+      "buy_url": ""
+    },
+    {
+      "id": "3day",
+      "name": {"th": "3 วัน", "en": "3 DAYS PASS"},
+      "price": 499,
+      "validity": {"th": "ใช้ได้ 72 ชั่วโมง", "en": "Valid 72 hours"},
+      "color": "#5cb85c",
+      "image": "assets/images/icons/pass-3day.png",
+      "buy_url": ""
+    },
+    {
+      "id": "7day",
+      "name": {"th": "7 วัน", "en": "7 DAYS PASS"},
+      "price": 799,
+      "validity": {"th": "ใช้ได้ 168 ชั่วโมง", "en": "Valid 168 hours"},
+      "color": "#f0ad4e",
+      "image": "assets/images/icons/pass-7day.png",
+      "buy_url": ""
+    },
+    {
+      "id": "10day",
+      "name": {"th": "10 วัน", "en": "10 DAYS PASS"},
+      "price": 1000,
+      "validity": {"th": "ใช้ได้ 240 ชั่วโมง", "en": "Valid 240 hours"},
+      "color": "#9b59b6",
+      "image": "assets/images/icons/pass-10day.png",
+      "buy_url": ""
+    },
+    {
+      "id": "30day",
+      "name": {"th": "30 วัน", "en": "30 DAYS PASS"},
+      "price": 1990,
+      "validity": {"th": "ใช้ได้ 30 วัน", "en": "Valid 30 days"},
+      "color": "#e74c3c",
+      "image": "assets/images/icons/pass-30day.png",
+      "buy_url": ""
+    }
+  ],
+  "note": {
+    "th": "บัตรนี้สามารถใช้ได้ในเส้นทาง (สาย 1) สนามบิน - ป่าตอง - ราไวย์ และ (สาย 2) สถานีขนส่ง 1 - กะทู้ - ป่าตอง",
+    "en": "This card can be used on (Route 1) Airport - Patong - Rawai and (Route 2) Bus Terminal 1 - Kathu - Patong."
+  }
+}
