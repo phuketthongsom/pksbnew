@@ -22,6 +22,7 @@ require_login();
       <a href="timetable.php"  class="<?= ($admin_active_nav??'')==='timetable'?'active':'' ?>"><span class="icon">🕐</span> Timetable</a>
       <a href="tt_images.php"  class="<?= ($admin_active_nav??'')==='tt_images'?'active':'' ?>"><span class="icon">🖼</span> Timetable Images</a>
       <a href="routes.php"     class="<?= ($admin_active_nav??'')==='routes'?'active':'' ?>"><span class="icon">🗺</span> Routes</a>
+      <a href="attractions.php" class="<?= ($admin_active_nav??'')==='attractions'?'active':'' ?>"><span class="icon">🗺️</span> Attractions</a>
       <a href="passes.php"     class="<?= ($admin_active_nav??'')==='passes'?'active':'' ?>"><span class="icon">🎫</span> Passes</a>
       <a href="content.php"    class="<?= ($admin_active_nav??'')==='content'?'active':'' ?>"><span class="icon">✏️</span> Content</a>
       <a href="users.php"      class="<?= ($admin_active_nav??'')==='users'?'active':'' ?>"><span class="icon">👤</span> Users</a>

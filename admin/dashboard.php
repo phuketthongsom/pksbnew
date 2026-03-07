@@ -45,6 +45,7 @@ foreach ($tt as $k => $v) {
     ['timetable.php','🕐','Edit Timetable','Update trip times'],
     ['tt_images.php','🖼','Timetable Images','Upload new images'],
     ['routes.php','🗺','Manage Routes','Add/edit routes'],
+    ['attractions.php','🏖️','Attractions','Manage attraction cards'],
     ['passes.php','🎫','Manage Passes','Update prices & colors'],
     ['content.php','✏️','Edit Content','Site text & info'],
     ['users.php','👤','Manage Users','Admin accounts'],

@@ -59,12 +59,13 @@ $_jsonld = json_encode([
 ], JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
 
 $nav = [
-  'home'      => ['url'=>base_url(),                  'th'=>'หน้าแรก',      'en'=>'Home'],
-  'tracking'  => ['url'=>base_url('tracking.php'),    'th'=>'ตำแหน่งรถ',   'en'=>'Tracking'],
-  'timetable' => ['url'=>base_url('timetable.php'),   'th'=>'เวลาเดินรถ',   'en'=>'Timetable'],
-  'payment'   => ['url'=>base_url('payment.php'),     'th'=>'บัตรโดยสาร',  'en'=>'Passes'],
-  'about'     => ['url'=>base_url('about.php'),       'th'=>'เกี่ยวกับ',    'en'=>'About'],
-  'contact'   => ['url'=>base_url('contact.php'),     'th'=>'ติดต่อ',       'en'=>'Contact'],
+  'home'        => ['url'=>base_url(),                    'th'=>'หน้าแรก',          'en'=>'Home'],
+  'tracking'    => ['url'=>base_url('tracking.php'),      'th'=>'ตำแหน่งรถ',       'en'=>'Tracking'],
+  'timetable'   => ['url'=>base_url('timetable.php'),     'th'=>'เวลาเดินรถ',       'en'=>'Timetable'],
+  'attractions' => ['url'=>base_url('attractions.php'),   'th'=>'สถานที่ท่องเที่ยว','en'=>'Attractions'],
+  'payment'     => ['url'=>base_url('payment.php'),       'th'=>'บัตรโดยสาร',      'en'=>'Passes'],
+  'about'       => ['url'=>base_url('about.php'),         'th'=>'เกี่ยวกับ',        'en'=>'About'],
+  'contact'     => ['url'=>base_url('contact.php'),       'th'=>'ติดต่อ',           'en'=>'Contact'],
 ];
 $cur = $active_nav ?? '';
 ?>
@@ -113,7 +114,7 @@ $cur = $active_nav ?? '';
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;600;700;800;900&display=swap"></noscript>
   <link rel="stylesheet" href="<?= asset('css/style.css') ?>">
 </head>
-<body>
+<body class="<?= ($active_nav??'')==='home' ? 'page-home' : '' ?>">
 
 <?php if (!empty($cfg['announcement']['active']) && !empty($cfg['announcement']['text'][$l])): ?>
 <div class="ann-bar"><?= esc(t($cfg['announcement']['text'])) ?></div>
@@ -126,9 +127,16 @@ $cur = $active_nav ?? '';
 
   <!-- Desktop nav -->
   <nav class="main-nav">
-    <?php foreach ($nav as $key => $item): ?>
-    <a href="<?= $item['url'] ?>" class="<?= $cur===$key?'active':'' ?>"><?= $item[$l] ?></a>
-    <?php endforeach; ?>
+    <a href="<?= $nav['home']['url'] ?>"        class="<?= $cur==='home'?'active':'' ?>"><?= $nav['home'][$l] ?></a>
+    <span class="nav-sep"></span>
+    <a href="<?= $nav['tracking']['url'] ?>"    class="<?= $cur==='tracking'?'active':'' ?>"><?= $nav['tracking'][$l] ?></a>
+    <a href="<?= $nav['timetable']['url'] ?>"   class="<?= $cur==='timetable'?'active':'' ?>"><?= $nav['timetable'][$l] ?></a>
+    <a href="<?= $nav['attractions']['url'] ?>" class="<?= $cur==='attractions'?'active':'' ?>"><?= $nav['attractions'][$l] ?></a>
+    <span class="nav-sep"></span>
+    <a href="<?= $nav['payment']['url'] ?>"     class="<?= $cur==='payment'?'active':'' ?>"><?= $nav['payment'][$l] ?></a>
+    <span class="nav-sep"></span>
+    <a href="<?= $nav['about']['url'] ?>"       class="<?= $cur==='about'?'active':'' ?>"><?= $nav['about'][$l] ?></a>
+    <a href="<?= $nav['contact']['url'] ?>"     class="<?= $cur==='contact'?'active':'' ?>"><?= $nav['contact'][$l] ?></a>
     <a href="<?= $lang_url ?>" class="lang-btn"><?= $lang_lbl ?></a>
   </nav>
 
@@ -149,7 +157,29 @@ $cur = $active_nav ?? '';
   <a href="<?= base_url('timetable.php') ?>" class="<?= $cur==='timetable'?'active':'' ?>">
     <span class="ico">🕐</span><span><?= $nav['timetable'][$l] ?></span>
   </a>
-  <a href="<?= base_url('payment.php') ?>" class="<?= $cur==='payment'?'active':'' ?>">
-    <span class="ico">💳</span><span><?= $nav['payment'][$l] ?></span>
-  </a>
+  <button class="bn-more-btn <?= in_array($cur,['attractions','payment','about','contact'])?'active':'' ?>" onclick="document.getElementById('bn-more').classList.toggle('open')">
+    <span class="ico">☰</span><span><?= $l==='th'?'อื่นๆ':'More' ?></span>
+  </button>
 </nav>
+
+<!-- More menu popup -->
+<div id="bn-more" class="bn-more-panel">
+  <div class="bn-more-inner">
+    <a href="<?= base_url('attractions.php') ?>" class="<?= $cur==='attractions'?'active':'' ?>">
+      <span>🗺️</span><?= $nav['attractions'][$l] ?>
+    </a>
+    <a href="<?= base_url('payment.php') ?>" class="<?= $cur==='payment'?'active':'' ?>">
+      <span>💳</span><?= $nav['payment'][$l] ?>
+    </a>
+    <a href="<?= base_url('about.php') ?>" class="<?= $cur==='about'?'active':'' ?>">
+      <span>ℹ️</span><?= $nav['about'][$l] ?>
+    </a>
+    <a href="<?= base_url('contact.php') ?>" class="<?= $cur==='contact'?'active':'' ?>">
+      <span>✉️</span><?= $nav['contact'][$l] ?>
+    </a>
+    <a href="<?= $lang_url ?>" class="bn-more-lang">
+      🌐 <?= $lang_lbl ?>
+    </a>
+  </div>
+</div>
+<div class="bn-more-overlay" onclick="document.getElementById('bn-more').classList.remove('open')"></div>

@@ -16,6 +16,7 @@
       <h4><?= $l==='th'?'เมนู':'Menu' ?></h4>
       <a href="<?= base_url('tracking.php') ?>"><?= $l==='th'?'ตำแหน่งรถ':'Tracking' ?></a>
       <a href="<?= base_url('timetable.php') ?>"><?= $l==='th'?'เวลาเดินรถ':'Timetable' ?></a>
+      <a href="<?= base_url('attractions.php') ?>"><?= $l==='th'?'สถานที่ท่องเที่ยว':'Attractions' ?></a>
       <a href="<?= base_url('payment.php') ?>"><?= $l==='th'?'บัตรโดยสาร':'Passes' ?></a>
       <a href="<?= base_url('about.php') ?>"><?= $l==='th'?'เกี่ยวกับเรา':'About' ?></a>
       <a href="<?= base_url('contact.php') ?>"><?= $l==='th'?'ติดต่อ':'Contact' ?></a>
