@@ -8,6 +8,9 @@ require_once __DIR__ . '/inc/header.php';
 $routes = array_filter(load_json('routes.json'), fn($r) => !empty($r['active']));
 $passes = load_json('passes.json');
 $routes_arr = array_values($routes); // indexed for JS
+$all_att = array_values(array_filter(load_json('attractions.json')['attractions'], fn($a) => !empty($a['active'])));
+shuffle($all_att);
+$featured_att = array_slice($all_att, 0, 4);
 ?>
 
 <!-- ── Compact Hero ───────────────────────────────────────── -->
@@ -122,6 +125,46 @@ $routes_arr = array_values($routes); // indexed for JS
     <div style="text-align:center;margin-top:20px">
       <a href="payment.php" class="btn btn-teal"><?= $l==='th'?'ดูรายละเอียดบัตรทั้งหมด':'View All Pass Details' ?></a>
     </div>
+  </div>
+</div>
+
+<!-- ── Featured Attractions ────────────────────────────────── -->
+<?php
+$routes_map = [];
+foreach (load_json('routes.json') as $r) $routes_map[$r['id']] = $r;
+?>
+<div class="wrap sec">
+  <h2 class="sec-title" style="text-align:center"><?= $l==='th'?'<span>สถานที่ท่องเที่ยว</span>ใกล้เคียง':'<span>Nearby</span> Attractions' ?></h2>
+  <p class="sec-sub" style="text-align:center;margin-bottom:24px"><?= $l==='th'?'จุดหมายยอดนิยมที่เดินทางด้วย Phuket Smart Bus':'Top spots accessible by Phuket Smart Bus' ?></p>
+  <div class="att-grid">
+    <?php foreach ($featured_att as $a): ?>
+    <div class="att-card">
+      <div class="att-img att-img-ph">🏖️</div>
+      <div class="att-body">
+        <div class="att-title"><?= esc(t($a['name'])) ?></div>
+        <div class="att-desc"><?= esc(t($a['description'])) ?></div>
+        <?php if (!empty($a['nearby'])): ?>
+        <div class="att-routes">
+          <?php foreach ($a['nearby'] as $nb):
+            $r = $routes_map[$nb['route_id']] ?? null;
+            if (!$r) continue;
+          ?>
+          <div class="att-badge" style="--rc:<?= esc($r['color']) ?>">
+            <span class="att-badge-num"><?= esc($r['number']) ?></span>
+            <span class="att-badge-stop"><?= esc(t($r['name'])) ?></span>
+          </div>
+          <?php endforeach; ?>
+        </div>
+        <?php endif; ?>
+        <?php if (!empty($a['map_url'])): ?>
+        <a href="<?= esc($a['map_url']) ?>" target="_blank" rel="noopener" class="att-map-btn">📍 <?= $l==='th'?'ดูแผนที่':'View on Map' ?></a>
+        <?php endif; ?>
+      </div>
+    </div>
+    <?php endforeach; ?>
+  </div>
+  <div style="text-align:center;margin-top:4px">
+    <a href="attractions.php" class="btn btn-teal"><?= $l==='th'?'ดูสถานที่ทั้งหมด':'See All Attractions' ?></a>
   </div>
 </div>
 
