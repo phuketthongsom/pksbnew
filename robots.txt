@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+Disallow: /admin/
+Disallow: /data/
+Disallow: /inc/
+Disallow: /api/
+Disallow: /*.json$
+
+Sitemap: https://phuketsmartbus.com/sitemap.xml

@@ -1,0 +1,15 @@
+{
+    "images": [
+        {
+            "id": "tt_1772877874",
+            "route": "route1",
+            "label": {
+                "th": "",
+                "en": ""
+            },
+            "file": "assets\/images\/timetable\/tt_20260307_100434.png",
+            "active": true,
+            "uploaded": "2026-03-07"
+        }
+    ]
+}
