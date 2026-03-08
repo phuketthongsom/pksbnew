@@ -50,6 +50,26 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['save_pass'])) {
     if (!preg_match('/^#[0-9a-fA-F]{6}$/', $color)) $color = '#4a90d9';
 
     if (!$err) {
+        // Keep existing image by default
+        $existing_image = trim($_POST['existing_image'] ?? '');
+        $image = $existing_image;
+
+        // Handle new image upload
+        if (!empty($_FILES['pass_image']['name'])) {
+            $upload_dir = __DIR__ . '/../assets/uploads/passes/';
+            $ext  = strtolower(pathinfo($_FILES['pass_image']['name'], PATHINFO_EXTENSION));
+            $allowed = ['jpg','jpeg','png','webp','gif'];
+            if (in_array($ext, $allowed) && $_FILES['pass_image']['size'] < 5*1024*1024) {
+                $fname = 'pass_' . $id . '_' . time() . '.' . $ext;
+                if (move_uploaded_file($_FILES['pass_image']['tmp_name'], $upload_dir . $fname)) {
+                    $image = 'assets/uploads/passes/' . $fname;
+                }
+            }
+        }
+
+        // Remove image if requested
+        if (!empty($_POST['remove_image'])) $image = '';
+
         $pass = [
             'id'       => $id,
             'name'     => ['th' => $name_th, 'en' => $name_en],
@@ -58,6 +78,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['save_pass'])) {
             'color'    => $color,
             'routes'   => array_values($routes),
             'buy_url'  => $buy_url,
+            'image'    => $image,
         ];
         if ($is_new) {
             $data['passes'][] = $pass;
@@ -104,7 +125,11 @@ if (isset($_GET['msg'])) $msg = $_GET['msg'] === 'saved' ? 'Saved successfully.'
       <tr>
         <td>
           <span style="display:inline-flex;align-items:center;gap:8px">
+            <?php if (!empty($p['image'])): ?>
+            <img src="<?= esc('../' . $p['image']) ?>" style="width:36px;height:36px;object-fit:cover;border-radius:5px;flex-shrink:0">
+            <?php else: ?>
             <span style="width:14px;height:14px;border-radius:3px;background:<?= esc($p['color']) ?>;flex-shrink:0;display:inline-block"></span>
+            <?php endif; ?>
             <div>
               <strong><?= esc($p['name']['en'] ?? '') ?></strong><br>
               <small style="color:#888"><?= esc($p['name']['th'] ?? '') ?></small>
@@ -179,11 +204,12 @@ if (isset($_GET['msg'])) $msg = $_GET['msg'] === 'saved' ? 'Saved successfully.'
   $i_col  = $item['color']         ?? '#4a90d9';
   $i_url  = $item['buy_url']       ?? '';
   $i_rts  = $item['routes']        ?? [];  // [] = all
+  $i_img  = $item['image']         ?? '';
 ?>
 <div class="admin-card">
   <h2><?= $is_new ? 'Add New Pass' : 'Edit Pass' ?></h2>
 
-  <form method="post">
+  <form method="post" enctype="multipart/form-data">
     <input type="hidden" name="save_pass" value="1">
     <input type="hidden" name="is_new" value="<?= $is_new?'1':'0' ?>">
 
@@ -264,6 +290,22 @@ if (isset($_GET['msg'])) $msg = $_GET['msg'] === 'saved' ? 'Saved successfully.'
           <?php endforeach; ?>
         </div>
       </div>
+    </div>
+
+    <!-- Pass Image -->
+    <div class="form-group">
+      <label>Pass Image <small style="color:#aaa">— shown on the pass card (optional)</small></label>
+      <input type="hidden" name="existing_image" value="<?= esc($i_img) ?>">
+      <?php if ($i_img): ?>
+      <div style="margin-bottom:10px;display:flex;align-items:center;gap:12px">
+        <img src="<?= esc('../' . $i_img) ?>" alt="" style="height:80px;border-radius:8px;object-fit:cover;border:1px solid #eee">
+        <label style="display:flex;align-items:center;gap:6px;font-size:.85rem;cursor:pointer;color:#e74c3c">
+          <input type="checkbox" name="remove_image" value="1"> Remove image
+        </label>
+      </div>
+      <?php endif; ?>
+      <input type="file" name="pass_image" accept="image/*" style="margin-top:4px">
+      <small style="color:#aaa;display:block;margin-top:4px">JPG, PNG, WebP — max 5MB</small>
     </div>
 
     <div class="form-actions">

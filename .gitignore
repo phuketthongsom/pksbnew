@@ -9,10 +9,6 @@ Thumbs.db
 assets/uploads/*
 !assets/uploads/.gitkeep
 
-# Data files (managed per-server via admin panel)
-data/*.json
-assets/images/timetable/
-
 # PHP logs
 *.log
 error_log

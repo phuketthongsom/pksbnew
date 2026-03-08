@@ -298,9 +298,12 @@ a.st-name:hover{color:var(--teal);text-decoration:underline}
   grid-template-columns:repeat(auto-fill,minmax(160px,1fr));
   gap:14px;
 }
+.pass-card-link{display:block;text-decoration:none;color:inherit}
+.pass-card-link:hover .pass-card{transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,0,0,.18)}
 .pass-card{
   border-radius:14px;overflow:hidden;
   box-shadow:0 4px 16px rgba(0,0,0,.13);
+  transition:transform .18s,box-shadow .18s;
   display:flex;flex-direction:column;
   position:relative;
 }

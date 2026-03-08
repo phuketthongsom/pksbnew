@@ -12,22 +12,22 @@ if (!isset($stops_data['stops'])) $stops_data['stops'] = [];
 
 $msg = $err = '';
 $action  = $_GET['action'] ?? 'list';
-$edit_id = $_GET['id']     ?? '';    // stop id
-$edit_rid= $_GET['route']  ?? '';    // route id
+$edit_id = $_GET['id']     ?? '';
 
 // ── Helper: save routes.json ──────────────────────────────────
 function save_routes($routes) { save_json('routes.json', $routes); }
 
 // ── ADD STOP ─────────────────────────────────────────────────
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add_stop'])) {
-    $rid    = $_POST['route_id'] ?? '';
-    $sid    = preg_replace('/[^a-z0-9_]/', '', strtolower(trim($_POST['stop_id'] ?? '')));
-    $nth    = trim($_POST['name_th'] ?? '');
-    $nen    = trim($_POST['name_en'] ?? '');
-    $lat    = (float)($_POST['lat'] ?? 0);
-    $lng    = (float)($_POST['lng'] ?? 0);
+    $rid_list = $_POST['route_ids'] ?? [];   // now multi-select
+    $sid      = preg_replace('/[^a-z0-9_]/', '', strtolower(trim($_POST['stop_id'] ?? '')));
+    $nth      = trim($_POST['name_th'] ?? '');
+    $nen      = trim($_POST['name_en'] ?? '');
+    $lat      = (float)($_POST['lat'] ?? 0);
+    $lng      = (float)($_POST['lng'] ?? 0);
 
-    if (!$sid)  $err = 'Stop ID is required.';
+    if (!$sid)              $err = 'Stop ID is required.';
+    elseif (!$rid_list)     $err = 'Select at least one route.';
     elseif (!$nth || !$nen) $err = 'Both Thai and English names are required.';
     else {
         // Check ID unique across all routes
@@ -38,10 +38,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add_stop'])) {
         }
     }
     if (!$err) {
+        $new = ['id'=>$sid,'name'=>['th'=>$nth,'en'=>$nen],'lat'=>$lat,'lng'=>$lng];
         foreach ($routes as &$r) {
-            if ($r['id'] !== $rid) continue;
-            $r['stops'][] = ['id'=>$sid,'name'=>['th'=>$nth,'en'=>$nen],'lat'=>$lat,'lng'=>$lng];
-            break;
+            if (!in_array($r['id'], $rid_list)) continue;
+            $r['stops'][] = $new;
         }
         unset($r);
         save_routes($routes);
@@ -49,25 +49,38 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add_stop'])) {
     }
 }
 
-// ── SAVE STOP DETAILS (name / lat / lng) ─────────────────────
+// ── SAVE STOP DETAILS (name / lat / lng / routes) ─────────────
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['save_details'])) {
-    $sid = $_POST['stop_id'] ?? '';
-    $rid = $_POST['route_id'] ?? '';
+    $sid  = $_POST['stop_id'] ?? '';
+    $rids = $_POST['route_ids'] ?? [];   // selected route IDs
+
+    $new_stop = [
+        'id'   => $sid,
+        'name' => ['th' => trim($_POST['name_th'] ?? ''), 'en' => trim($_POST['name_en'] ?? '')],
+        'lat'  => (float)($_POST['lat'] ?? 0),
+        'lng'  => (float)($_POST['lng'] ?? 0),
+    ];
+
     foreach ($routes as &$r) {
-        if ($r['id'] !== $rid) continue;
-        foreach ($r['stops'] as &$s) {
-            if ($s['id'] !== $sid) continue;
-            $s['name']['th'] = trim($_POST['name_th'] ?? '');
-            $s['name']['en'] = trim($_POST['name_en'] ?? '');
-            $s['lat']        = (float)($_POST['lat'] ?? 0);
-            $s['lng']        = (float)($_POST['lng'] ?? 0);
-            break 2;
+        $idx = null;
+        foreach ($r['stops'] as $i => $s) {
+            if ($s['id'] === $sid) { $idx = $i; break; }
         }
-        unset($s);
+        $selected = in_array($r['id'], $rids);
+        if ($selected && $idx !== null) {
+            // Update existing entry
+            $r['stops'][$idx] = $new_stop;
+        } elseif ($selected && $idx === null) {
+            // Add to this route
+            $r['stops'][] = $new_stop;
+        } elseif (!$selected && $idx !== null) {
+            // Remove from this route
+            $r['stops'] = array_values(array_filter($r['stops'], fn($s) => $s['id'] !== $sid));
+        }
     }
     unset($r);
     save_routes($routes);
-    header('Location: stops.php?msg=saved&action=edit&id='.urlencode($sid).'&route='.urlencode($rid)); exit;
+    header('Location: stops.php?msg=saved&action=edit&id='.urlencode($sid)); exit;
 }
 
 // ── SAVE STOP CONTENT (description / image) ──────────────────
@@ -97,7 +110,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['save_content'])) {
         if (!$err) {
             $stops_data['stops'][$sid] = $entry;
             save_json('stops.json', $stops_data);
-            header('Location: stops.php?msg=saved&action=edit&id='.urlencode($sid).'&route='.urlencode($_POST['route_id']??'')); exit;
+            header('Location: stops.php?msg=saved&action=edit&id='.urlencode($sid)); exit;
         }
     }
 }
@@ -105,11 +118,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['save_content'])) {
 // ── DELETE STOP ───────────────────────────────────────────────
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_stop'])) {
     $sid = $_POST['stop_id'] ?? '';
-    $rid = $_POST['route_id'] ?? '';
     foreach ($routes as &$r) {
-        if ($r['id'] !== $rid) continue;
         $r['stops'] = array_values(array_filter($r['stops'], fn($s) => $s['id'] !== $sid));
-        break;
     }
     unset($r);
     save_routes($routes);
@@ -120,22 +130,28 @@ if (isset($_GET['msg'])) {
     $msg = match($_GET['msg']) { 'saved'=>'Saved.', 'added'=>'Stop added.', 'deleted'=>'Stop deleted.', default=>'' };
 }
 
-// ── Build flat stop list for list view ───────────────────────
-$all_stops = []; // [['stop'=>$s, 'route'=>$r], ...]
+// ── Build deduplicated stop map for list view ─────────────────
+// stop_id => ['stop' => $s, 'routes' => [$r, ...]]
+$stop_map = [];
 foreach ($routes as $r) {
     foreach ($r['stops'] as $s) {
-        $all_stops[] = ['stop' => $s, 'route' => $r];
+        if (!isset($stop_map[$s['id']])) {
+            $stop_map[$s['id']] = ['stop' => $s, 'routes' => []];
+        }
+        $stop_map[$s['id']]['routes'][] = $r;
     }
 }
 
-// For edit view — find the stop
-$edit_stop  = null;
-$edit_route_obj = null;
-if ($action === 'edit' && $edit_id && $edit_rid) {
+// ── For edit view — find the stop and its current route IDs ───
+$edit_stop      = null;
+$stop_route_ids = [];
+if ($action === 'edit' && $edit_id) {
     foreach ($routes as $r) {
-        if ($r['id'] !== $edit_rid) continue;
         foreach ($r['stops'] as $s) {
-            if ($s['id'] === $edit_id) { $edit_stop = $s; $edit_route_obj = $r; break 2; }
+            if ($s['id'] === $edit_id) {
+                if (!$edit_stop) $edit_stop = $s;
+                $stop_route_ids[] = $r['id'];
+            }
         }
     }
 }
@@ -150,10 +166,7 @@ $edit_extra = $edit_id ? ($stops_data['stops'][$edit_id] ?? []) : [];
 <!-- ══ EDIT STOP ══════════════════════════════════════════════ -->
 <div style="display:flex;align-items:center;gap:10px;margin-bottom:20px">
   <a href="stops.php" class="btn btn-sm">← All Stops</a>
-  <span style="font-size:.85rem;color:#888">Editing:
-    <strong><?= esc($edit_stop['name']['en']) ?></strong>
-    <span style="background:<?= esc($edit_route_obj['color']) ?>;color:#fff;border-radius:4px;padding:1px 8px;font-size:.8rem;font-weight:700;margin-left:4px"><?= esc($edit_route_obj['number']) ?></span>
-  </span>
+  <span style="font-size:.85rem;color:#888">Editing: <strong><?= esc($edit_stop['name']['en']) ?></strong></span>
 </div>
 
 <!-- Stop details -->
@@ -162,17 +175,30 @@ $edit_extra = $edit_id ? ($stops_data['stops'][$edit_id] ?? []) : [];
   <form method="post">
     <input type="hidden" name="save_details" value="1">
     <input type="hidden" name="stop_id" value="<?= esc($edit_id) ?>">
-    <input type="hidden" name="route_id" value="<?= esc($edit_rid) ?>">
+
     <div class="form-row">
       <div class="form-group">
         <label>Stop ID <small style="color:#aaa">(cannot change)</small></label>
         <input type="text" value="<?= esc($edit_id) ?>" disabled style="background:#f5f5f5;color:#888">
       </div>
-      <div class="form-group">
-        <label>Route</label>
-        <input type="text" value="<?= esc($edit_route_obj['number'].' — '.($edit_route_obj['name']['en']??'')) ?>" disabled style="background:#f5f5f5;color:#888">
-      </div>
     </div>
+
+    <!-- Routes: multi-checkbox -->
+    <div class="form-group">
+      <label>Routes <small style="color:#aaa">— select all routes that serve this stop</small></label>
+      <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:8px">
+        <?php foreach ($routes as $r): ?>
+        <label style="display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border:1.5px solid <?= in_array($r['id'],$stop_route_ids)?esc($r['color']):'#e0e0e0' ?>;border-radius:8px;cursor:pointer;transition:border-color .15s">
+          <input type="checkbox" name="route_ids[]" value="<?= esc($r['id']) ?>"
+                 <?= in_array($r['id'], $stop_route_ids) ? 'checked' : '' ?>>
+          <span style="background:<?= esc($r['color']) ?>;color:#fff;border-radius:5px;padding:2px 10px;font-weight:800;font-size:.85rem"><?= esc($r['number']) ?></span>
+          <span style="font-size:.88rem"><?= esc($r['name']['en']) ?></span>
+        </label>
+        <?php endforeach; ?>
+      </div>
+      <small style="color:#aaa;display:block;margin-top:6px">⚠️ Unchecking a route will remove this stop from that route.</small>
+    </div>
+
     <div class="form-row">
       <div class="form-group">
         <label>Name (Thai) *</label>
@@ -195,13 +221,12 @@ $edit_extra = $edit_id ? ($stops_data['stops'][$edit_id] ?? []) : [];
     </div>
     <div class="form-actions">
       <button type="submit" class="btn btn-primary">💾 Save Details</button>
-      <form method="post" style="display:inline" onsubmit="return confirm('Delete this stop from the route?')">
-        <input type="hidden" name="delete_stop" value="1">
-        <input type="hidden" name="stop_id" value="<?= esc($edit_id) ?>">
-        <input type="hidden" name="route_id" value="<?= esc($edit_rid) ?>">
-        <button class="btn btn-danger btn-sm">🗑 Delete Stop</button>
-      </form>
     </div>
+  </form>
+  <form method="post" style="display:inline;margin-top:8px" onsubmit="return confirm('Delete this stop from ALL routes?')">
+    <input type="hidden" name="delete_stop" value="1">
+    <input type="hidden" name="stop_id" value="<?= esc($edit_id) ?>">
+    <button class="btn btn-danger btn-sm">🗑 Delete Stop</button>
   </form>
 </div>
 
@@ -211,7 +236,6 @@ $edit_extra = $edit_id ? ($stops_data['stops'][$edit_id] ?? []) : [];
   <form method="post" enctype="multipart/form-data">
     <input type="hidden" name="save_content" value="1">
     <input type="hidden" name="stop_id" value="<?= esc($edit_id) ?>">
-    <input type="hidden" name="route_id" value="<?= esc($edit_rid) ?>">
 
     <?php if (!empty($edit_extra['image'])): ?>
     <div style="margin-bottom:16px">
@@ -256,31 +280,35 @@ $edit_extra = $edit_id ? ($stops_data['stops'][$edit_id] ?? []) : [];
   </div>
   <form method="post">
     <input type="hidden" name="add_stop" value="1">
+
+    <!-- Routes: multi-checkbox -->
+    <div class="form-group">
+      <label>Add to Route(s) * <small style="color:#aaa">— select all routes that serve this stop</small></label>
+      <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:8px">
+        <?php foreach ($routes as $r): ?>
+        <label style="display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border:1.5px solid #e0e0e0;border-radius:8px;cursor:pointer">
+          <input type="checkbox" name="route_ids[]" value="<?= esc($r['id']) ?>">
+          <span style="background:<?= esc($r['color']) ?>;color:#fff;border-radius:5px;padding:2px 10px;font-weight:800;font-size:.85rem"><?= esc($r['number']) ?></span>
+          <span style="font-size:.88rem"><?= esc($r['name']['en']) ?></span>
+        </label>
+        <?php endforeach; ?>
+      </div>
+    </div>
+
     <div class="form-row">
       <div class="form-group">
-        <label>Add to Route *</label>
-        <select name="route_id" required style="width:100%;padding:9px 12px;border:1px solid #ddd;border-radius:6px;font-size:.88rem">
-          <option value="">— Select route —</option>
-          <?php foreach ($routes as $r): ?>
-          <option value="<?= esc($r['id']) ?>" <?= $edit_rid===$r['id']?'selected':'' ?>>
-            <?= esc($r['number'].' — '.$r['name']['en']) ?>
-          </option>
-          <?php endforeach; ?>
-        </select>
-      </div>
-      <div class="form-group">
-        <label>Stop ID * <small style="color:#aaa">lowercase, no spaces (e.g. surin, airport)</small></label>
-        <input type="text" name="stop_id" placeholder="e.g. surin_beach" required pattern="[a-z0-9_]+">
+        <label>Stop ID * <small style="color:#aaa">lowercase, no spaces (e.g. airport)</small></label>
+        <input type="text" name="stop_id" placeholder="e.g. airport" required pattern="[a-z0-9_]+">
       </div>
     </div>
     <div class="form-row">
       <div class="form-group">
         <label>Name (Thai) *</label>
-        <input type="text" name="name_th" placeholder="หาดสุริน" required>
+        <input type="text" name="name_th" placeholder="สนามบินภูเก็ต" required>
       </div>
       <div class="form-group">
         <label>Name (English) *</label>
-        <input type="text" name="name_en" placeholder="Surin Beach" required>
+        <input type="text" name="name_en" placeholder="Phuket Airport" required>
       </div>
     </div>
     <div class="form-row">
@@ -294,7 +322,7 @@ $edit_extra = $edit_id ? ($stops_data['stops'][$edit_id] ?? []) : [];
       </div>
     </div>
     <p style="font-size:.82rem;color:#888;margin-bottom:16px">
-      💡 The stop will be added at the end of the route. Go to <a href="routes.php">Routes → Edit</a> to reorder stops.
+      💡 The stop will be added at the end of selected route(s). Go to <a href="routes.php">Routes → Edit</a> to reorder stops.
     </p>
     <div class="form-actions">
       <button type="submit" class="btn btn-primary">➕ Add Stop</button>
@@ -309,30 +337,32 @@ $edit_extra = $edit_id ? ($stops_data['stops'][$edit_id] ?? []) : [];
   <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px">
     <div>
       <h2 style="margin:0">All Bus Stops</h2>
-      <p style="color:#888;font-size:.85rem;margin-top:2px"><?= count($all_stops) ?> stops across <?= count($routes) ?> routes</p>
+      <p style="color:#888;font-size:.85rem;margin-top:2px"><?= count($stop_map) ?> stops across <?= count($routes) ?> routes</p>
     </div>
     <a href="?action=add" class="btn btn-primary btn-sm">+ Add Stop</a>
   </div>
   <div style="overflow-x:auto">
     <table class="admin-table">
       <thead><tr>
-        <th>Stop Name</th><th>Route</th><th>Lat / Lng</th><th>Description</th><th>Image</th><th>Actions</th>
+        <th>Stop Name</th><th>Routes</th><th>Lat / Lng</th><th>Description</th><th>Image</th><th>Actions</th>
       </tr></thead>
       <tbody>
-      <?php foreach ($all_stops as $item):
+      <?php foreach ($stop_map as $sid => $item):
         $s     = $item['stop'];
-        $r     = $item['route'];
-        $extra = $stops_data['stops'][$s['id']] ?? [];
+        $rlist = $item['routes'];
+        $extra = $stops_data['stops'][$sid] ?? [];
         $desc  = $extra['description']['en'] ?? '';
       ?>
       <tr>
         <td>
           <strong><?= esc($s['name']['en']) ?></strong><br>
           <small style="color:#888"><?= esc($s['name']['th']) ?></small><br>
-          <small style="color:#bbb;font-family:monospace"><?= esc($s['id']) ?></small>
+          <small style="color:#bbb;font-family:monospace"><?= esc($sid) ?></small>
         </td>
         <td>
-          <span style="background:<?= esc($r['color']) ?>;color:#fff;border-radius:4px;padding:2px 8px;font-size:.78rem;font-weight:700"><?= esc($r['number']) ?></span>
+          <?php foreach ($rlist as $r): ?>
+          <span style="display:inline-block;background:<?= esc($r['color']) ?>;color:#fff;border-radius:4px;padding:2px 8px;font-size:.78rem;font-weight:700;margin:1px"><?= esc($r['number']) ?></span>
+          <?php endforeach; ?>
         </td>
         <td style="font-size:.8rem;color:#888;font-family:monospace">
           <?= $s['lat'] ? esc($s['lat'].', '.$s['lng']) : '<span style="color:#ddd">—</span>' ?>
@@ -342,8 +372,8 @@ $edit_extra = $edit_id ? ($stops_data['stops'][$edit_id] ?? []) : [];
         </td>
         <td style="text-align:center"><?= !empty($extra['image']) ? '✅' : '<span style="color:#ddd">—</span>' ?></td>
         <td style="white-space:nowrap">
-          <a href="?action=edit&id=<?= urlencode($s['id']) ?>&route=<?= urlencode($r['id']) ?>" class="btn btn-sm">Edit</a>
-          <a href="../stop.php?id=<?= urlencode($s['id']) ?>" target="_blank" class="btn btn-sm">↗</a>
+          <a href="?action=edit&id=<?= urlencode($sid) ?>" class="btn btn-sm">Edit</a>
+          <a href="../stop.php?id=<?= urlencode($sid) ?>" target="_blank" class="btn btn-sm">↗</a>
         </td>
       </tr>
       <?php endforeach; ?>

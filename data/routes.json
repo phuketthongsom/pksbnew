@@ -207,9 +207,20 @@
                 },
                 "lat": 7.9107,
                 "lng": 98.2962
+            },
+            {
+                "id": "bdmsphuket",
+                "name": {
+                    "th": "โรงพยาบาลกรุงเทพภูเก็ต",
+                    "en": "Phuket Bangkok Hospital"
+                },
+                "lat": 7.904,
+                "lng": 98.3765
             }
         ],
-        "active": true
+        "active": true,
+        "circular": false,
+        "tracking_url": ""
     },
     {
         "id": "route3",

@@ -1,3 +1,10 @@
 {
-  "stops": {}
+    "stops": {
+        "bdmsphuket": {
+            "description": {
+                "th": "",
+                "en": ""
+            }
+        }
+    }
 }

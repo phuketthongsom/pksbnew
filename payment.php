@@ -56,7 +56,6 @@ $routes = array_filter(load_json('routes.json'), fn($r) => !empty($r['active']))
     <?php
     $methods = [
       ['ico'=>'💵','th'=>'ชำระบนรถ (เงินสด)','en'=>'On-board Cash'],
-      ['ico'=>'📱','th'=>'แอป PKSB','en'=>'PKSB App'],
       ['ico'=>'🏧','th'=>'QR Code','en'=>'QR Code'],
       ['ico'=>'💳','th'=>'บัตรเครดิต/เดบิต','en'=>'Credit/Debit Card'],
     ];
