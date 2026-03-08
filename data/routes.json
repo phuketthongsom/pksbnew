@@ -216,14 +216,26 @@
         "number": "4",
         "color": "#e72323",
         "name": {
-            "th": "สาย 3 (เพิ่มเติม)",
-            "en": "Route 3 (Additional)"
+            "th": "รอบเมืองเก่าภูเก็ต",
+            "en": "Phuket Old Town"
         },
         "description": {
-            "th": "เส้นทางเพิ่มเติม - กรุณาติดต่อสอบถาม",
-            "en": "Additional route - please contact us for details"
+            "th": "บริการรถบัสโดยสารฟรี ย่านเมืองเก่าภูเก็ต",
+            "en": "Free Shuttle Bus Phuket Old Town"
         },
-        "stops": [],
-        "active": true
+        "stops": [
+            {
+                "id": "mongkhonnimittemple",
+                "name": {
+                    "th": "วัดมงคลนิมิตร",
+                    "en": "Mongkhonnimit Temple"
+                },
+                "lat": 7.886,
+                "lng": 98.389
+            }
+        ],
+        "active": true,
+        "tracking_url": "http:\/\/smartbus.phuket.cloud\/dragon-line",
+        "circular": true
     }
 ]

@@ -19,7 +19,13 @@ foreach ($passes['passes'] as $p):
       </div>
     </div>
     <div class="pass-card-routes">
-      <?php foreach ($routes as $r): ?>
+      <?php
+      // Show pass-specific routes if set, otherwise all active routes
+      $pass_routes = !empty($p['routes']) ? $p['routes'] : [];
+      $display_routes = empty($pass_routes)
+        ? $routes
+        : array_filter($routes, fn($r) => in_array($r['id'], $pass_routes));
+      foreach ($display_routes as $r): ?>
       <span class="pass-card-rn"><?= esc($r['number']) ?></span>
       <?php endforeach; ?>
     </div>

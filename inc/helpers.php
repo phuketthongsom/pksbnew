@@ -38,12 +38,32 @@ function asset(string $path): string {
 // ─── Language helpers ─────────────────────────────────────────────────────────
 
 function lang(): string {
+    $g = $_GET['lang'] ?? '';
+    if (in_array($g, ['th','en'])) return $g;
     return $_SESSION['lang'] ?? 'th';
 }
 
 function t(array $strings): string {
     $l = lang();
     return $strings[$l] ?? $strings['en'] ?? $strings['th'] ?? '';
+}
+
+// ─── Activity logger ──────────────────────────────────────────────────────────
+
+function log_event(string $type, string $label, string $id = ''): void {
+    $path = DATA_DIR . 'logs.json';
+    $data = file_exists($path) ? (json_decode(file_get_contents($path), true) ?? []) : [];
+    $events = $data['events'] ?? [];
+    $events[] = [
+        'ts'   => time(),
+        'type' => $type,
+        'label'=> $label,
+        'id'   => $id,
+        'lang' => $_GET['lang'] ?? $_SESSION['lang'] ?? 'th',
+    ];
+    // Keep last 1000 entries
+    if (count($events) > 1000) $events = array_slice($events, -1000);
+    file_put_contents($path, json_encode(['events' => $events], JSON_UNESCAPED_UNICODE));
 }
 
 // ─── GPS helpers ──────────────────────────────────────────────────────────────

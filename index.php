@@ -103,7 +103,7 @@ $featured_att = array_slice($all_att, 0, 4);
             </div>
             <div class="st-line-bot" style="background:<?= $last?'transparent':esc($r['color']) ?>"></div>
           </div>
-          <div class="st-name <?= ($first||$last)?'terminal':'' ?>"><?= esc(t($s['name'])) ?></div>
+          <a href="<?= base_url('stop.php?id='.$s['id']) ?>" class="st-name <?= ($first||$last)?'terminal':'' ?>"><?= esc(t($s['name'])) ?></a>
         </div>
         <?php endforeach; ?>
       </div>
@@ -138,8 +138,13 @@ foreach (load_json('routes.json') as $r) $routes_map[$r['id']] = $r;
   <p class="sec-sub" style="text-align:center;margin-bottom:24px"><?= $l==='th'?'จุดหมายยอดนิยมที่เดินทางด้วย Phuket Smart Bus':'Top spots accessible by Phuket Smart Bus' ?></p>
   <div class="att-grid">
     <?php foreach ($featured_att as $a): ?>
-    <div class="att-card">
+    <?php $a_thumb = !empty($a['images']) ? $a['images'][0] : ($a['image'] ?? ''); ?>
+    <a href="<?= base_url('attraction.php?id='.esc($a['id'])) ?>" class="att-card" style="text-decoration:none;color:inherit">
+      <?php if ($a_thumb): ?>
+      <div class="att-img"><img src="<?= esc($a_thumb) ?>" alt="<?= esc(t($a['name'])) ?>" loading="lazy"></div>
+      <?php else: ?>
       <div class="att-img att-img-ph">🏖️</div>
+      <?php endif; ?>
       <div class="att-body">
         <div class="att-title"><?= esc(t($a['name'])) ?></div>
         <div class="att-desc"><?= esc(t($a['description'])) ?></div>
@@ -151,16 +156,13 @@ foreach (load_json('routes.json') as $r) $routes_map[$r['id']] = $r;
           ?>
           <div class="att-badge" style="--rc:<?= esc($r['color']) ?>">
             <span class="att-badge-num"><?= esc($r['number']) ?></span>
-            <span class="att-badge-stop"><?= esc(t($r['name'])) ?></span>
           </div>
           <?php endforeach; ?>
         </div>
         <?php endif; ?>
-        <?php if (!empty($a['map_url'])): ?>
-        <a href="<?= esc($a['map_url']) ?>" target="_blank" rel="noopener" class="att-map-btn">📍 <?= $l==='th'?'ดูแผนที่':'View on Map' ?></a>
-        <?php endif; ?>
+        <span class="att-map-btn" style="display:inline-block;margin-top:6px"><?= $l==='th'?'ดูรายละเอียด →':'View Details →' ?></span>
       </div>
-    </div>
+    </a>
     <?php endforeach; ?>
   </div>
   <div style="text-align:center;margin-top:4px">

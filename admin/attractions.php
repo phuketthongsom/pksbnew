@@ -39,25 +39,32 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['save_attraction'])) {
     $nearby = [];
     foreach ($routes as $r) {
         $chk = $_POST['route_chk'][$r['id']] ?? '';
-        $sid = $_POST['route_stop'][$r['id']] ?? '';
-        if ($chk && $sid) {
+        $sid = trim($_POST['route_stop'][$r['id']] ?? '');
+        if ($chk) {
+            // stop_id may be empty = route-only link
             $nearby[] = ['route_id' => $r['id'], 'stop_id' => $sid];
         }
     }
 
-    // Handle image upload
-    $image = $_POST['existing_image'] ?? '';
-    if (!empty($_FILES['image']['name'])) {
-        $ext  = strtolower(pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION));
-        $allowed = ['jpg','jpeg','png','webp','gif'];
-        if (!in_array($ext, $allowed)) {
-            $error = 'Invalid image type. Allowed: jpg, png, webp, gif.';
-        } else {
-            $dir = __DIR__ . '/../assets/uploads/attractions/';
-            if (!is_dir($dir)) mkdir($dir, 0775, true);
-            $fname = 'att_' . preg_replace('/[^a-z0-9]/', '_', strtolower($id)) . '_' . time() . '.' . $ext;
-            if (move_uploaded_file($_FILES['image']['tmp_name'], $dir . $fname)) {
-                $image = 'assets/uploads/attractions/' . $fname;
+    // Handle multi-image upload
+    $allowed = ['jpg','jpeg','png','webp','gif'];
+    $dir = __DIR__ . '/../assets/uploads/attractions/';
+    if (!is_dir($dir)) mkdir($dir, 0775, true);
+
+    // Start from existing images, remove any checked for removal
+    $existing_images = json_decode($_POST['existing_images'] ?? '[]', true) ?: [];
+    $remove_set      = array_flip($_POST['remove_images'] ?? []);
+    $images = array_values(array_filter($existing_images, fn($p) => !isset($remove_set[$p])));
+
+    // Upload new images
+    if (!empty($_FILES['new_images']['name'][0])) {
+        foreach ($_FILES['new_images']['name'] as $i => $fname_orig) {
+            if (empty($fname_orig)) continue;
+            $ext = strtolower(pathinfo($fname_orig, PATHINFO_EXTENSION));
+            if (!in_array($ext, $allowed)) { $error = 'Invalid image type.'; break; }
+            $fname = 'att_' . preg_replace('/[^a-z0-9]/', '_', strtolower($id)) . '_' . time() . '_' . $i . '.' . $ext;
+            if (move_uploaded_file($_FILES['new_images']['tmp_name'][$i], $dir . $fname)) {
+                $images[] = 'assets/uploads/attractions/' . $fname;
             } else {
                 $error = 'Image upload failed.';
             }
@@ -69,7 +76,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['save_attraction'])) {
             'id'          => $id,
             'name'        => ['th' => $name_th, 'en' => $name_en],
             'description' => ['th' => $desc_th,  'en' => $desc_en],
-            'image'       => $image,
+            'images'      => $images,
+            'image'       => $images[0] ?? '',  // keep for backward compat
             'map_url'     => $map_url,
             'nearby'      => $nearby,
             'active'      => $active,
@@ -173,6 +181,8 @@ foreach ($routes as $r) {
     $i_map   = $item['map_url'] ?? '';
     $i_img   = $item['image']   ?? '';
     $i_act   = $item['active']  ?? true;
+    // images: prefer new 'images' array, fall back to legacy 'image'
+    $i_imgs  = !empty($item['images']) ? $item['images'] : (!empty($item['image']) ? [$item['image']] : []);
     // build nearby lookup for this item
     $nb_map  = [];
     foreach ($item['nearby'] ?? [] as $nb) $nb_map[$nb['route_id']] = $nb['stop_id'];
@@ -184,7 +194,7 @@ foreach ($routes as $r) {
   <form method="post" enctype="multipart/form-data">
     <input type="hidden" name="save_attraction" value="1">
     <input type="hidden" name="is_new" value="<?= $is_new?'1':'0' ?>">
-    <input type="hidden" name="existing_image" value="<?= esc($i_img) ?>">
+    <input type="hidden" name="existing_images" value="<?= esc(json_encode($i_imgs)) ?>">
 
     <div class="form-group">
       <label>ID (slug, no spaces) <?= $is_new?'*':'' ?></label>
@@ -218,14 +228,22 @@ foreach ($routes as $r) {
     </div>
 
     <div class="form-group">
-      <label>Image</label>
-      <?php if ($i_img): ?>
-      <div style="margin-bottom:8px">
-        <img src="../<?= esc($i_img) ?>" style="height:80px;border-radius:6px;object-fit:cover">
-        <small style="display:block;color:#888;margin-top:4px">Upload new image to replace</small>
+      <label>Images <small style="color:#aaa">— first image is the thumbnail on cards</small></label>
+      <?php if ($i_imgs): ?>
+      <div style="display:flex;flex-wrap:wrap;gap:10px;margin-bottom:12px">
+        <?php foreach ($i_imgs as $img): ?>
+        <div style="position:relative">
+          <img src="../<?= esc($img) ?>" style="width:100px;height:70px;object-fit:cover;border-radius:6px;border:1px solid #ddd">
+          <label style="position:absolute;top:3px;right:3px;background:rgba(231,76,60,.85);color:#fff;border-radius:4px;padding:1px 5px;font-size:.7rem;cursor:pointer;display:flex;align-items:center;gap:2px">
+            <input type="checkbox" name="remove_images[]" value="<?= esc($img) ?>" style="display:none" onchange="this.closest('div').style.opacity=this.checked?'.3':'1'">✕
+          </label>
+        </div>
+        <?php endforeach; ?>
       </div>
+      <small style="color:#888;display:block;margin-bottom:8px">Click ✕ on an image to remove it on save.</small>
       <?php endif; ?>
-      <input type="file" name="image" accept="image/*">
+      <input type="file" name="new_images[]" accept="image/*" multiple style="border:1px solid #ddd;border-radius:6px;padding:6px;width:100%">
+      <small style="color:#aaa">You can select multiple files at once.</small>
     </div>
 
     <!-- Nearby routes / stops -->
@@ -246,7 +264,7 @@ foreach ($routes as $r) {
           <span style="font-weight:600;font-size:.88rem"><?= esc($r['name']['en']) ?></span>
           <select name="route_stop[<?= esc($r['id']) ?>]" id="stop_<?= esc($r['id']) ?>"
                   <?= !$checked?'disabled':'' ?> style="margin-left:auto;font-size:.85rem;padding:4px 8px;border-radius:6px;border:1.5px solid #ddd">
-            <option value="">— select stop —</option>
+            <option value="" <?= $sel_stop===''?'selected':'' ?>>— Route only (no specific stop) —</option>
             <?php foreach ($stop_opts[$r['id']] ?? [] as $sid => $sname): ?>
             <option value="<?= esc($sid) ?>" <?= $sel_stop===$sid?'selected':'' ?>><?= esc($sname) ?></option>
             <?php endforeach; ?>

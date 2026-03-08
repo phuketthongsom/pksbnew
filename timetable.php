@@ -17,10 +17,12 @@ foreach ($routes as $r) {
 if (!$active_route) { $active_route = $routes[0] ?? null; $active_rid = $active_route['id'] ?? ''; }
 
 // Stops & direction
-$active_dir = $_GET['dir'] ?? 'out';
-$stops      = $active_route['stops'] ?? [];
-$n          = count($stops);
-$stops_vis  = ($active_dir === 'ret' && $n > 0) ? array_reverse($stops) : $stops;
+$is_circular = !empty($active_route['circular']);
+$active_dir  = $is_circular ? 'out' : ($_GET['dir'] ?? 'out');
+if ($active_route) log_event('route', t($active_route['name']), $active_rid);
+$stops       = $active_route['stops'] ?? [];
+$n           = count($stops);
+$stops_vis   = ($active_dir === 'ret' && $n > 0) ? array_reverse($stops) : $stops;
 ?>
 
 <!-- ── Page Hero -->
@@ -53,12 +55,44 @@ $stops_vis  = ($active_dir === 'ret' && $n > 0) ? array_reverse($stops) : $stops
       <div class="tt-rb-desc"><?= esc(t($active_route['description'])) ?></div>
     </div>
     <div class="tt-rb-actions">
+      <?php if (!empty($active_route['tracking_url'])): ?>
+      <button onclick="toggleRouteTrack()" class="btn btn-yellow btn-sm" id="tt-track-btn">
+        📍 <?= $l==='th'?'ติดตามสด':'Track Live' ?>
+      </button>
+      <?php else: ?>
       <a href="tracking.php" class="btn btn-yellow btn-sm">📍 <?= $l==='th'?'ติดตาม':'Track' ?></a>
+      <?php endif; ?>
     </div>
   </div>
 
+  <?php if (!empty($active_route['tracking_url'])): ?>
+  <div id="tt-track-frame" style="display:none">
+    <iframe src="<?= esc($active_route['tracking_url']) ?>" style="width:100%;height:400px;border:none;display:block"></iframe>
+  </div>
+  <script>
+  function toggleRouteTrack() {
+    var f = document.getElementById('tt-track-frame');
+    var b = document.getElementById('tt-track-btn');
+    if (f.style.display === 'none') {
+      f.style.display = 'block';
+      b.textContent = '✕ <?= $l==='th'?'ปิด':'Close' ?>';
+    } else {
+      f.style.display = 'none';
+      b.textContent = '📍 <?= $l==='th'?'ติดตามสด':'Track Live' ?>';
+    }
+  }
+  </script>
+  <?php endif; ?>
+
   <!-- ── Direction toggle ── -->
-  <?php if ($n > 0):
+  <?php if ($n > 0): ?>
+  <?php if ($is_circular): ?>
+  <div class="tt-dir-tabs">
+    <div class="tt-dir-btn active" style="--rc:<?= esc($active_route['color']) ?>;cursor:default">
+      🔄 <?= $l==='th'?'เส้นทางวนวงกลม':'Circular / Loop Route' ?>
+    </div>
+  </div>
+  <?php else:
     $f  = esc(t($stops[0]['name']));
     $la = esc(t($stops[$n-1]['name']));
   ?>
@@ -75,6 +109,7 @@ $stops_vis  = ($active_dir === 'ret' && $n > 0) ? array_reverse($stops) : $stops
     </a>
   </div>
   <?php endif; ?>
+  <?php endif; ?>
 
   <!-- ── S-curve stop visual ── -->
   <?php if ($stops_vis): ?>
@@ -86,17 +121,22 @@ $stops_vis  = ($active_dir === 'ret' && $n > 0) ? array_reverse($stops) : $stops
     ?>
     <div class="rv-stop<?= $is_t?' rv-t':'' ?><?= $is_l?' rv-l':' rv-r' ?>">
       <?php if ($is_l): ?>
-        <div class="rv-lbl"><?= $nm ?></div>
+        <a href="<?= base_url('stop.php?id='.$s['id']) ?>" class="rv-lbl"><?= $nm ?></a>
         <div class="rv-pin"><span class="rv-dot"></span></div>
         <div class="rv-sp"></div>
       <?php else: ?>
         <div class="rv-sp"></div>
         <div class="rv-pin"><span class="rv-dot"></span></div>
-        <div class="rv-lbl"><?= $nm ?></div>
+        <a href="<?= base_url('stop.php?id='.$s['id']) ?>" class="rv-lbl"><?= $nm ?></a>
       <?php endif; ?>
     </div>
     <?php endforeach; ?>
   </div>
+  <?php if ($is_circular && $n > 0): ?>
+  <div style="text-align:center;margin:-4px 0 12px;font-size:.82rem;color:<?= esc($active_route['color']) ?>;font-weight:600;opacity:.85">
+    🔄 <?= $l==='th'?'วนกลับไปยัง ':'Loops back to ' ?><?= esc(t($stops[0]['name'])) ?>
+  </div>
+  <?php endif; ?>
   <?php else: ?>
   <p style="color:#888;padding:20px 0"><?= $l==='th'?'ยังไม่มีข้อมูลเส้นทาง':'No route stops available.' ?></p>
   <?php endif; ?>

@@ -7,17 +7,15 @@ auth_start();
 if (!isset($_SESSION['lang'])) $_SESSION['lang'] = 'th';
 if (isset($_GET['lang']) && in_array($_GET['lang'], ['th','en'])) {
     $_SESSION['lang'] = $_GET['lang'];
-    $redirect = strtok($_SERVER['REQUEST_URI'], '?');
-    $params = $_GET; unset($params['lang']);
-    if ($params) $redirect .= '?' . http_build_query($params);
-    header('Location: ' . $redirect); exit;
 }
 
 $cfg        = load_json('config.json');
 $l          = lang();
 $_pt_base   = $page_title ?? '';
 $page_title = $_pt_base !== '' ? $_pt_base . ' — ' . t($cfg['site_name']) : t($cfg['site_name']);
-$lang_url   = '?lang=' . ($l==='th' ? 'en' : 'th');
+$_lang_params = $_GET; unset($_lang_params['lang']);
+$_lang_params['lang'] = ($l==='th' ? 'en' : 'th');
+$lang_url   = '?' . http_build_query($_lang_params);
 $lang_lbl   = $l==='th' ? 'EN' : 'ไทย';
 
 // ── SEO variables ──────────────────────────────────────────────────────────────

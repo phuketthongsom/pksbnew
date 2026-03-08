@@ -10,12 +10,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $user = trim($_POST['username'] ?? '');
     $pass = trim($_POST['password'] ?? '');
     if (try_login($user, $pass)) {
-        header('Location: dashboard.php');
+        header('Location: /admin/dashboard.php');
         exit;
     }
     $error = 'Invalid username or password.';
 }
-if (is_logged_in()) { header('Location: dashboard.php'); exit; }
+if (is_logged_in()) { header('Location: /admin/dashboard.php'); exit; }
 ?>
 <!DOCTYPE html>
 <html lang="en">

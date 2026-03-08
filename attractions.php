@@ -62,18 +62,23 @@ $filtered = array_values(array_filter($attractions, function($a) use ($filter) {
           $r = $route_map[$nb['route_id']] ?? null;
           if (!$r) continue;
           $labels[] = [
-              'color' => $r['color'],
-              'num'   => $r['number'],
-              'stop'  => $stop_names[$nb['route_id']][$nb['stop_id']] ?? '',
+              'color'      => $r['color'],
+              'num'        => $r['number'],
+              'stop'       => $stop_names[$nb['route_id']][$nb['stop_id']] ?? '',
+              'route_name' => t($r['name']),
           ];
       }
     ?>
-    <div class="att-card">
+    <?php
+      $att_imgs = !empty($att['images']) ? $att['images'] : (!empty($att['image']) ? [$att['image']] : []);
+      $att_thumb = $att_imgs[0] ?? '';
+    ?>
+    <a href="<?= base_url('attraction.php?id='.esc($att['id'])) ?>" class="att-card" style="text-decoration:none;color:inherit">
 
       <!-- Image -->
-      <?php if (!empty($att['image'])): ?>
+      <?php if ($att_thumb): ?>
       <div class="att-img">
-        <img src="<?= esc($att['image']) ?>" alt="<?= esc(t($att['name'])) ?>" loading="lazy">
+        <img src="<?= esc($att_thumb) ?>" alt="<?= esc(t($att['name'])) ?>" loading="lazy">
       </div>
       <?php else: ?>
       <div class="att-img att-img-ph">🏖️</div>
@@ -89,23 +94,22 @@ $filtered = array_values(array_filter($attractions, function($a) use ($filter) {
           <?php foreach ($labels as $lb): ?>
           <div class="att-badge" style="--rc:<?= esc($lb['color']) ?>">
             <span class="att-badge-num"><?= esc($lb['num']) ?></span>
-            <span class="att-badge-stop">
-              <?= $l==='th'?'ลงที่':'Alight at' ?> <?= esc($lb['stop']) ?>
-            </span>
+            <?php if ($lb['stop']): ?>
+            <span class="att-badge-stop"><?= $l==='th'?'ลงที่':'Alight at' ?> <?= esc($lb['stop']) ?></span>
+            <?php else: ?>
+            <span class="att-badge-stop"><?= esc($lb['route_name']) ?></span>
+            <?php endif; ?>
           </div>
           <?php endforeach; ?>
         </div>
         <?php endif; ?>
 
-        <!-- Map button -->
-        <?php if (!empty($att['map_url'])): ?>
-        <a href="<?= esc($att['map_url']) ?>" target="_blank" rel="noopener" class="att-map-btn">
-          📍 <?= $l==='th'?'ดูแผนที่':'View on Map' ?>
-        </a>
-        <?php endif; ?>
+        <span class="att-map-btn" style="display:inline-block;margin-top:8px">
+          <?= $l==='th'?'ดูรายละเอียด →':'View Details →' ?>
+        </span>
       </div>
 
-    </div>
+    </a>
     <?php endforeach; ?>
   </div>
   <?php else: ?>

@@ -22,6 +22,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $r['description']['th']= trim($_POST['desc_th']);
             $r['description']['en']= trim($_POST['desc_en']);
             $r['active']           = !empty($_POST['active']);
+            $r['circular']         = !empty($_POST['circular']);
+            $r['tracking_url']     = trim($_POST['tracking_url'] ?? '');
+            // Reorder stops if order submitted
+            if (!empty($_POST['stop_order'])) {
+                $order = json_decode($_POST['stop_order'], true);
+                if (is_array($order)) {
+                    $indexed = [];
+                    foreach ($r['stops'] as $s) $indexed[$s['id']] = $s;
+                    $reordered = [];
+                    foreach ($order as $sid) {
+                        if (isset($indexed[$sid])) $reordered[] = $indexed[$sid];
+                    }
+                    $r['stops'] = $reordered;
+                }
+            }
             break;
         }
         unset($r);
@@ -98,9 +113,17 @@ if ($edit_route):
       <div class="form-group"><label>Description (English)</label><textarea name="desc_en" rows="2"><?= esc($edit_route['description']['en']) ?></textarea></div>
     </div>
     <div class="form-group">
+      <label>Tracking iframe URL <small style="color:#aaa">— paste the embed URL from your GPS provider (per route)</small></label>
+      <input type="url" name="tracking_url" value="<?= esc($edit_route['tracking_url'] ?? '') ?>" placeholder="https://trackback.gpsiam.net/embed/...">
+    </div>
+    <div class="form-group" style="display:flex;gap:24px;flex-wrap:wrap">
       <label style="display:flex;align-items:center;gap:8px;cursor:pointer">
         <input type="checkbox" name="active" value="1" <?= !empty($edit_route['active'])?'checked':'' ?>>
         Active (visible on website)
+      </label>
+      <label style="display:flex;align-items:center;gap:8px;cursor:pointer">
+        <input type="checkbox" name="circular" value="1" <?= !empty($edit_route['circular'])?'checked':'' ?>>
+        🔄 Circular / Loop route (วนวงกลม) — no return direction
       </label>
     </div>
     <div class="form-actions">
@@ -109,20 +132,54 @@ if ($edit_route):
     </div>
   </form>
 
-  <!-- Stop list (read-only for now) -->
+  <!-- Stop order (drag to reorder) -->
   <?php if (!empty($edit_route['stops'])): ?>
-  <div style="margin-top:20px">
-    <h3 style="font-size:.95rem;color:#888;margin-bottom:10px">Bus Stops (<?= count($edit_route['stops']) ?>)</h3>
-    <div style="display:flex;flex-wrap:wrap;gap:6px">
+  <div style="margin-top:28px;border-top:1px solid #e0e0e0;padding-top:20px">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px">
+      <h3 style="font-size:.95rem;font-weight:700;margin:0">Bus Stop Order <span style="color:#aaa;font-weight:400">(<?= count($edit_route['stops']) ?> stops)</span></h3>
+      <span style="font-size:.78rem;color:#999">Drag ⠿ to reorder, then Save Route</span>
+    </div>
+    <input type="hidden" name="stop_order" id="stop-order" value="">
+    <div id="stop-sortable" style="display:flex;flex-direction:column;gap:6px">
       <?php foreach ($edit_route['stops'] as $i => $s): ?>
-      <span style="background:#f0f0f0;border-radius:20px;padding:3px 12px;font-size:.8rem">
-        <?= $i+1 ?>. <?= esc($s['name']['en']) ?>
-      </span>
+      <div class="stop-sort-row" data-id="<?= esc($s['id']) ?>"
+           style="display:flex;align-items:center;gap:10px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:8px 12px;cursor:default">
+        <span style="cursor:grab;color:#bbb;font-size:1.1rem;flex-shrink:0;user-select:none">⠿</span>
+        <span style="background:<?= esc($edit_route['color']) ?>;color:#fff;border-radius:4px;padding:1px 8px;font-size:.75rem;font-weight:700;flex-shrink:0"><?= $i+1 ?></span>
+        <span style="font-size:.88rem;font-weight:600;flex:1"><?= esc($s['name']['en']) ?></span>
+        <span style="font-size:.8rem;color:#999"><?= esc($s['name']['th']) ?></span>
+        <span style="font-size:.75rem;color:#bbb;font-family:monospace"><?= esc($s['id']) ?></span>
+      </div>
       <?php endforeach; ?>
     </div>
   </div>
   <?php endif; ?>
 </div>
 <?php endif; ?>
+
+<script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.2/Sortable.min.js"></script>
+<script>
+(function(){
+  var el = document.getElementById('stop-sortable');
+  if (!el) return;
+  Sortable.create(el, {
+    handle: 'span[style*="grab"]',
+    animation: 150,
+    onEnd: function() {
+      var rows = el.querySelectorAll('.stop-sort-row');
+      rows.forEach(function(r, i) {
+        r.querySelector('span:nth-child(2)').textContent = i + 1;
+      });
+    }
+  });
+  // Collect order before any form in this card submits
+  document.querySelectorAll('form').forEach(function(f) {
+    f.addEventListener('submit', function() {
+      var order = Array.from(el.querySelectorAll('.stop-sort-row')).map(function(r){ return r.dataset.id; });
+      document.getElementById('stop-order').value = JSON.stringify(order);
+    });
+  });
+})();
+</script>
 
 <?php require_once __DIR__ . '/inc/admin_footer.php'; ?>
