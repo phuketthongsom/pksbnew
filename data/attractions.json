@@ -1,194 +1,332 @@
 {
-    "attractions": [
+  "attractions": [
+    {
+      "id": "surin_beach",
+      "name": {
+        "th": "หาดสุรินทร์",
+        "en": "Surin Beach"
+      },
+      "description": {
+        "th": "หาดทรายขาวสวยงามท่ามกลางน้ำทะเลสีฟ้าใส บรรยากาศสงบเหมาะสำหรับผ่อนคลาย มีร้านอาหารและร้านขายของฝากริมชายหาด",
+        "en": "Beautiful white sand beach with crystal clear blue water. A peaceful spot perfect for relaxing with beachside restaurants and souvenir shops."
+      },
+      "image": "",
+      "map_url": "https://maps.google.com/?q=Surin+Beach+Phuket",
+      "nearby": [
         {
-            "id": "surin_beach",
-            "name": {
-                "th": "หาดสุรินทร์",
-                "en": "Surin Beach"
-            },
-            "description": {
-                "th": "หาดทรายขาวสวยงามท่ามกลางน้ำทะเลสีฟ้าใส บรรยากาศสงบเหมาะสำหรับผ่อนคลาย มีร้านอาหารและร้านขายของฝากริมชายหาด",
-                "en": "Beautiful white sand beach with crystal clear blue water. A peaceful spot perfect for relaxing with beachside restaurants and souvenir shops."
-            },
-            "image": "",
-            "map_url": "https:\/\/maps.google.com\/?q=Surin+Beach+Phuket",
-            "nearby": [
-                {
-                    "route_id": "route1",
-                    "stop_id": "surin"
-                }
-            ],
-            "active": true
-        },
-        {
-            "id": "kamala_beach",
-            "name": {
-                "th": "หาดกมลา",
-                "en": "Kamala Beach"
-            },
-            "description": {
-                "th": "หาดทรายยาวและเงียบสงบ บรรยากาศผ่อนคลาย เหมาะสำหรับครอบครัว ใกล้หมู่บ้านชาวประมงและตลาดเช้า",
-                "en": "A long, quiet sandy beach with a relaxed atmosphere. Ideal for families, close to a fishing village and morning market."
-            },
-            "image": "",
-            "map_url": "https:\/\/maps.google.com\/?q=Kamala+Beach+Phuket",
-            "nearby": [
-                {
-                    "route_id": "route1",
-                    "stop_id": "kubur_kamala"
-                }
-            ],
-            "active": true
-        },
-        {
-            "id": "phuket_fantasea",
-            "name": {
-                "th": "ภูเก็ตแฟนตาซี",
-                "en": "Phuket FantaSea"
-            },
-            "description": {
-                "th": "สวนสนุกและโชว์แสดงระดับโลก ผสมผสานวัฒนธรรมไทยกับเทคโนโลยีทันสมัย เปิดทุกคืนยกเว้นวันพฤหัสบดี",
-                "en": "World-class theme park and cultural show combining Thai heritage with modern technology. Open every night except Thursday."
-            },
-            "image": "",
-            "map_url": "https:\/\/maps.google.com\/?q=Phuket+FantaSea+Kamala",
-            "nearby": [
-                {
-                    "route_id": "route1",
-                    "stop_id": "kamala"
-                }
-            ],
-            "active": true
-        },
-        {
-            "id": "patong_beach",
-            "name": {
-                "th": "หาดป่าตอง",
-                "en": "Patong Beach"
-            },
-            "description": {
-                "th": "หาดที่มีชีวิตชีวาที่สุดในภูเก็ต เต็มไปด้วยร้านอาหาร บาร์ และกิจกรรมทางน้ำ ศูนย์กลางความบันเทิงยามค่ำคืน",
-                "en": "The most vibrant beach in Phuket, packed with restaurants, bars, water sports and nightlife. The island's entertainment hub."
-            },
-            "image": "",
-            "map_url": "https:\/\/maps.google.com\/?q=Patong+Beach+Phuket",
-            "nearby": [
-                {
-                    "route_id": "route1",
-                    "stop_id": "pea"
-                },
-                {
-                    "route_id": "route2",
-                    "stop_id": "patong"
-                }
-            ],
-            "active": true
-        },
-        {
-            "id": "karon_beach",
-            "name": {
-                "th": "หาดกะรน",
-                "en": "Karon Beach"
-            },
-            "description": {
-                "th": "หาดทรายขาวยาวงดงาม น้ำทะเลใสสะอาด เหมาะสำหรับการเล่นน้ำและดำน้ำตื้น บรรยากาศเป็นส่วนตัวกว่าหาดป่าตอง",
-                "en": "A long beautiful white sand beach with clean water, great for swimming and snorkeling. More relaxed and spacious than Patong."
-            },
-            "image": "",
-            "map_url": "https:\/\/maps.google.com\/?q=Karon+Beach+Phuket",
-            "nearby": [
-                {
-                    "route_id": "route1",
-                    "stop_id": "karon_circle"
-                }
-            ],
-            "active": true
-        },
-        {
-            "id": "kata_beach",
-            "name": {
-                "th": "หาดกะตะ",
-                "en": "Kata Beach"
-            },
-            "description": {
-                "th": "หาดทรายขาวสวยงาม เหมาะสำหรับการเล่นเซิร์ฟในช่วงมรสุม และว่ายน้ำในช่วงหน้าแล้ง มีร้านอาหารและที่พักหลากหลาย",
-                "en": "Beautiful white sand beach ideal for surfing in the monsoon season and swimming in the dry season. Variety of restaurants and accommodation."
-            },
-            "image": "",
-            "map_url": "https:\/\/maps.google.com\/?q=Kata+Beach+Phuket",
-            "nearby": [
-                {
-                    "route_id": "route1",
-                    "stop_id": "kata_stadium"
-                }
-            ],
-            "active": true
-        },
-        {
-            "id": "rawai_beach",
-            "name": {
-                "th": "หาดราไวย์",
-                "en": "Rawai Beach"
-            },
-            "description": {
-                "th": "หาดของชาวประมงและชาวเล มีอาหารทะเลสดราคาย่อมเยา เป็นจุดออกเดินทางสู่เกาะต่างๆ บรรยากาศเงียบสงบและเป็นธรรมชาติ",
-                "en": "A fishing and sea gypsy beach with fresh affordable seafood. The departure point for island-hopping trips. Quiet and natural atmosphere."
-            },
-            "image": "",
-            "map_url": "https:\/\/maps.google.com\/?q=Rawai+Beach+Phuket",
-            "nearby": [
-                {
-                    "route_id": "route1",
-                    "stop_id": "rawai"
-                }
-            ],
-            "active": true
-        },
-        {
-            "id": "phuket_old_town",
-            "name": {
-                "th": "เมืองเก่าภูเก็ต",
-                "en": "Phuket Old Town"
-            },
-            "description": {
-                "th": "ย่านประวัติศาสตร์ที่เต็มไปด้วยอาคารชิโน-โปรตุกีสสีสันสดใส ร้านกาแฟ แกลเลอรี่ และร้านอาหารท้องถิ่น",
-                "en": "A historic district full of colourful Sino-Portuguese buildings, cafes, art galleries, and local restaurants. Perfect for a cultural stroll."
-            },
-            "images": [
-                "assets\/uploads\/attractions\/att_phuket_old_town_1772954404_0.jpg"
-            ],
-            "image": "assets\/uploads\/attractions\/att_phuket_old_town_1772954404_0.jpg",
-            "map_url": "https:\/\/maps.google.com\/?q=Phuket+Old+Town",
-            "nearby": [
-                {
-                    "route_id": "route3",
-                    "stop_id": ""
-                }
-            ],
-            "active": true
-        },
-        {
-            "id": "DateNightoldtownphuket",
-            "name": {
-                "th": "Date Night Localtion old Town Phuket",
-                "en": "Date Night Localtion old Town Phuket"
-            },
-            "description": {
-                "th": "Date Night วาเลนไทน์นี้ไม่มีเหงา! 💖🕯️ \r\nพาส่อง 5 พิกัดร้านลับ(ที่ไม่ลับ) ในภูเก็ต บรรยากาศดี อาหารอร่อย มุมถ่ายรูปเริ่ด 📸 \r\nไม่ต้องขับรถให้เหนื่อย แค่ขึ้น Phuket Smart Bus (Dragon Line)  ก็นั่งยาวๆ ไปลงหน้าร้านได้เลย ฟรี!! ไม่มีค่าบริการ 🚎",
-                "en": "Date Night This Valentine's Day won't be lonely! 💖🕯️\r\nLet's explore 5 hidden (but not so hidden) spots in Phuket with great atmosphere, delicious food, and amazing photo opportunities 📸\r\nNo need to drive, just hop on the Phuket Smart Bus (Dragon Line) and ride straight to the restaurant – it's free!! 🚎"
-            },
-            "images": [
-                "assets\/uploads\/attractions\/att_datenightoldtownphuket_1772953405_0.jpg"
-            ],
-            "image": "assets\/uploads\/attractions\/att_datenightoldtownphuket_1772953405_0.jpg",
-            "map_url": "",
-            "nearby": [
-                {
-                    "route_id": "route3",
-                    "stop_id": ""
-                }
-            ],
-            "active": true
+          "route_id": "route1",
+          "stop_id": "surin"
         }
-    ]
+      ],
+      "active": true,
+      "category": "attraction"
+    },
+    {
+      "id": "kamala_beach",
+      "name": {
+        "th": "หาดกมลา",
+        "en": "Kamala Beach"
+      },
+      "description": {
+        "th": "หาดทรายยาวและเงียบสงบ บรรยากาศผ่อนคลาย เหมาะสำหรับครอบครัว ใกล้หมู่บ้านชาวประมงและตลาดเช้า",
+        "en": "A long, quiet sandy beach with a relaxed atmosphere. Ideal for families, close to a fishing village and morning market."
+      },
+      "image": "",
+      "map_url": "https://maps.google.com/?q=Kamala+Beach+Phuket",
+      "nearby": [
+        {
+          "route_id": "route1",
+          "stop_id": "kubur_kamala"
+        }
+      ],
+      "active": true,
+      "category": "attraction"
+    },
+    {
+      "id": "phuket_fantasea",
+      "name": {
+        "th": "ภูเก็ตแฟนตาซี",
+        "en": "Phuket FantaSea"
+      },
+      "description": {
+        "th": "สวนสนุกและโชว์แสดงระดับโลก ผสมผสานวัฒนธรรมไทยกับเทคโนโลยีทันสมัย เปิดทุกคืนยกเว้นวันพฤหัสบดี",
+        "en": "World-class theme park and cultural show combining Thai heritage with modern technology. Open every night except Thursday."
+      },
+      "image": "",
+      "map_url": "https://maps.google.com/?q=Phuket+FantaSea+Kamala",
+      "nearby": [
+        {
+          "route_id": "route1",
+          "stop_id": "kamala"
+        }
+      ],
+      "active": true,
+      "category": "attraction"
+    },
+    {
+      "id": "patong_beach",
+      "name": {
+        "th": "หาดป่าตอง",
+        "en": "Patong Beach"
+      },
+      "description": {
+        "th": "หาดที่มีชีวิตชีวาที่สุดในภูเก็ต เต็มไปด้วยร้านอาหาร บาร์ และกิจกรรมทางน้ำ ศูนย์กลางความบันเทิงยามค่ำคืน",
+        "en": "The most vibrant beach in Phuket, packed with restaurants, bars, water sports and nightlife. The island's entertainment hub."
+      },
+      "image": "",
+      "map_url": "https://maps.google.com/?q=Patong+Beach+Phuket",
+      "nearby": [
+        {
+          "route_id": "route1",
+          "stop_id": "pea"
+        },
+        {
+          "route_id": "route2",
+          "stop_id": "patong"
+        }
+      ],
+      "active": true,
+      "category": "attraction"
+    },
+    {
+      "id": "karon_beach",
+      "name": {
+        "th": "หาดกะรน",
+        "en": "Karon Beach"
+      },
+      "description": {
+        "th": "หาดทรายขาวยาวงดงาม น้ำทะเลใสสะอาด เหมาะสำหรับการเล่นน้ำและดำน้ำตื้น บรรยากาศเป็นส่วนตัวกว่าหาดป่าตอง",
+        "en": "A long beautiful white sand beach with clean water, great for swimming and snorkeling. More relaxed and spacious than Patong."
+      },
+      "image": "",
+      "map_url": "https://maps.google.com/?q=Karon+Beach+Phuket",
+      "nearby": [
+        {
+          "route_id": "route1",
+          "stop_id": "karon_circle"
+        }
+      ],
+      "active": true,
+      "category": "attraction"
+    },
+    {
+      "id": "kata_beach",
+      "name": {
+        "th": "หาดกะตะ",
+        "en": "Kata Beach"
+      },
+      "description": {
+        "th": "หาดทรายขาวสวยงาม เหมาะสำหรับการเล่นเซิร์ฟในช่วงมรสุม และว่ายน้ำในช่วงหน้าแล้ง มีร้านอาหารและที่พักหลากหลาย",
+        "en": "Beautiful white sand beach ideal for surfing in the monsoon season and swimming in the dry season. Variety of restaurants and accommodation."
+      },
+      "image": "",
+      "map_url": "https://maps.google.com/?q=Kata+Beach+Phuket",
+      "nearby": [
+        {
+          "route_id": "route1",
+          "stop_id": "kata_stadium"
+        }
+      ],
+      "active": true,
+      "category": "attraction"
+    },
+    {
+      "id": "rawai_beach",
+      "name": {
+        "th": "หาดราไวย์",
+        "en": "Rawai Beach"
+      },
+      "description": {
+        "th": "หาดของชาวประมงและชาวเล มีอาหารทะเลสดราคาย่อมเยา เป็นจุดออกเดินทางสู่เกาะต่างๆ บรรยากาศเงียบสงบและเป็นธรรมชาติ",
+        "en": "A fishing and sea gypsy beach with fresh affordable seafood. The departure point for island-hopping trips. Quiet and natural atmosphere."
+      },
+      "image": "",
+      "map_url": "https://maps.google.com/?q=Rawai+Beach+Phuket",
+      "nearby": [
+        {
+          "route_id": "route1",
+          "stop_id": "rawai"
+        }
+      ],
+      "active": true,
+      "category": "attraction"
+    },
+    {
+      "id": "phuket_old_town",
+      "name": {
+        "th": "เมืองเก่าภูเก็ต",
+        "en": "Phuket Old Town"
+      },
+      "description": {
+        "th": "ย่านประวัติศาสตร์ที่เต็มไปด้วยอาคารชิโน-โปรตุกีสสีสันสดใส ร้านกาแฟ แกลเลอรี่ และร้านอาหารท้องถิ่น",
+        "en": "A historic district full of colourful Sino-Portuguese buildings, cafes, art galleries, and local restaurants. Perfect for a cultural stroll."
+      },
+      "images": [
+        "assets/uploads/attractions/att_phuket_old_town_1772954404_0.jpg"
+      ],
+      "image": "assets/uploads/attractions/att_phuket_old_town_1772954404_0.jpg",
+      "map_url": "https://maps.google.com/?q=Phuket+Old+Town",
+      "nearby": [
+        {
+          "route_id": "route3",
+          "stop_id": ""
+        }
+      ],
+      "active": true,
+      "category": "attraction"
+    },
+    {
+      "id": "DateNightoldtownphuket",
+      "name": {
+        "th": "Date Night Localtion old Town Phuket",
+        "en": "Date Night Localtion old Town Phuket"
+      },
+      "description": {
+        "th": "Date Night วาเลนไทน์นี้ไม่มีเหงา! 💖🕯️ \r\nพาส่อง 5 พิกัดร้านลับ(ที่ไม่ลับ) ในภูเก็ต บรรยากาศดี อาหารอร่อย มุมถ่ายรูปเริ่ด 📸 \r\nไม่ต้องขับรถให้เหนื่อย แค่ขึ้น Phuket Smart Bus (Dragon Line)  ก็นั่งยาวๆ ไปลงหน้าร้านได้เลย ฟรี!! ไม่มีค่าบริการ 🚎",
+        "en": "Date Night This Valentine's Day won't be lonely! 💖🕯️\r\nLet's explore 5 hidden (but not so hidden) spots in Phuket with great atmosphere, delicious food, and amazing photo opportunities 📸\r\nNo need to drive, just hop on the Phuket Smart Bus (Dragon Line) and ride straight to the restaurant – it's free!! 🚎"
+      },
+      "images": [
+        "assets/uploads/attractions/att_datenightoldtownphuket_1772953405_0.jpg"
+      ],
+      "image": "assets/uploads/attractions/att_datenightoldtownphuket_1772953405_0.jpg",
+      "map_url": "",
+      "nearby": [
+        {
+          "route_id": "route3",
+          "stop_id": ""
+        }
+      ],
+      "active": true,
+      "category": "restaurant"
+    },
+    {
+      "id": "twinpalms_surin",
+      "name": {
+        "th": "ทวินพาล์มส์ ภูเก็ต รีสอร์ท",
+        "en": "Twinpalms Phuket Resort"
+      },
+      "description": {
+        "th": "โรงแรมบูติกหรู 5 ดาว ริมหาดสุรินทร์ ตกแต่งสไตล์โมเดิร์นไทย สระว่ายน้ำอินฟินิตี้ ร้านอาหาร Orient Express และสปาระดับโลก",
+        "en": "5-star boutique luxury resort at Surin Beach with modern Thai design, infinity pool, Orient Express restaurant and world-class spa."
+      },
+      "images": [
+        "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=800&q=80"
+      ],
+      "image": "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=800&q=80",
+      "map_url": "https://maps.google.com/?q=Twinpalms+Phuket+Resort+Surin",
+      "booking_url": "https://www.booking.com/hotel/th/twinpalms-phuket.html",
+      "nearby": [
+        {
+          "route_id": "route1",
+          "stop_id": "surin"
+        }
+      ],
+      "active": true,
+      "category": "hotel"
+    },
+    {
+      "id": "hyatt_regency_phuket",
+      "name": {
+        "th": "ไฮแอท รีเจนซี่ ภูเก็ต รีสอร์ท",
+        "en": "Hyatt Regency Phuket Resort"
+      },
+      "description": {
+        "th": "รีสอร์ทระดับ 5 ดาว บนเนินเขาริมทะเล หาดกมลา วิวทะเลอันดามันแบบพาโนรามา สระว่ายน้ำกลางแจ้ง 3 แห่ง ห้องพักหรูกว่า 200 ห้อง",
+        "en": "5-star hilltop resort overlooking Kamala Beach with panoramic Andaman Sea views, 3 outdoor pools and over 200 luxurious rooms."
+      },
+      "images": [
+        "https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=800&q=80"
+      ],
+      "image": "https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=800&q=80",
+      "map_url": "https://maps.google.com/?q=Hyatt+Regency+Phuket+Resort+Kamala",
+      "booking_url": "https://www.booking.com/hotel/th/hyatt-regency-phuket-resort.html",
+      "nearby": [
+        {
+          "route_id": "route1",
+          "stop_id": "kamala"
+        }
+      ],
+      "active": true,
+      "category": "hotel"
+    },
+    {
+      "id": "holiday_inn_patong",
+      "name": {
+        "th": "ฮอลิเดย์ อินน์ รีสอร์ท ป่าตอง บีช",
+        "en": "Holiday Inn Resort Patong Beach"
+      },
+      "description": {
+        "th": "โรงแรม 4 ดาวสุดคุ้ม ใจกลางหาดป่าตอง เดิน 5 นาทีถึงทะเล สระว่ายน้ำขนาดใหญ่ อาหารนานาชาติ และกิจกรรมทางน้ำครบครัน",
+        "en": "4-star resort in the heart of Patong, 5 min walk to the beach. Large pool, international dining and full water sports."
+      },
+      "images": [
+        "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80"
+      ],
+      "image": "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80",
+      "map_url": "https://maps.google.com/?q=Holiday+Inn+Resort+Phuket+Patong",
+      "booking_url": "https://www.booking.com/hotel/th/holiday-inn-resort-phuket.html",
+      "nearby": [
+        {
+          "route_id": "route1",
+          "stop_id": "pea"
+        },
+        {
+          "route_id": "route2",
+          "stop_id": "patong"
+        }
+      ],
+      "active": true,
+      "category": "hotel"
+    },
+    {
+      "id": "le_meridien_karon",
+      "name": {
+        "th": "เลอ เมอริเดียน ภูเก็ต บีช รีสอร์ท",
+        "en": "Le Méridien Phuket Beach Resort"
+      },
+      "description": {
+        "th": "รีสอร์ทหรู 5 ดาวริมหาดกะรน มีสระว่ายน้ำ 6 แห่ง ชายหาดส่วนตัว ร้านอาหาร 5 แห่ง และสปาโอเอซิสระดับโลก",
+        "en": "5-star luxury resort on Karon Beach with 6 pools, private beach, 5 restaurants and the award-winning Oasis Spa."
+      },
+      "images": [
+        "https://images.unsplash.com/photo-1564501049412-61c2a3083791?auto=format&fit=crop&w=800&q=80"
+      ],
+      "image": "https://images.unsplash.com/photo-1564501049412-61c2a3083791?auto=format&fit=crop&w=800&q=80",
+      "map_url": "https://maps.google.com/?q=Le+Meridien+Phuket+Beach+Resort+Karon",
+      "booking_url": "https://www.booking.com/hotel/th/le-meridien-phuket.html",
+      "nearby": [
+        {
+          "route_id": "route1",
+          "stop_id": "karon_circle"
+        }
+      ],
+      "active": true,
+      "category": "hotel"
+    },
+    {
+      "id": "katathani_kata",
+      "name": {
+        "th": "กะตะธานี ภูเก็ต บีช รีสอร์ท",
+        "en": "Katathani Phuket Beach Resort"
+      },
+      "description": {
+        "th": "รีสอร์ทชายหาดระดับ 5 ดาว ติดหาดกะตะน้อย ห้องพักทุกห้องมีวิวทะเล สระว่ายน้ำ 7 แห่ง ร้านอาหาร 6 แห่ง และบริการสปาระดับโลก",
+        "en": "5-star beachfront resort on Kata Noi Beach. All rooms with sea views, 7 pools, 6 restaurants and world-class spa."
+      },
+      "images": [
+        "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=800&q=80"
+      ],
+      "image": "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=800&q=80",
+      "map_url": "https://maps.google.com/?q=Katathani+Phuket+Beach+Resort+Kata",
+      "booking_url": "https://www.booking.com/hotel/th/katathani-phuket-beach.html",
+      "nearby": [
+        {
+          "route_id": "route1",
+          "stop_id": "kata_stadium"
+        }
+      ],
+      "active": true,
+      "category": "hotel"
+    }
+  ]
 }

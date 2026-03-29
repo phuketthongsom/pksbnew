@@ -32,7 +32,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['save_attraction'])) {
     $name_en  = trim($_POST['name_en']  ?? '');
     $desc_th  = trim($_POST['desc_th']  ?? '');
     $desc_en  = trim($_POST['desc_en']  ?? '');
-    $map_url  = trim($_POST['map_url']  ?? '');
+    $map_url     = trim($_POST['map_url']     ?? '');
+    $booking_url = trim($_POST['booking_url'] ?? '');
+    $category    = trim($_POST['category'] ?? 'attraction');
     $active   = isset($_POST['active']) ? true : false;
 
     // Build nearby array from posted route/stop combos
@@ -76,9 +78,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['save_attraction'])) {
             'id'          => $id,
             'name'        => ['th' => $name_th, 'en' => $name_en],
             'description' => ['th' => $desc_th,  'en' => $desc_en],
+            'category'    => $category,
             'images'      => $images,
             'image'       => $images[0] ?? '',  // keep for backward compat
             'map_url'     => $map_url,
+            'booking_url' => $booking_url,
             'nearby'      => $nearby,
             'active'      => $active,
         ];
@@ -119,8 +123,8 @@ foreach ($routes as $r) {
 
   <!-- ── LIST VIEW ── -->
   <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px">
-    <h2>Attractions</h2>
-    <a href="?action=add" class="btn btn-primary btn-sm">+ Add Attraction</a>
+    <h2>Nearby Places</h2>
+    <a href="?action=add" class="btn btn-primary btn-sm">+ Add Place</a>
   </div>
 
   <?php if ($msg): ?><div class="alert-success"><?= esc($msg) ?></div><?php endif; ?>
@@ -128,7 +132,7 @@ foreach ($routes as $r) {
   <?php if ($data['attractions']): ?>
   <table class="admin-table">
     <thead><tr>
-      <th>Image</th><th>Name</th><th>Routes</th><th>Active</th><th>Actions</th>
+      <th>Image</th><th>Name</th><th>Category</th><th>Routes</th><th>Active</th><th>Actions</th>
     </tr></thead>
     <tbody>
     <?php foreach ($data['attractions'] as $att): ?>
@@ -141,6 +145,14 @@ foreach ($routes as $r) {
       <td>
         <strong><?= esc($att['name']['th'] ?? '') ?></strong><br>
         <small style="color:#888"><?= esc($att['name']['en'] ?? '') ?></small>
+      </td>
+      <td>
+        <?php
+          $cat_icons = ['attraction'=>'🏖️','hotel'=>'🏨','restaurant'=>'🍽️','travel'=>'✈️'];
+          $cat_labels = ['attraction'=>'Attraction','hotel'=>'Hotel','restaurant'=>'Restaurant/Café','travel'=>'Travel Plan'];
+          $cat = $att['category'] ?? 'attraction';
+        ?>
+        <span style="font-size:.82rem"><?= $cat_icons[$cat] ?? '📍' ?> <?= esc($cat_labels[$cat] ?? ucfirst($cat)) ?></span>
       </td>
       <td>
         <?php foreach ($att['nearby'] ?? [] as $nb):
@@ -164,7 +176,7 @@ foreach ($routes as $r) {
     </tbody>
   </table>
   <?php else: ?>
-  <p style="color:#888">No attractions yet. <a href="?action=add">Add one</a>.</p>
+  <p style="color:#888">No places yet. <a href="?action=add">Add one</a>.</p>
   <?php endif; ?>
 
 <?php else: ?>
@@ -178,8 +190,10 @@ foreach ($routes as $r) {
     $i_nen   = $item['name']['en'] ?? '';
     $i_dth   = $item['description']['th'] ?? '';
     $i_den   = $item['description']['en'] ?? '';
-    $i_map   = $item['map_url'] ?? '';
-    $i_img   = $item['image']   ?? '';
+    $i_map   = $item['map_url']     ?? '';
+    $i_book  = $item['booking_url'] ?? '';
+    $i_img   = $item['image']       ?? '';
+    $i_cat   = $item['category'] ?? 'attraction';
     $i_act   = $item['active']  ?? true;
     // images: prefer new 'images' array, fall back to legacy 'image'
     $i_imgs  = !empty($item['images']) ? $item['images'] : (!empty($item['image']) ? [$item['image']] : []);
@@ -188,7 +202,7 @@ foreach ($routes as $r) {
     foreach ($item['nearby'] ?? [] as $nb) $nb_map[$nb['route_id']] = $nb['stop_id'];
   ?>
 
-  <h2><?= $is_new ? 'Add Attraction' : 'Edit Attraction' ?></h2>
+  <h2><?= $is_new ? 'Add Place' : 'Edit Place' ?></h2>
   <?php if ($error): ?><div class="alert-error"><?= esc($error) ?></div><?php endif; ?>
 
   <form method="post" enctype="multipart/form-data">
@@ -223,8 +237,24 @@ foreach ($routes as $r) {
     </div>
 
     <div class="form-group">
+      <label>Category</label>
+      <select name="category" style="font-size:.95rem;padding:8px 12px;border-radius:8px;border:1.5px solid #ddd;width:100%">
+        <?php
+        $cats = ['attraction'=>'🏖️ Attraction','hotel'=>'🏨 Hotel','restaurant'=>'🍽️ Restaurant / Café','travel'=>'✈️ Travel Plan'];
+        foreach ($cats as $cv => $cl): ?>
+        <option value="<?= $cv ?>" <?= $i_cat===$cv?'selected':'' ?>><?= $cl ?></option>
+        <?php endforeach; ?>
+      </select>
+    </div>
+
+    <div class="form-group">
       <label>Google Maps URL</label>
       <input type="url" name="map_url" value="<?= esc($i_map) ?>" placeholder="https://maps.google.com/?q=...">
+    </div>
+
+    <div class="form-group">
+      <label>🏨 Booking URL <small style="color:#aaa">— Booking.com / Agoda / hotel website (hotels only)</small></label>
+      <input type="url" name="booking_url" value="<?= esc($i_book) ?>" placeholder="https://www.booking.com/hotel/th/...">
     </div>
 
     <div class="form-group">
@@ -279,7 +309,7 @@ foreach ($routes as $r) {
     </div>
 
     <div class="form-actions">
-      <button type="submit" class="btn btn-primary">Save Attraction</button>
+      <button type="submit" class="btn btn-primary">Save Place</button>
       <a href="attractions.php" class="btn">Cancel</a>
     </div>
   </form>

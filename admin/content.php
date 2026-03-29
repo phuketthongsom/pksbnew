@@ -22,6 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         'active' => !empty($_POST['ann_active']),
         'text'   => ['th' => trim($_POST['ann_th']), 'en' => trim($_POST['ann_en'])],
     ];
+    $cfg['facebook_page_id'] = trim($_POST['facebook_page_id'] ?? '');
     save_json('config.json', $cfg);
     $msg = 'Content saved.';
 }
@@ -80,6 +81,18 @@ require_once __DIR__ . '/inc/admin_header.php';
     <div class="form-row">
       <div class="form-group"><label>Announcement (Thai)</label><input type="text" name="ann_th" value="<?= esc($cfg['announcement']['text']['th'] ?? '') ?>"></div>
       <div class="form-group"><label>Announcement (English)</label><input type="text" name="ann_en" value="<?= esc($cfg['announcement']['text']['en'] ?? '') ?>"></div>
+    </div>
+  </div>
+
+  <div class="admin-card">
+    <h2>💬 Facebook Messenger Chat Plugin</h2>
+    <p style="font-size:.85rem;color:#666;margin-bottom:14px">
+      Enter your Facebook <strong>Page ID</strong> (numeric, e.g. <code>123456789012345</code>) to show the Messenger chat bubble on all pages.
+      Leave blank to disable. Find your Page ID in Facebook → Page Settings → About.
+    </p>
+    <div class="form-group">
+      <label>Facebook Page ID</label>
+      <input type="text" name="facebook_page_id" value="<?= esc($cfg['facebook_page_id'] ?? '') ?>" placeholder="e.g. 123456789012345" style="font-family:monospace">
     </div>
   </div>
 

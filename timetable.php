@@ -1,7 +1,7 @@
 <?php
 $page_title       = 'เวลาเดินรถ / Timetable';
 $active_nav       = 'timetable';
-$page_description = 'Phuket Smart Bus timetable – full schedules for route 8357 Airport to Rawai and route 8537 Terminal to Patong. Daily service 06:00–20:00. | ตารางเดินรถ ภูเก็ต สมาร์ท บัส สาย 8357 และ 8537 ทุกวัน 06:00-20:00';
+$page_description = 'Phuket Smart Bus timetable – full schedules for route 8357 Airport to Rawai and route 8537 Terminal to Patong. Daily service 06:00–20:00.';
 $page_keywords    = 'Phuket bus timetable,Phuket bus schedule,route 8357 timetable,route 8537 timetable,airport bus Phuket schedule,ตารางรถโดยสารภูเก็ต';
 require_once __DIR__ . '/inc/header.php';
 
@@ -27,7 +27,7 @@ $stops_vis   = ($active_dir === 'ret' && $n > 0) ? array_reverse($stops) : $stop
 
 <!-- ── Page Hero -->
 <div class="page-hero">
-  <h1>🕐 <?= $l==='th'?'ตารางเดินรถ':'Bus Timetable' ?></h1>
+  <h1><span aria-hidden="true">🕐 </span><?= $l==='th'?'ตารางเดินรถ':'Bus Timetable' ?></h1>
   <p><?= $l==='th'?'ตรวจสอบเวลาออกรถก่อนเดินทาง':'Check departure times before you travel' ?></p>
 </div>
 

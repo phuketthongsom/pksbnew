@@ -7,4 +7,4 @@ Disallow: /inc/
 Disallow: /api/
 Disallow: /*.json$
 
-Sitemap: https://phuketsmartbus.com/sitemap.xml
+Sitemap: https://phuketsmartbus.com/sitemap.php

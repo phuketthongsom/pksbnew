@@ -50,7 +50,7 @@ $_jsonld = json_encode([
   'geo'         => ['@type'=>'GeoCoordinates','latitude'=>7.869,'longitude'=>98.394],
   'image'       => $_og_image,
   'sameAs'      => [$cfg['facebook'] ?? ''],
-  'openingHours'=> 'Mo-Su 06:00-20:00',
+  'openingHours'=> 'Mo-Su 05:00-00:00',
   'priceRange'  => '฿299-฿1,990',
   'currenciesAccepted' => 'THB',
   'paymentAccepted'    => 'Cash, Credit Card, QR Code',
@@ -60,7 +60,7 @@ $nav = [
   'home'        => ['url'=>base_url(),                    'th'=>'หน้าแรก',          'en'=>'Home'],
   'tracking'    => ['url'=>base_url('tracking.php'),      'th'=>'ตำแหน่งรถ',       'en'=>'Tracking'],
   'timetable'   => ['url'=>base_url('timetable.php'),     'th'=>'เวลาเดินรถ',       'en'=>'Timetable'],
-  'attractions' => ['url'=>base_url('attractions.php'),   'th'=>'สถานที่ท่องเที่ยว','en'=>'Attractions'],
+  'attractions' => ['url'=>base_url('attractions.php'),   'th'=>'สถานที่ใกล้เคียง','en'=>'Nearby Places'],
   'payment'     => ['url'=>base_url('payment.php'),       'th'=>'บัตรโดยสาร',      'en'=>'Passes'],
   'about'       => ['url'=>base_url('about.php'),         'th'=>'เกี่ยวกับ',        'en'=>'About'],
   'contact'     => ['url'=>base_url('contact.php'),       'th'=>'ติดต่อ',           'en'=>'Contact'],
@@ -112,7 +112,8 @@ $cur = $active_nav ?? '';
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;600;700;800;900&display=swap"></noscript>
   <link rel="stylesheet" href="<?= asset('css/style.css') ?>">
 </head>
-<body class="<?= ($active_nav??'')==='home' ? 'page-home' : '' ?>">
+<body class="page-<?= esc($active_nav ?? 'home') ?>">
+<a href="#main-content" class="skip-link"><?= $l==='th'?'ข้ามไปเนื้อหาหลัก':'Skip to main content' ?></a>
 
 <?php if (!empty($cfg['announcement']['active']) && !empty($cfg['announcement']['text'][$l])): ?>
 <div class="ann-bar"><?= esc(t($cfg['announcement']['text'])) ?></div>
@@ -181,3 +182,4 @@ $cur = $active_nav ?? '';
   </div>
 </div>
 <div class="bn-more-overlay" onclick="document.getElementById('bn-more').classList.remove('open')"></div>
+<main id="main-content">

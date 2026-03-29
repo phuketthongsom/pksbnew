@@ -1,7 +1,7 @@
 <?php
 $page_title       = 'เกี่ยวกับเรา / About Us';
 $active_nav       = 'about';
-$page_description = 'About Phuket Smart Bus Co., Ltd. – modern air-conditioned bus service in Phuket, Thailand. Connecting airport, beaches and the city since day one. | เกี่ยวกับบริษัท ภูเก็ต สมาร์ท บัส จำกัด บริการรถโดยสารสาธารณะคุณภาพสูงในภูเก็ต';
+$page_description = 'About Phuket Smart Bus Co., Ltd. – modern air-conditioned bus service in Phuket, Thailand. Connecting airport, beaches and the city since 2023.';
 $page_keywords    = 'Phuket Smart Bus company,about Phuket Smart Bus,public bus Phuket Thailand,บริษัท ภูเก็ต สมาร์ท บัส,รถโดยสารสาธารณะภูเก็ต';
 require_once __DIR__ . '/inc/header.php';
 ?>
@@ -16,7 +16,7 @@ require_once __DIR__ . '/inc/header.php';
   <div class="about-grid">
     <div>
       <h2 class="sec-title"><?= $l==='th'?'บริษัทของ<span>เรา</span>':'Our <span>Company</span>' ?></h2>
-      <p style="line-height:1.85;color:#555;margin-bottom:20px"><?= esc(t($cfg['about_text'])) ?></p>
+      <p style="line-height:1.85;color:var(--mid);margin-bottom:20px"><?= esc(t($cfg['about_text'])) ?></p>
       <div class="contact-items">
         <div class="c-item"><span class="ico">📞</span><span><?= esc($cfg['phone']) ?></span></div>
         <div class="c-item"><span class="ico">📠</span><span><?= esc($cfg['fax']) ?></span></div>

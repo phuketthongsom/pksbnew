@@ -69,7 +69,7 @@ require_once __DIR__ . '/inc/header.php';
 <section class="page-hero" style="padding-bottom:28px;<?= $thumb ? 'background-image:linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.6)),url('.esc($thumb).');background-size:cover;background-position:center' : '' ?>">
   <div style="font-size:.8rem;opacity:.75;margin-bottom:10px;text-align:center">
     <a href="<?= base_url() ?>" style="color:inherit">🏠</a> /
-    <a href="<?= base_url('attractions.php') ?>" style="color:inherit"><?= $l==='th'?'สถานที่ท่องเที่ยว':'Attractions' ?></a> /
+    <a href="<?= base_url('attractions.php') ?>" style="color:inherit"><?= $l==='th'?'สถานที่ใกล้เคียง':'Nearby Places' ?></a> /
     <?= esc($att_name) ?>
   </div>
   <h1 style="text-align:center;font-size:clamp(1.8rem,5vw,2.8rem);margin-bottom:14px"><?= esc($att_name) ?></h1>
@@ -93,14 +93,14 @@ require_once __DIR__ . '/inc/header.php';
   <?php if ($images): ?>
   <section class="sec" style="padding-top:32px;padding-bottom:0">
     <?php if (count($images) === 1): ?>
-    <div style="border-radius:14px;overflow:hidden;max-height:380px">
-      <img src="<?= esc($images[0]) ?>" alt="<?= esc($att_name) ?>" style="width:100%;height:380px;object-fit:cover">
+    <div style="border-radius:14px;overflow:hidden;aspect-ratio:1/1">
+      <img src="<?= esc($images[0]) ?>" alt="<?= esc($att_name) ?>" style="width:100%;height:100%;object-fit:cover">
     </div>
     <?php else: ?>
     <!-- Multi-image gallery -->
-    <div style="display:grid;grid-template-columns:2fr 1fr;gap:8px;border-radius:14px;overflow:hidden;max-height:380px">
+    <div style="display:grid;grid-template-columns:2fr 1fr;gap:8px;border-radius:14px;overflow:hidden;aspect-ratio:1/1">
       <div style="overflow:hidden">
-        <img src="<?= esc($images[0]) ?>" alt="<?= esc($att_name) ?>" style="width:100%;height:380px;object-fit:cover;cursor:pointer" onclick="openGallery(0)">
+        <img src="<?= esc($images[0]) ?>" alt="<?= esc($att_name) ?>" style="width:100%;height:100%;object-fit:cover;cursor:pointer" onclick="openGallery(0)">
       </div>
       <div style="display:flex;flex-direction:column;gap:8px;overflow:hidden">
         <?php foreach (array_slice($images, 1, 2) as $gi => $img): ?>
@@ -142,12 +142,20 @@ require_once __DIR__ . '/inc/header.php';
   <!-- ── Description ───────────────────────────────────────── -->
   <section class="sec" style="padding-top:28px;padding-bottom:0">
     <p style="color:var(--mid);line-height:1.8;font-size:1rem"><?= nl2br(esc(t($att['description']))) ?></p>
-    <?php if (!empty($att['map_url'])): ?>
-    <a href="<?= esc($att['map_url']) ?>" target="_blank" rel="noopener"
-       style="display:inline-flex;align-items:center;gap:8px;margin-top:18px;background:var(--teal-bg);border:1px solid rgba(1,170,168,.25);color:var(--teal);border-radius:10px;padding:11px 18px;font-weight:600;font-size:.9rem;text-decoration:none">
-      📍 <?= $l==='th'?'ดูแผนที่':'View on Map' ?>
-    </a>
-    <?php endif; ?>
+    <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:18px">
+      <?php if (!empty($att['booking_url'])): ?>
+      <a href="<?= esc($att['booking_url']) ?>" target="_blank" rel="noopener"
+         class="att-book-btn att-book-btn--lg">
+        🏨 <?= $l==='th'?'จองโรงแรมเลย':'Book This Hotel' ?>
+      </a>
+      <?php endif; ?>
+      <?php if (!empty($att['map_url'])): ?>
+      <a href="<?= esc($att['map_url']) ?>" target="_blank" rel="noopener"
+         style="display:inline-flex;align-items:center;gap:8px;background:var(--teal-bg);border:1px solid rgba(1,170,168,.25);color:var(--teal);border-radius:10px;padding:11px 18px;font-weight:600;font-size:.9rem;text-decoration:none">
+        📍 <?= $l==='th'?'ดูแผนที่':'View on Map' ?>
+      </a>
+      <?php endif; ?>
+    </div>
   </section>
 
   <!-- ── How to get here ───────────────────────────────────── -->
@@ -188,17 +196,18 @@ require_once __DIR__ . '/inc/header.php';
   <!-- ── Related attractions ───────────────────────────────── -->
   <?php if ($related): ?>
   <section class="sec" style="padding-top:32px;padding-bottom:48px">
-    <h2 class="sec-title"><?= $l==='th'?'สถานที่<span>ใกล้เคียง</span>':'<span>Nearby</span> Attractions' ?></h2>
+    <h2 class="sec-title"><?= $l==='th'?'สถานที่<span>ใกล้เคียง</span>':'<span>Nearby</span> Places' ?></h2>
     <div class="att-grid" style="margin-top:16px">
       <?php foreach ($related as $ra):
         $ra_imgs = !empty($ra['images']) ? $ra['images'] : (!empty($ra['image']) ? [$ra['image']] : []);
         $ra_thumb = $ra_imgs[0] ?? '';
       ?>
+      <?php $ra_cat_ico = ['attraction'=>'🏖️','hotel'=>'🏨','restaurant'=>'🍽️','travel'=>'✈️'][$ra['category'] ?? 'attraction'] ?? '📍'; ?>
       <a href="<?= base_url('attraction.php?id='.$ra['id']) ?>" class="att-card" style="text-decoration:none;color:inherit">
         <?php if ($ra_thumb): ?>
         <div class="att-img"><img src="<?= esc($ra_thumb) ?>" alt="<?= esc(t($ra['name'])) ?>" loading="lazy"></div>
         <?php else: ?>
-        <div class="att-img att-img-ph">🏖️</div>
+        <div class="att-img att-img-ph"><?= $ra_cat_ico ?></div>
         <?php endif; ?>
         <div class="att-body">
           <div class="att-title"><?= esc(t($ra['name'])) ?></div>

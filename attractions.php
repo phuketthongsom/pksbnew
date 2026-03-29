@@ -1,8 +1,8 @@
 <?php
-$page_title       = 'สถานที่ท่องเที่ยว / Attractions';
+$page_title       = 'สถานที่ใกล้เคียง / Nearby Places';
 $active_nav       = 'attractions';
-$page_description = 'Discover top Phuket attractions accessible by Phuket Smart Bus – beaches, landmarks and entertainment spots near every bus stop. | สถานที่ท่องเที่ยวภูเก็ตเดินทางง่ายด้วยสมาร์ทบัส';
-$page_keywords    = 'Phuket attractions,Phuket beaches,things to do Phuket,Patong Karon Kata Surin Rawai,สถานที่ท่องเที่ยวภูเก็ต,หาดภูเก็ต';
+$page_description = 'Discover top Phuket nearby places accessible by Phuket Smart Bus – beaches, hotels, restaurants and landmarks near every bus stop.';
+$page_keywords    = 'Phuket nearby places,Phuket beaches,Phuket hotels,Phuket restaurants,things to do Phuket,สถานที่ใกล้เคียงภูเก็ต';
 require_once __DIR__ . '/inc/header.php';
 
 $routes      = array_values(array_filter(load_json('routes.json'), fn($r) => !empty($r['active'])));
@@ -19,33 +19,69 @@ foreach ($routes as $r) {
     }
 }
 
-// Active route filter
-$filter = $_GET['route'] ?? 'all';
-$filtered = array_values(array_filter($attractions, function($a) use ($filter) {
-    if ($filter === 'all') return true;
-    foreach ($a['nearby'] ?? [] as $nb) {
-        if ($nb['route_id'] === $filter) return true;
+// Category definitions
+$categories = [
+    'all'        => ['th' => 'ทั้งหมด',           'en' => 'All',             'ico' => '📍'],
+    'attraction' => ['th' => 'สถานที่ท่องเที่ยว', 'en' => 'Attraction',      'ico' => '🏖️'],
+    'hotel'      => ['th' => 'ที่พัก',             'en' => 'Hotel',           'ico' => '🏨'],
+    'restaurant' => ['th' => 'ร้านอาหาร / คาเฟ่',  'en' => 'Restaurant / Café','ico' => '🍽️'],
+    'travel'     => ['th' => 'แผนการเดินทาง',      'en' => 'Travel Plan',     'ico' => '✈️'],
+];
+
+// Active filters
+$cat_filter   = $_GET['cat']   ?? 'all';
+$route_filter = $_GET['route'] ?? 'all';
+if (!array_key_exists($cat_filter, $categories)) $cat_filter = 'all';
+
+// Build query string helper
+function filter_url($cat, $route) {
+    $p = [];
+    if ($cat   !== 'all') $p['cat']   = $cat;
+    if ($route !== 'all') $p['route'] = $route;
+    return '?' . ($p ? http_build_query($p) : 'cat=all');
+}
+
+// Apply filters
+$filtered = array_values(array_filter($attractions, function($a) use ($cat_filter, $route_filter) {
+    if ($cat_filter !== 'all' && ($a['category'] ?? 'attraction') !== $cat_filter) return false;
+    if ($route_filter !== 'all') {
+        $found = false;
+        foreach ($a['nearby'] ?? [] as $nb) {
+            if ($nb['route_id'] === $route_filter) { $found = true; break; }
+        }
+        if (!$found) return false;
     }
-    return false;
+    return true;
 }));
 ?>
 
 <!-- ── Page Hero -->
 <div class="page-hero">
-  <h1>🗺️ <?= $l==='th'?'สถานที่ท่องเที่ยว':'Attractions' ?></h1>
-  <p><?= $l==='th'?'สถานที่น่าเที่ยวที่เดินทางด้วยภูเก็ต สมาร์ท บัสได้':'Top spots accessible by Phuket Smart Bus' ?></p>
+  <h1><span aria-hidden="true">📍 </span><?= $l==='th'?'สถานที่ใกล้เคียง':'Nearby Places' ?></h1>
+  <p><?= $l==='th'?'สถานที่ใกล้เคียงที่เดินทางด้วยภูเก็ต สมาร์ท บัสได้':'Places accessible by Phuket Smart Bus' ?></p>
 </div>
 
 <div class="wrap sec">
 
-  <!-- ── Route filter ── -->
-  <div class="att-filter-bar">
-    <a href="?route=all" class="att-filter-btn <?= $filter==='all'?'active':'' ?>">
-      <?= $l==='th'?'ทั้งหมด':'All' ?>
+  <!-- ── Category filter (primary) ── -->
+  <div class="att-cat-bar">
+    <?php foreach ($categories as $cv => $cd): ?>
+    <a href="<?= filter_url($cv, $route_filter) ?>"
+       class="att-cat-btn <?= $cat_filter===$cv?'active':'' ?>">
+      <span class="att-cat-ico"><?= $cd['ico'] ?></span>
+      <?= $l==='th'?esc($cd['th']):esc($cd['en']) ?>
+    </a>
+    <?php endforeach; ?>
+  </div>
+
+  <!-- ── Route filter (secondary) ── -->
+  <div class="att-filter-bar" style="margin-top:12px">
+    <a href="<?= filter_url($cat_filter, 'all') ?>" class="att-filter-btn <?= $route_filter==='all'?'active':'' ?>">
+      <?= $l==='th'?'ทุกสาย':'All Routes' ?>
     </a>
     <?php foreach ($routes as $r): ?>
-    <a href="?route=<?= esc($r['id']) ?>"
-       class="att-filter-btn <?= $filter===$r['id']?'active':'' ?>"
+    <a href="<?= filter_url($cat_filter, $r['id']) ?>"
+       class="att-filter-btn <?= $route_filter===$r['id']?'active':'' ?>"
        style="--rc:<?= esc($r['color']) ?>">
       <span class="att-fb-num" style="background:<?= esc($r['color']) ?>"><?= esc($r['number']) ?></span>
       <?= esc(t($r['name'])) ?>
@@ -55,7 +91,7 @@ $filtered = array_values(array_filter($attractions, function($a) use ($filter) {
 
   <!-- ── Cards grid ── -->
   <?php if ($filtered): ?>
-  <div class="att-grid">
+  <div class="att-grid" style="margin-top:24px">
     <?php foreach ($filtered as $att):
       $labels = [];
       foreach ($att['nearby'] ?? [] as $nb) {
@@ -68,20 +104,22 @@ $filtered = array_values(array_filter($attractions, function($a) use ($filter) {
               'route_name' => t($r['name']),
           ];
       }
-    ?>
-    <?php
-      $att_imgs = !empty($att['images']) ? $att['images'] : (!empty($att['image']) ? [$att['image']] : []);
+      $att_imgs  = !empty($att['images']) ? $att['images'] : (!empty($att['image']) ? [$att['image']] : []);
       $att_thumb = $att_imgs[0] ?? '';
+      $att_cat   = $att['category'] ?? 'attraction';
+      $cat_ico   = $categories[$att_cat]['ico'] ?? '📍';
     ?>
-    <a href="<?= base_url('attraction.php?id='.esc($att['id'])) ?>" class="att-card" style="text-decoration:none;color:inherit">
+    <?php $card_href = base_url('attraction.php?id='.esc($att['id'])); ?>
+    <div class="att-card" onclick="location.href='<?= $card_href ?>'" style="cursor:pointer">
 
       <!-- Image -->
       <?php if ($att_thumb): ?>
       <div class="att-img">
         <img src="<?= esc($att_thumb) ?>" alt="<?= esc(t($att['name'])) ?>" loading="lazy">
+        <span class="att-cat-badge"><?= $cat_ico ?></span>
       </div>
       <?php else: ?>
-      <div class="att-img att-img-ph">🏖️</div>
+      <div class="att-img att-img-ph"><?= $cat_ico ?></div>
       <?php endif; ?>
 
       <div class="att-body">
@@ -104,17 +142,25 @@ $filtered = array_values(array_filter($attractions, function($a) use ($filter) {
         </div>
         <?php endif; ?>
 
-        <span class="att-map-btn" style="display:inline-block;margin-top:8px">
-          <?= $l==='th'?'ดูรายละเอียด →':'View Details →' ?>
-        </span>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:4px">
+          <a href="<?= $card_href ?>" class="att-map-btn" onclick="event.stopPropagation()">
+            <?= $l==='th'?'ดูรายละเอียด →':'View Details →' ?>
+          </a>
+          <?php if (!empty($att['booking_url'])): ?>
+          <a href="<?= esc($att['booking_url']) ?>" target="_blank" rel="noopener"
+             class="att-book-btn" onclick="event.stopPropagation()">
+            🏨 <?= $l==='th'?'จองเลย':'Book Now' ?>
+          </a>
+          <?php endif; ?>
+        </div>
       </div>
 
-    </a>
+    </div>
     <?php endforeach; ?>
   </div>
   <?php else: ?>
   <p style="color:#888;padding:40px 0;text-align:center">
-    <?= $l==='th'?'ไม่พบสถานที่ท่องเที่ยวในเส้นทางนี้':'No attractions found for this route.' ?>
+    <?= $l==='th'?'ไม่พบสถานที่ในหมวดนี้':'No places found for this filter.' ?>
   </p>
   <?php endif; ?>
 

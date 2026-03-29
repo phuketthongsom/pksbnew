@@ -60,9 +60,9 @@ foreach ($timetable as $dir_key => $dir) {
 $serving_route_ids = array_column(array_column($serving_routes, 'route'), 'id');
 $att_route_map  = [];
 $att_stop_names = [];
-foreach ($all_routes['routes'] ?? [] as $r) {
+foreach ($all_routes as $r) {
     $att_route_map[$r['id']] = $r;
-    foreach ($r['stops'] as $s) {
+    foreach ($r['stops'] ?? [] as $s) {
         $att_stop_names[$r['id']][$s['id']] = t($s['name']);
     }
 }
@@ -199,12 +199,12 @@ function closeTrackFrame() {
   <?php if (!empty($stop_extra['description'][$l]) || !empty($stop_extra['image'])): ?>
   <section class="sec" style="padding-top:28px">
     <?php if (!empty($stop_extra['image'])): ?>
-    <div style="border-radius:14px;overflow:hidden;margin-bottom:20px;max-height:280px">
-      <img src="<?= esc($stop_extra['image']) ?>" alt="<?= esc($stop_name) ?>" style="width:100%;height:280px;object-fit:cover">
+    <div style="border-radius:14px;overflow:hidden;margin-bottom:20px;aspect-ratio:16/9">
+      <img src="<?= esc($stop_extra['image']) ?>" alt="<?= esc($stop_name) ?>" style="width:100%;height:100%;object-fit:cover">
     </div>
     <?php endif; ?>
     <?php if (!empty($stop_extra['description'][$l])): ?>
-    <p style="color:var(--muted);line-height:1.7;font-size:.95rem"><?= nl2br(esc($stop_extra['description'][$l])) ?></p>
+    <p style="color:var(--mid);line-height:1.7;font-size:.95rem"><?= nl2br(esc($stop_extra['description'][$l])) ?></p>
     <?php endif; ?>
   </section>
   <?php endif; ?>
@@ -250,17 +250,18 @@ function closeTrackFrame() {
   <!-- ── Nearby Attractions ────────────────────────────────── -->
   <?php if ($nearby_att): ?>
   <section class="sec" style="padding-top:32px">
-    <h2 class="sec-title"><?= $l==='th'?'<span>สถานที่</span>ใกล้เคียง':'<span>Nearby</span> Attractions' ?></h2>
-    <p class="sec-sub" style="margin-bottom:20px"><?= $l==='th'?'สถานที่ท่องเที่ยวที่เดินทางมาได้จากป้ายนี้':'Attractions reachable from this stop' ?></p>
+    <h2 class="sec-title"><?= $l==='th'?'<span>สถานที่</span>ใกล้เคียง':'<span>Nearby</span> Places' ?></h2>
+    <p class="sec-sub" style="margin-bottom:20px"><?= $l==='th'?'สถานที่ใกล้เคียงที่เดินทางมาได้จากป้ายนี้':'Places reachable from this stop' ?></p>
     <div class="att-grid">
       <?php foreach ($nearby_att as $a):
         $a_thumb = !empty($a['images']) ? $a['images'][0] : ($a['image'] ?? '');
       ?>
+      <?php $a_cat_ico = ['attraction'=>'🏖️','hotel'=>'🏨','restaurant'=>'🍽️','travel'=>'✈️'][$a['category'] ?? 'attraction'] ?? '📍'; ?>
       <a href="<?= base_url('attraction.php?id='.esc($a['id'])) ?>" class="att-card" style="text-decoration:none;color:inherit">
         <?php if ($a_thumb): ?>
         <div class="att-img"><img src="<?= esc($a_thumb) ?>" alt="<?= esc(t($a['name'])) ?>" loading="lazy"></div>
         <?php else: ?>
-        <div class="att-img att-img-ph">🏖️</div>
+        <div class="att-img att-img-ph"><?= $a_cat_ico ?></div>
         <?php endif; ?>
         <div class="att-body">
           <div class="att-title"><?= esc(t($a['name'])) ?></div>

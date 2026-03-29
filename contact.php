@@ -1,7 +1,7 @@
 <?php
 $page_title       = 'ติดต่อเรา / Contact';
 $active_nav       = 'contact';
-$page_description = 'Contact Phuket Smart Bus – Phone: 086-306-1257, Email: info@phuketsmartbus.com. Office in Wichit, Phuket 83000. Open daily 06:00–20:00. | ติดต่อ ภูเก็ต สมาร์ท บัส โทร 086-306-1257';
+$page_description = 'Contact Phuket Smart Bus – Phone: 086-306-1257, Email: info@phuketsmartbus.com. Office in Wichit, Phuket 83000. Open daily 06:00–20:00.';
 $page_keywords    = 'Phuket Smart Bus contact,Phuket bus phone number,ติดต่อภูเก็ต สมาร์ท บัส,เบอร์โทรรถโดยสารภูเก็ต';
 require_once __DIR__ . '/inc/header.php';
 

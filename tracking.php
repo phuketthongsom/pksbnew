@@ -1,7 +1,7 @@
 <?php
 $page_title       = 'ตำแหน่งรถ / Live Tracking';
 $active_nav       = 'tracking';
-$page_description = 'Track Phuket Smart Bus in real-time. Live GPS map showing bus locations on route 8357 Airport–Rawai and route 8537 Terminal–Patong. | ติดตามตำแหน่งรถภูเก็ต สมาร์ท บัส แบบ Real-time สาย 8357 และ 8537';
+$page_description = 'Track Phuket Smart Bus in real-time. Live GPS map showing bus locations on route 8357 Airport–Rawai and route 8537 Terminal–Patong.';
 $page_keywords    = 'Phuket bus tracker,live bus tracking Phuket,Phuket Smart Bus location,GPS bus Phuket,ติดตามรถ ภูเก็ต,แผนที่รถโดยสารภูเก็ต';
 require_once __DIR__ . '/inc/header.php';
 
@@ -10,7 +10,7 @@ $routes = array_filter(load_json('routes.json'), fn($r) => !empty($r['active']))
 
 <!-- ── Page Hero -->
 <div class="page-hero">
-  <h1>📍 <?= $l==='th'?'ตำแหน่งรถสด':'Live Bus Tracking' ?></h1>
+  <h1><span aria-hidden="true">📍 </span><?= $l==='th'?'ตำแหน่งรถสด':'Live Bus Tracking' ?></h1>
   <p><?= $l==='th'?'ติดตามตำแหน่งรถแบบ Real-time อัปเดตอัตโนมัติ':'Real-time bus locations updated automatically' ?></p>
 </div>
 

@@ -1,7 +1,7 @@
 <?php
-$page_title       = '';
+$page_title       = 'Airport Bus Phuket to Rawai & Patong';
 $active_nav       = 'home';
-$page_description = 'Phuket Smart Bus – premium public bus connecting Phuket Airport to Rawai Beach & Patong. Live GPS tracking, timetable & Smart Day Pass from ฿299. | ภูเก็ต สมาร์ท บัส บริการรถโดยสารสนามบินภูเก็ต–ราไวย์–ป่าตอง ดูแผนที่สด ตาราง บัตรโดยสาร';
+$page_description = 'Phuket Smart Bus – premium airport bus connecting Phuket Airport to Rawai Beach & Patong. Live GPS tracking, timetable and Smart Day Pass from ฿299.';
 $page_keywords    = 'Phuket Smart Bus,Phuket airport bus,bus Phuket to Rawai,bus Phuket to Patong,Smart Day Pass Phuket,ภูเก็ต สมาร์ท บัส,รถโดยสารสนามบินภูเก็ต,สาย 8357,สาย 8537';
 require_once __DIR__ . '/inc/header.php';
 
@@ -115,8 +115,8 @@ $featured_att = array_slice($all_att, 0, 4);
 </div>
 
 <!-- ── Pass Prices Strip ──────────────────────────────────── -->
-<div class="light-bg">
-  <div class="wrap sec" style="padding-top:32px;padding-bottom:32px">
+<div class="light-bg" style="background:linear-gradient(180deg,#0f172a 0%,#1e293b 100%)">
+  <div class="wrap sec" style="padding-top:36px;padding-bottom:36px">
     <h2 class="sec-title" style="text-align:center"><?= $l==='th'?'<span>Smart Day Pass</span> ราคา':'<span>Smart Day Pass</span> Prices' ?></h2>
     <p class="sec-sub" style="text-align:center;margin-bottom:20px"><?= $l==='th'?'ไม่จำกัดเที่ยว เริ่มต้น ฿299':'Unlimited rides from ฿299' ?></p>
     <div class="pass-grid">
@@ -134,16 +134,19 @@ $routes_map = [];
 foreach (load_json('routes.json') as $r) $routes_map[$r['id']] = $r;
 ?>
 <div class="wrap sec">
-  <h2 class="sec-title" style="text-align:center"><?= $l==='th'?'<span>สถานที่ท่องเที่ยว</span>ใกล้เคียง':'<span>Nearby</span> Attractions' ?></h2>
+  <h2 class="sec-title" style="text-align:center"><?= $l==='th'?'<span>สถานที่</span>ใกล้เคียง':'<span>Nearby</span> Places' ?></h2>
   <p class="sec-sub" style="text-align:center;margin-bottom:24px"><?= $l==='th'?'จุดหมายยอดนิยมที่เดินทางด้วย Phuket Smart Bus':'Top spots accessible by Phuket Smart Bus' ?></p>
   <div class="att-grid">
     <?php foreach ($featured_att as $a): ?>
-    <?php $a_thumb = !empty($a['images']) ? $a['images'][0] : ($a['image'] ?? ''); ?>
+    <?php
+      $a_thumb = !empty($a['images']) ? $a['images'][0] : ($a['image'] ?? '');
+      $a_cat_ico = ['attraction'=>'🏖️','hotel'=>'🏨','restaurant'=>'🍽️','travel'=>'✈️'][$a['category'] ?? 'attraction'] ?? '📍';
+    ?>
     <a href="<?= base_url('attraction.php?id='.esc($a['id'])) ?>" class="att-card" style="text-decoration:none;color:inherit">
       <?php if ($a_thumb): ?>
       <div class="att-img"><img src="<?= esc($a_thumb) ?>" alt="<?= esc(t($a['name'])) ?>" loading="lazy"></div>
       <?php else: ?>
-      <div class="att-img att-img-ph">🏖️</div>
+      <div class="att-img att-img-ph"><?= $a_cat_ico ?></div>
       <?php endif; ?>
       <div class="att-body">
         <div class="att-title"><?= esc(t($a['name'])) ?></div>
@@ -166,7 +169,7 @@ foreach (load_json('routes.json') as $r) $routes_map[$r['id']] = $r;
     <?php endforeach; ?>
   </div>
   <div style="text-align:center;margin-top:4px">
-    <a href="attractions.php" class="btn btn-teal"><?= $l==='th'?'ดูสถานที่ทั้งหมด':'See All Attractions' ?></a>
+    <a href="attractions.php" class="btn btn-teal"><?= $l==='th'?'ดูสถานที่ทั้งหมด':'See All Nearby Places' ?></a>
   </div>
 </div>
 
