@@ -327,6 +327,1163 @@
       ],
       "active": true,
       "category": "hotel"
+    },
+    {
+      "id": "anantara_layan",
+      "name": {
+        "th": "อนันตรา ลายัน ภูเก็ต รีสอร์ท",
+        "en": "Anantara Layan Phuket Resort"
+      },
+      "description": {
+        "th": "รีสอร์ทหรู 5 ดาวริมอ่าวลายัน วิลล่าส่วนตัวพร้อมสระว่ายน้ำ อาหารไทยร่วมสมัย สปา Anantara ระดับโลก",
+        "en": "5-star luxury resort on Layan Bay with private pool villas, contemporary Thai cuisine and award-winning Anantara Spa."
+      },
+      "images": [
+        "assets/uploads/attractions/hotel_villa.jpg"
+      ],
+      "image": "assets/uploads/attractions/hotel_villa.jpg",
+      "map_url": "https://maps.google.com/?q=Anantara+Layan+Phuket+Resort",
+      "booking_url": "https://www.booking.com/hotel/th/anantara-layan-phuket-resort.html",
+      "nearby": [
+        {
+          "route_id": "route1",
+          "stop_id": "cherngtalay"
+        }
+      ],
+      "active": true,
+      "category": "hotel"
+    },
+    {
+      "id": "banyan_tree_phuket",
+      "name": {
+        "th": "บันยันทรี ภูเก็ต",
+        "en": "Banyan Tree Phuket"
+      },
+      "description": {
+        "th": "วิลล่า 5 ดาวพร้อมสระว่ายน้ำส่วนตัว ใจกลางลากูนาภูเก็ต สปา Banyan Tree ที่ได้รับรางวัลดีเด่น ร้านอาหาร Saffron ลือชื่อ",
+        "en": "5-star all-pool villas at Laguna Phuket. Award-winning Banyan Tree Spa and the celebrated Saffron restaurant."
+      },
+      "images": [
+        "assets/uploads/attractions/hotel_infinity.jpg"
+      ],
+      "image": "assets/uploads/attractions/hotel_infinity.jpg",
+      "map_url": "https://maps.google.com/?q=Banyan+Tree+Phuket+Laguna",
+      "booking_url": "https://www.booking.com/hotel/th/banyan-tree-phuket.html",
+      "nearby": [
+        {
+          "route_id": "route1",
+          "stop_id": "cherngtalay"
+        }
+      ],
+      "active": true,
+      "category": "hotel"
+    },
+    {
+      "id": "dusit_thani_laguna",
+      "name": {
+        "th": "ดุสิตธานี ลากูนา ภูเก็ต",
+        "en": "Dusit Thani Laguna Phuket"
+      },
+      "description": {
+        "th": "โรงแรม 5 ดาวสไตล์ไทยคลาสสิก ริมทะเลสาบลากูนา ห้องพักวิวสระน้ำและทะเลสาบ สนามกอล์ฟ 18 หลุมระดับโลก",
+        "en": "5-star classic Thai resort on Laguna lake with pool and lake view rooms, 18-hole championship golf course."
+      },
+      "images": [
+        "assets/uploads/attractions/hotel_laguna.jpg"
+      ],
+      "image": "assets/uploads/attractions/hotel_laguna.jpg",
+      "map_url": "https://maps.google.com/?q=Dusit+Thani+Laguna+Phuket",
+      "booking_url": "https://www.booking.com/hotel/th/dusit-thani-laguna-phuket.html",
+      "nearby": [
+        {
+          "route_id": "route1",
+          "stop_id": "cherngtalay"
+        }
+      ],
+      "active": true,
+      "category": "hotel"
+    },
+    {
+      "id": "outrigger_laguna",
+      "name": {
+        "th": "เอาท์ริกเกอร์ ลากูนา ภูเก็ต บีช รีสอร์ท",
+        "en": "Outrigger Laguna Phuket Beach Resort"
+      },
+      "description": {
+        "th": "รีสอร์ทชายหาดระดับ 5 ดาว ริมหาดบางเทา ห้องพักกว้างขวางพร้อมระเบียงส่วนตัว สระว่ายน้ำขนาดใหญ่ บริการเอาใจใส่แบบเอาท์ริกเกอร์",
+        "en": "5-star beachfront resort on Bang Tao Beach with spacious rooms, private balconies, large pools and signature Outrigger hospitality."
+      },
+      "images": [
+        "assets/uploads/attractions/hotel_beachfront.jpg"
+      ],
+      "image": "assets/uploads/attractions/hotel_beachfront.jpg",
+      "map_url": "https://maps.google.com/?q=Outrigger+Laguna+Phuket+Beach+Resort",
+      "booking_url": "https://www.booking.com/hotel/th/outrigger-laguna-phuket-beach-resort.html",
+      "nearby": [
+        {
+          "route_id": "route1",
+          "stop_id": "lotus"
+        }
+      ],
+      "active": true,
+      "category": "hotel"
+    },
+    {
+      "id": "cassia_phuket",
+      "name": {
+        "th": "แคสเซีย ภูเก็ต",
+        "en": "Cassia Phuket"
+      },
+      "description": {
+        "th": "อพาร์ทเมนท์โรงแรมสไตล์โมเดิร์น ริมทะเลสาบลากูนา เหมาะสำหรับครอบครัวและพักระยะยาว ห้องครัวครบชุด",
+        "en": "Modern apartment-style hotel on Laguna lake, perfect for families and longer stays with fully equipped kitchens."
+      },
+      "images": [
+        "assets/uploads/attractions/hotel_modern.jpg"
+      ],
+      "image": "assets/uploads/attractions/hotel_modern.jpg",
+      "map_url": "https://maps.google.com/?q=Cassia+Phuket+Laguna",
+      "booking_url": "https://www.booking.com/hotel/th/cassia-phuket.html",
+      "nearby": [
+        {
+          "route_id": "route1",
+          "stop_id": "lotus"
+        }
+      ],
+      "active": true,
+      "category": "hotel"
+    },
+    {
+      "id": "the_surin_phuket",
+      "name": {
+        "th": "เดอะ สุรินทร์ ภูเก็ต",
+        "en": "The Surin Phuket"
+      },
+      "description": {
+        "th": "รีสอร์ทบังกาโลสุดหรู ติดหาดสุรินทร์ คอทเทจและวิลล่ากลางป่าเขตร้อน สระว่ายน้ำสาธารณะและส่วนตัว บรรยากาศเงียบสงบ",
+        "en": "Luxury bungalow resort directly on Surin Beach. Private and communal pools, tropical forest setting, intimate and serene."
+      },
+      "images": [
+        "assets/uploads/attractions/hotel_garden.jpg"
+      ],
+      "image": "assets/uploads/attractions/hotel_garden.jpg",
+      "map_url": "https://maps.google.com/?q=The+Surin+Phuket",
+      "booking_url": "https://www.booking.com/hotel/th/the-surin-phuket.html",
+      "nearby": [
+        {
+          "route_id": "route1",
+          "stop_id": "surin"
+        }
+      ],
+      "active": true,
+      "category": "hotel"
+    },
+    {
+      "id": "andara_resort",
+      "name": {
+        "th": "อันดารา รีสอร์ท แอนด์ วิลล่าส์",
+        "en": "Andara Resort & Villas"
+      },
+      "description": {
+        "th": "วิลล่าหรูบนเนินเขาเหนือหาดกมลา วิวทะเลอันดามัน 180 องศา พูลวิลล่าส่วนตัว บริการคอนเซียร์จส่วนตัว",
+        "en": "Hilltop luxury villas above Kamala Beach with 180° Andaman Sea views, private pool villas and dedicated concierge."
+      },
+      "images": [
+        "assets/uploads/attractions/hotel_pool_night.jpg"
+      ],
+      "image": "assets/uploads/attractions/hotel_pool_night.jpg",
+      "map_url": "https://maps.google.com/?q=Andara+Resort+Villas+Phuket",
+      "booking_url": "https://www.booking.com/hotel/th/andara-resort-villas.html",
+      "nearby": [
+        {
+          "route_id": "route1",
+          "stop_id": "surin"
+        }
+      ],
+      "active": true,
+      "category": "hotel"
+    },
+    {
+      "id": "novotel_surin",
+      "name": {
+        "th": "โนโวเทล ภูเก็ต สุรินทร์ บีช รีสอร์ท",
+        "en": "Novotel Phuket Surin Beach Resort"
+      },
+      "description": {
+        "th": "โรงแรม 4 ดาวริมหาดสุรินทร์ สระว่ายน้ำขนาดใหญ่ 2 แห่ง ร้านอาหาร 3 แห่ง กิจกรรมนันทนาการครบครัน เดินเท้าถึงทะเล",
+        "en": "4-star resort on Surin Beach with 2 large pools, 3 restaurants and full recreation. Steps from the sea."
+      },
+      "images": [
+        "assets/uploads/attractions/hotel_holiday_inn.jpg"
+      ],
+      "image": "assets/uploads/attractions/hotel_holiday_inn.jpg",
+      "map_url": "https://maps.google.com/?q=Novotel+Phuket+Surin+Beach+Resort",
+      "booking_url": "https://www.booking.com/hotel/th/novotel-phuket-surin-beach.html",
+      "nearby": [
+        {
+          "route_id": "route1",
+          "stop_id": "surin"
+        }
+      ],
+      "active": true,
+      "category": "hotel"
+    },
+    {
+      "id": "rosewood_phuket",
+      "name": {
+        "th": "โรสวู้ด ภูเก็ต",
+        "en": "Rosewood Phuket"
+      },
+      "description": {
+        "th": "รีสอร์ทหรูอัลตร้าลักซ์ชัวรี่บนหน้าผา เหนือหาดกมลา วิลล่าส่วนตัวทุกหลัง สปา Asaya และประสบการณ์อาหารระดับโลก",
+        "en": "Ultra-luxury cliffside resort above Kamala Beach. All-private villa accommodations, Asaya spa and world-class dining."
+      },
+      "images": [
+        "assets/uploads/attractions/hotel_villa.jpg"
+      ],
+      "image": "assets/uploads/attractions/hotel_villa.jpg",
+      "map_url": "https://maps.google.com/?q=Rosewood+Phuket+Kamala",
+      "booking_url": "https://www.booking.com/hotel/th/rosewood-phuket.html",
+      "nearby": [
+        {
+          "route_id": "route1",
+          "stop_id": "kubur_kamala"
+        }
+      ],
+      "active": true,
+      "category": "hotel"
+    },
+    {
+      "id": "paresa_resort",
+      "name": {
+        "th": "ปาเรซ่า รีสอร์ท ภูเก็ต",
+        "en": "Paresa Resort Phuket"
+      },
+      "description": {
+        "th": "รีสอร์ทหินผาเหนือหาดกมลา วิลล่าพร้อมสระว่ายน้ำอินฟินิตี้ วิวทะเลเปิด บรรยากาศโรแมนติกสุดพิเศษ",
+        "en": "Clifftop resort above Kamala with infinity pool villas, open sea views and exceptionally romantic atmosphere."
+      },
+      "images": [
+        "assets/uploads/attractions/hotel_infinity.jpg"
+      ],
+      "image": "assets/uploads/attractions/hotel_infinity.jpg",
+      "map_url": "https://maps.google.com/?q=Paresa+Resort+Phuket",
+      "booking_url": "https://www.booking.com/hotel/th/paresa-resort.html",
+      "nearby": [
+        {
+          "route_id": "route1",
+          "stop_id": "kubur_kamala"
+        }
+      ],
+      "active": true,
+      "category": "hotel"
+    },
+    {
+      "id": "novotel_vintage_park",
+      "name": {
+        "th": "โนโวเทล ภูเก็ต วินเทจ พาร์ค",
+        "en": "Novotel Phuket Vintage Park"
+      },
+      "description": {
+        "th": "โรงแรม 4 ดาวใจกลางป่าตอง ทำเลสะดวก ใกล้หาดและถนนบางลา สระว่ายน้ำใหญ่ ห้องพักทันสมัย ราคาคุ้มค่า",
+        "en": "4-star hotel in central Patong, walking distance to the beach and Bangla Road. Large pool, modern rooms, great value."
+      },
+      "images": [
+        "assets/uploads/attractions/hotel_modern.jpg"
+      ],
+      "image": "assets/uploads/attractions/hotel_modern.jpg",
+      "map_url": "https://maps.google.com/?q=Novotel+Phuket+Vintage+Park+Patong",
+      "booking_url": "https://www.booking.com/hotel/th/novotel-phuket-vintage-park.html",
+      "nearby": [
+        {
+          "route_id": "route1",
+          "stop_id": "pea"
+        },
+        {
+          "route_id": "route2",
+          "stop_id": "patong"
+        }
+      ],
+      "active": true,
+      "category": "hotel"
+    },
+    {
+      "id": "amari_phuket",
+      "name": {
+        "th": "อมารี ภูเก็ต",
+        "en": "Amari Phuket"
+      },
+      "description": {
+        "th": "โรงแรม 4 ดาวริมหน้าผาชายทะเลป่าตอง วิวทะเลสวยงาม สระว่ายน้ำหลายแห่ง ร้านอาหาร Riva และบาร์ Rebar ลือชื่อ",
+        "en": "4-star cliffside hotel in Patong with stunning sea views, multiple pools, and the famous Riva Restaurant and Rebar."
+      },
+      "images": [
+        "assets/uploads/attractions/hotel_pool_night.jpg"
+      ],
+      "image": "assets/uploads/attractions/hotel_pool_night.jpg",
+      "map_url": "https://maps.google.com/?q=Amari+Phuket+Patong",
+      "booking_url": "https://www.booking.com/hotel/th/amari-phuket.html",
+      "nearby": [
+        {
+          "route_id": "route1",
+          "stop_id": "pea"
+        },
+        {
+          "route_id": "route2",
+          "stop_id": "patong"
+        }
+      ],
+      "active": true,
+      "category": "hotel"
+    },
+    {
+      "id": "hilton_phuket_arcadia",
+      "name": {
+        "th": "ฮิลตัน ภูเก็ต อาร์เคเดีย รีสอร์ท แอนด์ สปา",
+        "en": "Hilton Phuket Arcadia Resort & Spa"
+      },
+      "description": {
+        "th": "รีสอร์ทหรู 5 ดาว ริมหาดกะรน มีสระว่ายน้ำ 8 แห่ง ชายหาดส่วนตัว ร้านอาหาร 7 แห่ง และ eforea Spa",
+        "en": "5-star luxury resort on Karon Beach with 8 pools, private beach, 7 restaurants and the eforea Spa."
+      },
+      "images": [
+        "assets/uploads/attractions/hotel_le_meridien.jpg"
+      ],
+      "image": "assets/uploads/attractions/hotel_le_meridien.jpg",
+      "map_url": "https://maps.google.com/?q=Hilton+Phuket+Arcadia+Resort+Spa+Karon",
+      "booking_url": "https://www.booking.com/hotel/th/hilton-phuket-arcadia.html",
+      "nearby": [
+        {
+          "route_id": "route1",
+          "stop_id": "karon_circle"
+        }
+      ],
+      "active": true,
+      "category": "hotel"
+    },
+    {
+      "id": "grand_mercure_patong",
+      "name": {
+        "th": "แกรนด์ เมอร์เคียว ภูเก็ต ป่าตอง",
+        "en": "Grand Mercure Phuket Patong"
+      },
+      "description": {
+        "th": "โรงแรม 5 ดาวใหม่ล่าสุดในป่าตอง ห้องพักดีไซน์ทันสมัย ชมวิวทะเลและตัวเมือง สระว่ายน้ำบนดาดฟ้า บาร์วิวพาโนรามา",
+        "en": "5-star modern hotel in Patong with stylish rooms, sea and city views, rooftop pool and panoramic bar."
+      },
+      "images": [
+        "assets/uploads/attractions/hotel_lobby.jpg"
+      ],
+      "image": "assets/uploads/attractions/hotel_lobby.jpg",
+      "map_url": "https://maps.google.com/?q=Grand+Mercure+Phuket+Patong",
+      "booking_url": "https://www.booking.com/hotel/th/grand-mercure-phuket-patong.html",
+      "nearby": [
+        {
+          "route_id": "route1",
+          "stop_id": "pea"
+        },
+        {
+          "route_id": "route2",
+          "stop_id": "patong"
+        }
+      ],
+      "active": true,
+      "category": "hotel"
+    },
+    {
+      "id": "centara_patong",
+      "name": {
+        "th": "เซ็นทารา ป่าตอง โฮเทล",
+        "en": "Centara Patong Hotel"
+      },
+      "description": {
+        "th": "โรงแรม 4 ดาวใจกลางป่าตอง ห้องพักสะดวกสบาย สระว่ายน้ำบนชั้น 12 บาร์วิวทะเล เดินเท้าไปหาดได้ภายใน 3 นาที",
+        "en": "4-star hotel in Patong centre with rooftop pool on the 12th floor, sea view bar, 3-min walk to beach."
+      },
+      "images": [
+        "assets/uploads/attractions/hotel_holiday_inn.jpg"
+      ],
+      "image": "assets/uploads/attractions/hotel_holiday_inn.jpg",
+      "map_url": "https://maps.google.com/?q=Centara+Patong+Hotel",
+      "booking_url": "https://www.booking.com/hotel/th/centara-patong-hotel.html",
+      "nearby": [
+        {
+          "route_id": "route1",
+          "stop_id": "pea"
+        },
+        {
+          "route_id": "route2",
+          "stop_id": "patong"
+        }
+      ],
+      "active": true,
+      "category": "hotel"
+    },
+    {
+      "id": "ibis_patong",
+      "name": {
+        "th": "ไอบิส ภูเก็ต ป่าตอง",
+        "en": "ibis Phuket Patong"
+      },
+      "description": {
+        "th": "โรงแรมบัดเจ็ตสไตล์โมเดิร์นใจกลางป่าตอง ทำเลดี ราคาคุ้ม สำหรับนักเดินทางที่ต้องการความสะดวกสบายในราคาย่อมเยา",
+        "en": "Modern budget hotel in central Patong, great location at an affordable price. Perfect for savvy travellers."
+      },
+      "images": [
+        "assets/uploads/attractions/hotel_boutique.jpg"
+      ],
+      "image": "assets/uploads/attractions/hotel_boutique.jpg",
+      "map_url": "https://maps.google.com/?q=ibis+Phuket+Patong",
+      "booking_url": "https://www.booking.com/hotel/th/ibis-phuket-patong.html",
+      "nearby": [
+        {
+          "route_id": "route1",
+          "stop_id": "pea"
+        },
+        {
+          "route_id": "route2",
+          "stop_id": "patong"
+        }
+      ],
+      "active": true,
+      "category": "hotel"
+    },
+    {
+      "id": "baan_yin_dee",
+      "name": {
+        "th": "บ้านยินดี บูติก รีสอร์ท",
+        "en": "Baan Yin Dee Boutique Resort"
+      },
+      "description": {
+        "th": "รีสอร์ทบูติกสไตล์โคโลเนียล บรรยากาศอบอุ่น ใจกลางป่าตอง ออกแบบตกแต่งในสไตล์ไทยโปรตุกีส",
+        "en": "Colonial-style boutique resort with warm ambience in central Patong, decorated in Sino-Portuguese style."
+      },
+      "images": [
+        "assets/uploads/attractions/hotel_sunset.jpg"
+      ],
+      "image": "assets/uploads/attractions/hotel_sunset.jpg",
+      "map_url": "https://maps.google.com/?q=Baan+Yin+Dee+Boutique+Resort+Patong",
+      "booking_url": "https://www.booking.com/hotel/th/baan-yin-dee.html",
+      "nearby": [
+        {
+          "route_id": "route1",
+          "stop_id": "pea"
+        },
+        {
+          "route_id": "route2",
+          "stop_id": "patong"
+        }
+      ],
+      "active": true,
+      "category": "hotel"
+    },
+    {
+      "id": "bandara_resort_patong",
+      "name": {
+        "th": "บันดารา รีสอร์ท แอนด์ สปา",
+        "en": "Bandara Resort & Spa Phuket"
+      },
+      "description": {
+        "th": "รีสอร์ทสปา 4 ดาว บรรยากาศเงียบสงบในป่าตอง สระว่ายน้ำล้อมรอบสวนเขตร้อน แมสเสจและสปาราคาดี",
+        "en": "4-star spa resort in a tranquil Patong setting. Pool surrounded by tropical garden, excellent massage and spa."
+      },
+      "images": [
+        "assets/uploads/attractions/hotel_garden.jpg"
+      ],
+      "image": "assets/uploads/attractions/hotel_garden.jpg",
+      "map_url": "https://maps.google.com/?q=Bandara+Resort+Spa+Phuket+Patong",
+      "booking_url": "https://www.booking.com/hotel/th/bandara-resort-phuket.html",
+      "nearby": [
+        {
+          "route_id": "route1",
+          "stop_id": "big_c"
+        },
+        {
+          "route_id": "route2",
+          "stop_id": "patong"
+        }
+      ],
+      "active": true,
+      "category": "hotel"
+    },
+    {
+      "id": "beyond_resort_patong",
+      "name": {
+        "th": "บียอนด์ รีสอร์ท ป่าตอง",
+        "en": "Beyond Resort Patong"
+      },
+      "description": {
+        "th": "รีสอร์ท 4 ดาวทันสมัยในป่าตอง สระว่ายน้ำขนาดใหญ่ ห้องพักโมเดิร์นสไตล์ ราคาคุ้มค่า เหมาะสำหรับครอบครัว",
+        "en": "Modern 4-star resort in Patong with large pool, contemporary rooms and great value for families."
+      },
+      "images": [
+        "assets/uploads/attractions/hotel_beachfront.jpg"
+      ],
+      "image": "assets/uploads/attractions/hotel_beachfront.jpg",
+      "map_url": "https://maps.google.com/?q=Beyond+Resort+Patong+Phuket",
+      "booking_url": "https://www.booking.com/hotel/th/beyond-resort-patong.html",
+      "nearby": [
+        {
+          "route_id": "route1",
+          "stop_id": "big_c"
+        },
+        {
+          "route_id": "route2",
+          "stop_id": "patong"
+        }
+      ],
+      "active": true,
+      "category": "hotel"
+    },
+    {
+      "id": "centara_grand_karon",
+      "name": {
+        "th": "เซ็นทารา แกรนด์ บีช รีสอร์ท ภูเก็ต",
+        "en": "Centara Grand Beach Resort Phuket"
+      },
+      "description": {
+        "th": "รีสอร์ทหรู 5 ดาวริมหาดกะรน สไตล์อาณานิคม มรดกสถาปัตยกรรมภูเก็ต สระว่ายน้ำ 5 แห่ง สปา และร้านอาหาร 6 แห่ง",
+        "en": "5-star colonial-style resort on Karon Beach, a Phuket architectural icon with 5 pools, spa and 6 restaurants."
+      },
+      "images": [
+        "assets/uploads/attractions/hotel_katathani.jpg"
+      ],
+      "image": "assets/uploads/attractions/hotel_katathani.jpg",
+      "map_url": "https://maps.google.com/?q=Centara+Grand+Beach+Resort+Phuket+Karon",
+      "booking_url": "https://www.booking.com/hotel/th/centara-grand-beach-resort-phuket.html",
+      "nearby": [
+        {
+          "route_id": "route1",
+          "stop_id": "karon_circle"
+        }
+      ],
+      "active": true,
+      "category": "hotel"
+    },
+    {
+      "id": "peach_hill_karon",
+      "name": {
+        "th": "พีช ฮิลล์ โฮเทล แอนด์ รีสอร์ท",
+        "en": "Peach Hill Hotel & Resort"
+      },
+      "description": {
+        "th": "โรงแรมบนเนินเขากะรน วิวทะเลสวยงาม สระว่ายน้ำชมวิว ห้องพักราคาดี เหมาะสำหรับครอบครัว บรรยากาศเป็นกันเอง",
+        "en": "Hillside hotel above Karon with sea views, view pool and comfortable rooms. Great value for families."
+      },
+      "images": [
+        "assets/uploads/attractions/hotel_hyatt.jpg"
+      ],
+      "image": "assets/uploads/attractions/hotel_hyatt.jpg",
+      "map_url": "https://maps.google.com/?q=Peach+Hill+Hotel+Resort+Karon+Phuket",
+      "booking_url": "https://www.booking.com/hotel/th/peach-hill-hotel.html",
+      "nearby": [
+        {
+          "route_id": "route1",
+          "stop_id": "karon_circle"
+        }
+      ],
+      "active": true,
+      "category": "hotel"
+    },
+    {
+      "id": "karon_sea_sands",
+      "name": {
+        "th": "กะรน ซี แซนด์ รีสอร์ท แอนด์ สปา",
+        "en": "Karon Sea Sands Resort & Spa"
+      },
+      "description": {
+        "th": "รีสอร์ท 4 ดาวริมหาดกะรน ใกล้ทะเล ห้องพักวิวสวน สระว่ายน้ำ สปา และร้านอาหารอาหารไทย-นานาชาติ",
+        "en": "4-star resort near Karon Beach with garden view rooms, pool, spa and Thai-international restaurant."
+      },
+      "images": [
+        "assets/uploads/attractions/hotel_holiday_inn.jpg"
+      ],
+      "image": "assets/uploads/attractions/hotel_holiday_inn.jpg",
+      "map_url": "https://maps.google.com/?q=Karon+Sea+Sands+Resort+Spa+Phuket",
+      "booking_url": "https://www.booking.com/hotel/th/karon-sea-sands.html",
+      "nearby": [
+        {
+          "route_id": "route1",
+          "stop_id": "karon_circle"
+        }
+      ],
+      "active": true,
+      "category": "hotel"
+    },
+    {
+      "id": "beyond_resort_karon",
+      "name": {
+        "th": "บียอนด์ รีสอร์ท กะรน",
+        "en": "Beyond Resort Karon"
+      },
+      "description": {
+        "th": "รีสอร์ทโมเดิร์น 4 ดาวกะรน ห้องพักสะอาดสบาย สระว่ายน้ำขนาดใหญ่ ใกล้หาดกะรน เหมาะสำหรับคู่รักและครอบครัว",
+        "en": "Modern 4-star resort in Karon, clean comfortable rooms, large pool, walking distance to Karon Beach."
+      },
+      "images": [
+        "assets/uploads/attractions/hotel_modern.jpg"
+      ],
+      "image": "assets/uploads/attractions/hotel_modern.jpg",
+      "map_url": "https://maps.google.com/?q=Beyond+Resort+Karon+Phuket",
+      "booking_url": "https://www.booking.com/hotel/th/beyond-resort-karon.html",
+      "nearby": [
+        {
+          "route_id": "route1",
+          "stop_id": "karon_circle"
+        }
+      ],
+      "active": true,
+      "category": "hotel"
+    },
+    {
+      "id": "marina_phuket_resort",
+      "name": {
+        "th": "มารีนา ภูเก็ต รีสอร์ท",
+        "en": "Marina Phuket Resort"
+      },
+      "description": {
+        "th": "รีสอร์ทบังกาโลสไตล์เขตร้อน ริมหาดกะรน บรรยากาศเป็นส่วนตัว สระว่ายน้ำ ร้านอาหารมุมทะเล ห้องพักสไตล์ธรรมชาติ",
+        "en": "Tropical bungalow resort on Karon Beach with private atmosphere, pool and sea-view restaurant."
+      },
+      "images": [
+        "assets/uploads/attractions/hotel_garden.jpg"
+      ],
+      "image": "assets/uploads/attractions/hotel_garden.jpg",
+      "map_url": "https://maps.google.com/?q=Marina+Phuket+Resort+Karon",
+      "booking_url": "https://www.booking.com/hotel/th/marina-phuket.html",
+      "nearby": [
+        {
+          "route_id": "route1",
+          "stop_id": "karon_night"
+        }
+      ],
+      "active": true,
+      "category": "hotel"
+    },
+    {
+      "id": "phuket_island_view",
+      "name": {
+        "th": "ภูเก็ต ไอส์แลนด์ วิว โฮเทล",
+        "en": "Phuket Island View Hotel"
+      },
+      "description": {
+        "th": "โรงแรม 3 ดาวราคาคุ้มค่า บนเนินเขากะรน ห้องพักวิวทะเล บรรยากาศสบายๆ เหมาะสำหรับนักท่องเที่ยวงบประมาณ",
+        "en": "3-star budget-friendly hotel on Karon hill with sea views, relaxed atmosphere for budget-conscious travellers."
+      },
+      "images": [
+        "assets/uploads/attractions/hotel_boutique.jpg"
+      ],
+      "image": "assets/uploads/attractions/hotel_boutique.jpg",
+      "map_url": "https://maps.google.com/?q=Phuket+Island+View+Hotel+Karon",
+      "booking_url": "https://www.booking.com/hotel/th/phuket-island-view.html",
+      "nearby": [
+        {
+          "route_id": "route1",
+          "stop_id": "karon_night"
+        }
+      ],
+      "active": true,
+      "category": "hotel"
+    },
+    {
+      "id": "kata_rocks_resort",
+      "name": {
+        "th": "กะตะ ร็อคส์ รีสอร์ท",
+        "en": "Kata Rocks Resort"
+      },
+      "description": {
+        "th": "วิลล่าหินผาสุดหรูเหนือหาดกะตะ ทุกวิลล่ามีสระว่ายน้ำอินฟินิตี้วิวทะเล บริการระดับอัลตร้าลักซ์ชัวรี่",
+        "en": "Ultra-luxury clifftop villas above Kata Beach, each with infinity pool. Award-winning ultra-luxury service."
+      },
+      "images": [
+        "assets/uploads/attractions/hotel_infinity.jpg"
+      ],
+      "image": "assets/uploads/attractions/hotel_infinity.jpg",
+      "map_url": "https://maps.google.com/?q=Kata+Rocks+Resort+Phuket",
+      "booking_url": "https://www.booking.com/hotel/th/kata-rocks.html",
+      "nearby": [
+        {
+          "route_id": "route1",
+          "stop_id": "kata_stadium"
+        }
+      ],
+      "active": true,
+      "category": "hotel"
+    },
+    {
+      "id": "sugar_palm_kata",
+      "name": {
+        "th": "ชูการ์ พาล์ม แกรนด์ ฮิลล์ไซด์",
+        "en": "Sugar Palm Grand Hillside"
+      },
+      "description": {
+        "th": "โรงแรม 4 ดาวบนเนินเขากะตะ ห้องพักกว้างขวางวิวสวนและทะเล สระว่ายน้ำ ร้านอาหาร คุ้มค่าสำหรับครอบครัว",
+        "en": "4-star hillside hotel in Kata with spacious garden and sea view rooms, pool, restaurant and great family value."
+      },
+      "images": [
+        "assets/uploads/attractions/hotel_pool_night.jpg"
+      ],
+      "image": "assets/uploads/attractions/hotel_pool_night.jpg",
+      "map_url": "https://maps.google.com/?q=Sugar+Palm+Grand+Hillside+Kata+Phuket",
+      "booking_url": "https://www.booking.com/hotel/th/sugar-palm-grand-hillside.html",
+      "nearby": [
+        {
+          "route_id": "route1",
+          "stop_id": "kata_stadium"
+        }
+      ],
+      "active": true,
+      "category": "hotel"
+    },
+    {
+      "id": "boathouse_phuket",
+      "name": {
+        "th": "เดอะ โบ๊ทเฮ้าส์ ภูเก็ต",
+        "en": "The Boathouse Phuket"
+      },
+      "description": {
+        "th": "โรงแรมบูติกริมหาดกะตะ ลือชื่อด้านอาหารและไวน์ ห้องพักสไตล์คลาสสิก มุมมองทะเลที่สวยงาม บรรยากาศโรแมนติก",
+        "en": "Boutique hotel on Kata Beach, famous for wine and dining. Classic rooms with beautiful sea views and romantic atmosphere."
+      },
+      "images": [
+        "assets/uploads/attractions/hotel_sunset.jpg"
+      ],
+      "image": "assets/uploads/attractions/hotel_sunset.jpg",
+      "map_url": "https://maps.google.com/?q=The+Boathouse+Phuket+Kata",
+      "booking_url": "https://www.booking.com/hotel/th/the-boathouse-phuket.html",
+      "nearby": [
+        {
+          "route_id": "route1",
+          "stop_id": "kata_stadium"
+        }
+      ],
+      "active": true,
+      "category": "hotel"
+    },
+    {
+      "id": "chanalai_flora",
+      "name": {
+        "th": "ชนาลัย ฟลอร่า รีสอร์ท",
+        "en": "Chanalai Flora Resort Kata"
+      },
+      "description": {
+        "th": "รีสอร์ท 4 ดาวสไตล์บูติกในกะตะ ห้องพักตกแต่งโทนอบอุ่น สระว่ายน้ำสวน บรรยากาศผ่อนคลาย เหมาะสำหรับฮันนีมูน",
+        "en": "4-star boutique resort in Kata with warm-toned rooms, garden pool and relaxed atmosphere. Ideal for honeymoons."
+      },
+      "images": [
+        "assets/uploads/attractions/hotel_beachfront.jpg"
+      ],
+      "image": "assets/uploads/attractions/hotel_beachfront.jpg",
+      "map_url": "https://maps.google.com/?q=Chanalai+Flora+Resort+Kata+Phuket",
+      "booking_url": "https://www.booking.com/hotel/th/chanalai-flora-resort.html",
+      "nearby": [
+        {
+          "route_id": "route1",
+          "stop_id": "kata_palm"
+        }
+      ],
+      "active": true,
+      "category": "hotel"
+    },
+    {
+      "id": "beyond_resort_kata",
+      "name": {
+        "th": "บียอนด์ รีสอร์ท กะตะ",
+        "en": "Beyond Resort Kata"
+      },
+      "description": {
+        "th": "รีสอร์ท 4 ดาวทันสมัยใกล้หาดกะตะ ห้องพักสะอาดสบาย สระว่ายน้ำขนาดใหญ่ ร้านอาหาร เหมาะสำหรับทุกกลุ่ม",
+        "en": "Modern 4-star resort near Kata Beach with clean rooms, large pool and restaurant. Suitable for all groups."
+      },
+      "images": [
+        "assets/uploads/attractions/hotel_lobby.jpg"
+      ],
+      "image": "assets/uploads/attractions/hotel_lobby.jpg",
+      "map_url": "https://maps.google.com/?q=Beyond+Resort+Kata+Phuket",
+      "booking_url": "https://www.booking.com/hotel/th/beyond-resort-kata.html",
+      "nearby": [
+        {
+          "route_id": "route1",
+          "stop_id": "kata_palm"
+        }
+      ],
+      "active": true,
+      "category": "hotel"
+    },
+    {
+      "id": "apsara_beachfront",
+      "name": {
+        "th": "อัปสรา บีชฟร้อนท์ รีสอร์ท แอนด์ วิลล่า",
+        "en": "Apsara Beachfront Resort & Villa"
+      },
+      "description": {
+        "th": "รีสอร์ทริมหาดกะตะ ห้องพักและวิลล่าติดทะเล สระว่ายน้ำหน้าหาด อาหารเช้าฟรี บรรยากาศเป็นส่วนตัว",
+        "en": "Beachfront resort and villas at Kata Beach with sea-facing pool, complimentary breakfast and private atmosphere."
+      },
+      "images": [
+        "assets/uploads/attractions/hotel_twinpalms.jpg"
+      ],
+      "image": "assets/uploads/attractions/hotel_twinpalms.jpg",
+      "map_url": "https://maps.google.com/?q=Apsara+Beachfront+Resort+Villa+Kata",
+      "booking_url": "https://www.booking.com/hotel/th/apsara-beachfront-resort-villa.html",
+      "nearby": [
+        {
+          "route_id": "route1",
+          "stop_id": "kata_palm"
+        }
+      ],
+      "active": true,
+      "category": "hotel"
+    },
+    {
+      "id": "sri_panwa_phuket",
+      "name": {
+        "th": "ศรีพันวา ภูเก็ต",
+        "en": "Sri Panwa Phuket"
+      },
+      "description": {
+        "th": "วิลล่าพูลสุดหรูบนแหลมพันวา วิวทะเลอ่าวไทย 360 องศา สปาระดับโลก Baba Nest Rooftop Bar ชื่อดัง",
+        "en": "Ultra-luxury pool villas on Cape Panwa with 360° sea views, world-class spa and the iconic Baba Nest Rooftop Bar."
+      },
+      "images": [
+        "assets/uploads/attractions/hotel_villa.jpg"
+      ],
+      "image": "assets/uploads/attractions/hotel_villa.jpg",
+      "map_url": "https://maps.google.com/?q=Sri+Panwa+Phuket",
+      "booking_url": "https://www.booking.com/hotel/th/sri-panwa-phuket.html",
+      "nearby": [
+        {
+          "route_id": "route1",
+          "stop_id": "rawai"
+        }
+      ],
+      "active": true,
+      "category": "hotel"
+    },
+    {
+      "id": "rawai_palm_beach",
+      "name": {
+        "th": "ราไวย์ ปาล์ม บีช รีสอร์ท",
+        "en": "Rawai Palm Beach Resort"
+      },
+      "description": {
+        "th": "รีสอร์ทชายหาดบรรยากาศผ่อนคลาย ใกล้ท่าเรือราไวย์ ห้องพักสไตล์บาหลี สระว่ายน้ำ บรรยากาศเงียบสงบ",
+        "en": "Relaxed beachside resort near Rawai pier. Bali-style rooms, pool and peaceful atmosphere away from the crowds."
+      },
+      "images": [
+        "assets/uploads/attractions/hotel_garden.jpg"
+      ],
+      "image": "assets/uploads/attractions/hotel_garden.jpg",
+      "map_url": "https://maps.google.com/?q=Rawai+Palm+Beach+Resort+Phuket",
+      "booking_url": "https://www.booking.com/hotel/th/rawai-palm-beach-resort.html",
+      "nearby": [
+        {
+          "route_id": "route1",
+          "stop_id": "rawai"
+        }
+      ],
+      "active": true,
+      "category": "hotel"
+    },
+    {
+      "id": "cape_panwa_hotel",
+      "name": {
+        "th": "เคป ปันหวา โฮเทล ภูเก็ต",
+        "en": "Cape Panwa Hotel Phuket"
+      },
+      "description": {
+        "th": "โรงแรม 5 ดาวบนแหลมปันหวา วิวทะเลอ่าวไทย สระว่ายน้ำส่วนตัวและสาธารณะ หาดส่วนตัว ร้านอาหารทะเล",
+        "en": "5-star hotel on Cape Panwa with Thai Bay views, private and public pools, private beach and fresh seafood restaurant."
+      },
+      "images": [
+        "assets/uploads/attractions/hotel_infinity.jpg"
+      ],
+      "image": "assets/uploads/attractions/hotel_infinity.jpg",
+      "map_url": "https://maps.google.com/?q=Cape+Panwa+Hotel+Phuket",
+      "booking_url": "https://www.booking.com/hotel/th/cape-panwa.html",
+      "nearby": [
+        {
+          "route_id": "route1",
+          "stop_id": "sal_yuan"
+        }
+      ],
+      "active": true,
+      "category": "hotel"
+    },
+    {
+      "id": "mom_tris_villa_royale",
+      "name": {
+        "th": "หม่อมตรี้ วิลล่า รอยาล",
+        "en": "Mom Tri's Villa Royale Phuket"
+      },
+      "description": {
+        "th": "วิลล่าบูติกสุดหรูบนหน้าผาระหว่างกะตะและกะรน ออกแบบโดยคุณหม่อมตรี้ วิมลนันท์ ห้องพักศิลปะและร้าน Boathouse Wine",
+        "en": "Boutique luxury villa on the cliff between Kata and Karon, designed by Mom Tri. Art-filled rooms and Boathouse Wine & Grill."
+      },
+      "images": [
+        "assets/uploads/attractions/hotel_sunset.jpg"
+      ],
+      "image": "assets/uploads/attractions/hotel_sunset.jpg",
+      "map_url": "https://maps.google.com/?q=Mom+Tri+Villa+Royale+Phuket",
+      "booking_url": "https://www.booking.com/hotel/th/mom-tri-s-villa-royale.html",
+      "nearby": [
+        {
+          "route_id": "route1",
+          "stop_id": "kata_stadium"
+        }
+      ],
+      "active": true,
+      "category": "hotel"
+    },
+    {
+      "id": "merlin_phuket",
+      "name": {
+        "th": "เมอร์ลิน ภูเก็ต โฮเทล",
+        "en": "Merlin Phuket Hotel"
+      },
+      "description": {
+        "th": "โรงแรม 4 ดาวใจกลางเมืองภูเก็ต เหมาะสำหรับนักธุรกิจและนักท่องเที่ยว ใกล้ตลาดสด ศูนย์การค้า และสนามบิน",
+        "en": "4-star hotel in central Phuket Town, ideal for business and leisure. Near local markets, shopping and the airport."
+      },
+      "images": [
+        "assets/uploads/attractions/hotel_lobby.jpg"
+      ],
+      "image": "assets/uploads/attractions/hotel_lobby.jpg",
+      "map_url": "https://maps.google.com/?q=Merlin+Phuket+Hotel",
+      "booking_url": "https://www.booking.com/hotel/th/merlin-phuket.html",
+      "nearby": [
+        {
+          "route_id": "route3",
+          "stop_id": "mongkhonnimittemple"
+        }
+      ],
+      "active": true,
+      "category": "hotel"
+    },
+    {
+      "id": "royal_phuket_city",
+      "name": {
+        "th": "รอยัล ภูเก็ต ซิตี้ โฮเทล",
+        "en": "Royal Phuket City Hotel"
+      },
+      "description": {
+        "th": "โรงแรม 4 ดาวในเมืองภูเก็ต ทำเลใจกลางเมืองเก่า ห้องพักสบาย สระว่ายน้ำบนดาดฟ้า ร้านอาหารบุฟเฟต์",
+        "en": "4-star hotel in Phuket Old Town centre with rooftop pool, buffet restaurant and convenient downtown location."
+      },
+      "images": [
+        "assets/uploads/attractions/hotel_modern.jpg"
+      ],
+      "image": "assets/uploads/attractions/hotel_modern.jpg",
+      "map_url": "https://maps.google.com/?q=Royal+Phuket+City+Hotel",
+      "booking_url": "https://www.booking.com/hotel/th/royal-phuket-city.html",
+      "nearby": [
+        {
+          "route_id": "route3",
+          "stop_id": "mongkhonnimittemple"
+        }
+      ],
+      "active": true,
+      "category": "hotel"
+    },
+    {
+      "id": "sino_house_phuket",
+      "name": {
+        "th": "ซิโน เฮ้าส์ ภูเก็ต",
+        "en": "Sino House Phuket Hotel"
+      },
+      "description": {
+        "th": "โรงแรมบูติกสไตล์ชิโน-โปรตุกีสในย่านเมืองเก่า ห้องพักตกแต่งด้วยศิลปะและมรดกภูเก็ต",
+        "en": "Sino-Portuguese boutique hotel in the Old Town heritage quarter, rooms decorated with local art and Phuket history."
+      },
+      "images": [
+        "assets/uploads/attractions/hotel_boutique.jpg"
+      ],
+      "image": "assets/uploads/attractions/hotel_boutique.jpg",
+      "map_url": "https://maps.google.com/?q=Sino+House+Phuket+Hotel",
+      "booking_url": "https://www.booking.com/hotel/th/sino-house-phuket.html",
+      "nearby": [
+        {
+          "route_id": "route3",
+          "stop_id": "mongkhonnimittemple"
+        }
+      ],
+      "active": true,
+      "category": "hotel"
+    },
+    {
+      "id": "casa_blanca_phuket",
+      "name": {
+        "th": "คาซา บลังกา บูติก โฮเทล",
+        "en": "Casa Blanca Boutique Hotel Phuket"
+      },
+      "description": {
+        "th": "โรงแรมบูติกประวัติศาสตร์ในย่านเมืองเก่าภูเก็ต อาคารสไตล์ชิโน-โปรตุกีสได้รับการฟื้นฟูอย่างงดงาม",
+        "en": "Historic boutique hotel in Phuket Old Town, a beautifully restored Sino-Portuguese building with charming character."
+      },
+      "images": [
+        "assets/uploads/attractions/hotel_sunset.jpg"
+      ],
+      "image": "assets/uploads/attractions/hotel_sunset.jpg",
+      "map_url": "https://maps.google.com/?q=Casa+Blanca+Boutique+Hotel+Phuket",
+      "booking_url": "https://www.booking.com/hotel/th/casa-blanca-boutique-phuket.html",
+      "nearby": [
+        {
+          "route_id": "route3",
+          "stop_id": "mongkhonnimittemple"
+        }
+      ],
+      "active": true,
+      "category": "hotel"
+    },
+    {
+      "id": "the_memory_on_on",
+      "name": {
+        "th": "เดอะ เมมโมรี่ แอท ออน ออน โฮเทล",
+        "en": "The Memory at On On Hotel"
+      },
+      "description": {
+        "th": "โรงแรมประวัติศาสตร์เก่าแก่ที่สุดในภูเก็ต เปิดมาตั้งแต่ปี 1929 เคยเป็นฉากถ่ายทำภาพยนตร์ The Beach",
+        "en": "The oldest hotel in Phuket, open since 1929, famously used as a filming location for the movie The Beach."
+      },
+      "images": [
+        "assets/uploads/attractions/hotel_boutique.jpg"
+      ],
+      "image": "assets/uploads/attractions/hotel_boutique.jpg",
+      "map_url": "https://maps.google.com/?q=The+Memory+at+On+On+Hotel+Phuket",
+      "booking_url": "https://www.booking.com/hotel/th/the-memory-at-on-on-hotel.html",
+      "nearby": [
+        {
+          "route_id": "route3",
+          "stop_id": "mongkhonnimittemple"
+        }
+      ],
+      "active": true,
+      "category": "hotel"
+    },
+    {
+      "id": "the_naka_phuket",
+      "name": {
+        "th": "เดอะ นาคา ภูเก็ต รีสอร์ท",
+        "en": "The Naka Phuket"
+      },
+      "description": {
+        "th": "วิลล่าพูลสุดหรูบนเนินเขา ใกล้หาดราไวย์ ทุกวิลล่ามีสระว่ายน้ำส่วนตัว วิวทะเลและเกาะ",
+        "en": "Hilltop luxury pool villas near Rawai Beach. Every villa features a private pool with sea and island views."
+      },
+      "images": [
+        "assets/uploads/attractions/hotel_villa.jpg"
+      ],
+      "image": "assets/uploads/attractions/hotel_villa.jpg",
+      "map_url": "https://maps.google.com/?q=The+Naka+Phuket+Resort+Rawai",
+      "booking_url": "https://www.booking.com/hotel/th/the-naka-phuket.html",
+      "nearby": [
+        {
+          "route_id": "route1",
+          "stop_id": "rawai"
+        }
+      ],
+      "active": true,
+      "category": "hotel"
+    },
+    {
+      "id": "avista_hideaway_phuket",
+      "name": {
+        "th": "อวิสตา ไฮดาเวย์ ภูเก็ต",
+        "en": "Avista Hideaway Phuket"
+      },
+      "description": {
+        "th": "รีสอร์ทบูติกสไตล์คอนเทมโพรารีบนเนินเขา วิวพาโนรามาของอ่าวป่าตอง ห้องพักและสวีทหลากสไตล์",
+        "en": "Contemporary boutique resort on a hillside with panoramic Patong Bay views. Stylish rooms and suites."
+      },
+      "images": [
+        "assets/uploads/attractions/hotel_pool_night.jpg"
+      ],
+      "image": "assets/uploads/attractions/hotel_pool_night.jpg",
+      "map_url": "https://maps.google.com/?q=Avista+Hideaway+Phuket+Patong",
+      "booking_url": "https://www.booking.com/hotel/th/avista-hideaway-phuket-patong.html",
+      "nearby": [
+        {
+          "route_id": "route1",
+          "stop_id": "patong"
+        }
+      ],
+      "active": true,
+      "category": "hotel"
+    },
+    {
+      "id": "sino_imperial_patong",
+      "name": {
+        "th": "ซิโน อิมพีเรียล ป่าตอง",
+        "en": "Sino Imperial Hotel Patong"
+      },
+      "description": {
+        "th": "โรงแรมสไตล์ชิโน-โปรตุกีส ตกแต่งงดงามในย่านป่าตอง ใกล้ชายหาดและย่านช้อปปิ้ง",
+        "en": "Sino-Portuguese style hotel in Patong, beautifully decorated and close to the beach and shopping areas."
+      },
+      "images": [
+        "assets/uploads/attractions/hotel_boutique.jpg"
+      ],
+      "image": "assets/uploads/attractions/hotel_boutique.jpg",
+      "map_url": "https://maps.google.com/?q=Sino+Imperial+Hotel+Patong+Phuket",
+      "booking_url": "https://www.booking.com/hotel/th/sino-imperial-patong.html",
+      "nearby": [
+        {
+          "route_id": "route1",
+          "stop_id": "patong"
+        }
+      ],
+      "active": true,
+      "category": "hotel"
+    },
+    {
+      "id": "phuket_graceland_resort",
+      "name": {
+        "th": "ภูเก็ต เกรซแลนด์ รีสอร์ท",
+        "en": "Phuket Graceland Resort & Spa"
+      },
+      "description": {
+        "th": "รีสอร์ทขนาดใหญ่ใจกลางป่าตอง สระว่ายน้ำขนาดใหญ่ สปา และร้านอาหารหลากหลาย ห่างหาดเพียง 2 นาที",
+        "en": "Large resort in the heart of Patong with a big pool, spa and multiple restaurants just 2 minutes from the beach."
+      },
+      "images": [
+        "assets/uploads/attractions/hotel_laguna.jpg"
+      ],
+      "image": "assets/uploads/attractions/hotel_laguna.jpg",
+      "map_url": "https://maps.google.com/?q=Phuket+Graceland+Resort+Patong",
+      "booking_url": "https://www.booking.com/hotel/th/phuket-graceland-resort-and-spa.html",
+      "nearby": [
+        {
+          "route_id": "route1",
+          "stop_id": "patong"
+        }
+      ],
+      "active": true,
+      "category": "hotel"
+    },
+    {
+      "id": "beyond_resort_khaolak",
+      "name": {
+        "th": "บียอนด์ รีสอร์ท กะรน",
+        "en": "Beyond Karon Beach Resort"
+      },
+      "description": {
+        "th": "รีสอร์ทติดชายหาดกะรน วิวทะเลอันดามันสวยงาม สระว่ายน้ำอินฟินิตี้ และบริการรับส่งสนามบิน",
+        "en": "Beachfront resort at Karon Beach with stunning Andaman views, infinity pool and airport transfers available."
+      },
+      "images": [
+        "assets/uploads/attractions/hotel_infinity.jpg"
+      ],
+      "image": "assets/uploads/attractions/hotel_infinity.jpg",
+      "map_url": "https://maps.google.com/?q=Beyond+Karon+Beach+Resort+Phuket",
+      "booking_url": "https://www.booking.com/hotel/th/beyond-resort-karon.html",
+      "nearby": [
+        {
+          "route_id": "route1",
+          "stop_id": "karon_circle"
+        }
+      ],
+      "active": true,
+      "category": "hotel"
     }
   ]
 }
