@@ -210,9 +210,9 @@
         "en": "5-star boutique luxury resort at Surin Beach with modern Thai design, infinity pool, Orient Express restaurant and world-class spa."
       },
       "images": [
-        "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=800&q=80"
+        "assets/uploads/attractions/hotel_twinpalms.jpg"
       ],
-      "image": "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=800&q=80",
+      "image": "assets/uploads/attractions/hotel_twinpalms.jpg",
       "map_url": "https://maps.google.com/?q=Twinpalms+Phuket+Resort+Surin",
       "booking_url": "https://www.booking.com/hotel/th/twinpalms-phuket.html",
       "nearby": [
@@ -235,9 +235,9 @@
         "en": "5-star hilltop resort overlooking Kamala Beach with panoramic Andaman Sea views, 3 outdoor pools and over 200 luxurious rooms."
       },
       "images": [
-        "https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=800&q=80"
+        "assets/uploads/attractions/hotel_hyatt.jpg"
       ],
-      "image": "https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=800&q=80",
+      "image": "assets/uploads/attractions/hotel_hyatt.jpg",
       "map_url": "https://maps.google.com/?q=Hyatt+Regency+Phuket+Resort+Kamala",
       "booking_url": "https://www.booking.com/hotel/th/hyatt-regency-phuket-resort.html",
       "nearby": [
@@ -260,9 +260,9 @@
         "en": "4-star resort in the heart of Patong, 5 min walk to the beach. Large pool, international dining and full water sports."
       },
       "images": [
-        "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80"
+        "assets/uploads/attractions/hotel_holiday_inn.jpg"
       ],
-      "image": "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80",
+      "image": "assets/uploads/attractions/hotel_holiday_inn.jpg",
       "map_url": "https://maps.google.com/?q=Holiday+Inn+Resort+Phuket+Patong",
       "booking_url": "https://www.booking.com/hotel/th/holiday-inn-resort-phuket.html",
       "nearby": [
@@ -289,9 +289,9 @@
         "en": "5-star luxury resort on Karon Beach with 6 pools, private beach, 5 restaurants and the award-winning Oasis Spa."
       },
       "images": [
-        "https://images.unsplash.com/photo-1564501049412-61c2a3083791?auto=format&fit=crop&w=800&q=80"
+        "assets/uploads/attractions/hotel_le_meridien.jpg"
       ],
-      "image": "https://images.unsplash.com/photo-1564501049412-61c2a3083791?auto=format&fit=crop&w=800&q=80",
+      "image": "assets/uploads/attractions/hotel_le_meridien.jpg",
       "map_url": "https://maps.google.com/?q=Le+Meridien+Phuket+Beach+Resort+Karon",
       "booking_url": "https://www.booking.com/hotel/th/le-meridien-phuket.html",
       "nearby": [
@@ -314,9 +314,9 @@
         "en": "5-star beachfront resort on Kata Noi Beach. All rooms with sea views, 7 pools, 6 restaurants and world-class spa."
       },
       "images": [
-        "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=800&q=80"
+        "assets/uploads/attractions/hotel_katathani.jpg"
       ],
-      "image": "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=800&q=80",
+      "image": "assets/uploads/attractions/hotel_katathani.jpg",
       "map_url": "https://maps.google.com/?q=Katathani+Phuket+Beach+Resort+Kata",
       "booking_url": "https://www.booking.com/hotel/th/katathani-phuket-beach.html",
       "nearby": [

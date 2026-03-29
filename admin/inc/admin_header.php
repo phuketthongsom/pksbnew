@@ -28,6 +28,7 @@ require_login();
       <a href="content.php"    class="<?= ($admin_active_nav??'')==='content'?'active':'' ?>"><span class="icon">✏️</span> Content</a>
       <a href="users.php"      class="<?= ($admin_active_nav??'')==='users'?'active':'' ?>"><span class="icon">👤</span> Users</a>
       <a href="logs.php"       class="<?= ($admin_active_nav??'')==='logs'?'active':'' ?>"><span class="icon">📈</span> Activity Logs</a>
+      <a href="push.php"       class="<?= ($admin_active_nav??'')==='push'?'active':'' ?>"><span class="icon">🔔</span> Push Notifications</a>
       <a href="../index.php"   target="_blank"><span class="icon">🌐</span> View Site</a>
       <a href="logout.php" style="margin-top:auto;color:#e74c3c!important"><span class="icon">🚪</span> Logout</a>
     </nav>

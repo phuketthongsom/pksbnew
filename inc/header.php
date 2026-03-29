@@ -111,6 +111,14 @@ $cur = $active_nav ?? '';
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;600;700;800;900&display=swap" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;600;700;800;900&display=swap"></noscript>
   <link rel="stylesheet" href="<?= asset('css/style.css') ?>">
+
+  <!-- PWA -->
+  <link rel="manifest" href="/manifest.json">
+  <link rel="apple-touch-icon" href="/assets/images/icon-192.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="PKSB">
+  <meta name="mobile-web-app-capable" content="yes">
 </head>
 <body class="page-<?= esc($active_nav ?? 'home') ?>">
 <a href="#main-content" class="skip-link"><?= $l==='th'?'ข้ามไปเนื้อหาหลัก':'Skip to main content' ?></a>

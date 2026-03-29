@@ -34,6 +34,43 @@
 </footer>
 <script src="<?= asset('js/main.js') ?>" defer></script>
 
+<!-- ── PWA: Service Worker + Push Notifications ─────────────── -->
+<script>
+const VAPID_PUBLIC = 'BEEytUsCkMQedtwVx0Ej8KDPoyTL28D828R8drEJmHGlNFBD0cvoYysRc2Zfb8MhbZMrB2PpLjuDOhgvi4iU9So';
+
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/sw.js').then(reg => {
+    // Only ask for push permission once, after a short delay
+    if (!localStorage.getItem('push_asked') && 'PushManager' in window) {
+      setTimeout(() => askPush(reg), 4000);
+    }
+  });
+}
+
+async function askPush(reg) {
+  localStorage.setItem('push_asked', '1');
+  const perm = await Notification.requestPermission();
+  if (perm !== 'granted') return;
+  try {
+    const sub = await reg.pushManager.subscribe({
+      userVisibleOnly: true,
+      applicationServerKey: urlB64ToUint8Array(VAPID_PUBLIC)
+    });
+    await fetch('/api/push_subscribe.php', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(sub)
+    });
+  } catch(e) { console.warn('Push subscribe failed', e); }
+}
+
+function urlB64ToUint8Array(b64) {
+  const pad = '='.repeat((4 - b64.length % 4) % 4);
+  const raw = atob((b64 + pad).replace(/-/g,'+').replace(/_/g,'/'));
+  return Uint8Array.from([...raw].map(c => c.charCodeAt(0)));
+}
+</script>
+
 <?php if (!empty($cfg['facebook_page_id'])): ?>
 <!-- ── Facebook Messenger Chat Plugin ──────────────────────── -->
 <div id="fb-root"></div>

@@ -1,0 +1,31 @@
+{
+  "name": "ภูเก็ต สมาร์ท บัส",
+  "short_name": "PKSB",
+  "description": "ตารางเดินรถ ติดตามรถสด และสถานที่ท่องเที่ยวภูเก็ต",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#01aaa8",
+  "orientation": "portrait-primary",
+  "lang": "th",
+  "categories": ["travel", "transportation"],
+  "icons": [
+    { "src": "/assets/images/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/assets/images/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "/assets/images/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "shortcuts": [
+    {
+      "name": "ตารางเดินรถ",
+      "short_name": "ตาราง",
+      "url": "/timetable.php",
+      "icons": [{ "src": "/assets/images/icons/icon-timetable.png", "sizes": "96x96" }]
+    },
+    {
+      "name": "ติดตามรถสด",
+      "short_name": "ติดตาม",
+      "url": "/tracking.php",
+      "icons": [{ "src": "/assets/images/icons/icon-tracking.png", "sizes": "96x96" }]
+    }
+  ]
+}
