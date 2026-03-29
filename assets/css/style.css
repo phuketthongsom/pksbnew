@@ -891,13 +891,84 @@ body.page-about      .sec-title span{background:linear-gradient(90deg,#0f766e,#0
 body.page-contact    .sec-title span{background:linear-gradient(90deg,#1d4ed8,#4338ca);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
 body.page-tracking   .sec-title span{background:linear-gradient(90deg,#0e7490,#0d9488);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
 
-/* ── Scroll-snap feel on mobile for pass-grid ───────────────── */
+/* ── Mobile (< 640px) ────────────────────────────────────────── */
 @media(max-width:639px){
+
+  /* Pass grid — horizontal scroll-snap */
   .pass-grid{
     display:flex;overflow-x:auto;padding-bottom:10px;
-    scroll-snap-type:x mandatory;gap:14px;
-    scrollbar-width:none;
+    scroll-snap-type:x mandatory;gap:14px;scrollbar-width:none;
   }
   .pass-grid::-webkit-scrollbar{display:none}
-  .pass-card-link{flex:0 0 160px;scroll-snap-align:start}
+  .pass-card-link{flex:0 0 178px;scroll-snap-align:start}
+
+  /* Wrap & section spacing */
+  .wrap{padding:0 14px}
+  .sec{padding:28px 0}
+
+  /* Page hero — tighter on mobile */
+  .page-hero{padding:28px 16px 24px}
+  .page-hero h1{font-size:clamp(1.4rem,6.5vw,2rem)}
+  .page-hero p{font-size:.88rem}
+
+  /* Section titles */
+  .sec-title{font-size:1.25rem}
+
+  /* Home hero buttons — stack vertically */
+  .hero-btns{flex-direction:column;align-items:stretch;gap:10px}
+  .hero-btn{justify-content:center;padding:14px 20px}
+
+  /* Route grid — single column on mobile */
+  .route-grid{grid-template-columns:1fr}
+
+  /* Info cards — 2-col on mobile */
+  .info-grid{grid-template-columns:repeat(2,1fr)}
+
+  /* Timetable route selector — full-width stacked buttons */
+  .tt-route-selector{flex-direction:column;gap:8px}
+  .tt-rs-btn{width:100%;justify-content:flex-start}
+
+  /* Timetable route info bar — stack on mobile */
+  .tt-route-bar{flex-direction:column;align-items:flex-start;gap:10px}
+  .tt-rb-actions{width:100%;justify-content:flex-start;gap:8px}
+  .tt-rb-actions a,.tt-rb-actions button{flex:1;justify-content:center;text-align:center}
+
+  /* Attraction route filter — horizontal scroll (no wrap) */
+  .att-filter-bar{
+    flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;
+    scrollbar-width:none;padding-bottom:6px;margin-bottom:20px;
+  }
+  .att-filter-bar::-webkit-scrollbar{display:none}
+  .att-filter-btn{flex-shrink:0}
+
+  /* Attraction cards — better image ratio, tighter layout */
+  .att-grid{gap:12px}
+  .att-img{aspect-ratio:4/3}
+  .att-body{padding:10px;gap:6px}
+  .att-title{font-size:.86rem}
+  .att-desc{
+    font-size:.76rem;
+    display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;
+  }
+  .att-map-btn{font-size:.76rem;padding:6px 10px}
+  .att-book-btn{font-size:.76rem;padding:6px 10px}
+  .att-body > div{flex-direction:column;gap:5px}
+  .att-map-btn,.att-book-btn{width:100%;justify-content:center}
+
+  /* Bottom nav touch targets */
+  .bn-item{min-height:48px}
+  .bn-icon{font-size:1.3rem}
+
+  /* Footer */
+  .footer-grid{grid-template-columns:1fr}
+
+  /* Timetable table — ensure horizontal scroll hint */
+  .tt-wrap{border-radius:10px}
+
+  /* Stop route path — smaller font on hero */
+  .stop-route-path{gap:3px}
+  .srp-stop{font-size:.72rem;padding:3px 8px}
+
+  /* Contact / About form inputs */
+  input,textarea,select{font-size:16px!important} /* prevent iOS zoom */
 }
