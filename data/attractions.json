@@ -785,6 +785,646 @@
       ],
       "active": true,
       "category": "hotel"
+    },
+    {
+      "id": "jw_marriott_phuket",
+      "name": {
+        "th": "เจดับเบิลยู แมริออท ภูเก็ต รีสอร์ท แอนด์ สปา",
+        "en": "JW Marriott Phuket Resort & Spa"
+      },
+      "description": {
+        "th": "รีสอร์ทระดับ 5 ดาวบนชายหาดไม้ขาวทางเหนือของภูเก็ต สระว่ายน้ำขนาดใหญ่ สปาระดับโลก และอาหารเช้าที่เลิศหรู",
+        "en": "Luxury 5-star beachfront resort on Mai Khao's pristine shore. Vast pools, world-class spa and gourmet dining."
+      },
+      "images": [
+        "assets/uploads/attractions/hotel_jw_marriott_phuket.webp"
+      ],
+      "image": "assets/uploads/attractions/hotel_jw_marriott_phuket.webp",
+      "map_url": "https://maps.google.com/?q=JW+Marriott+Phuket+Resort+Spa",
+      "booking_url": "https://www.booking.com/hotel/th/jw-marriott-phuket.html",
+      "nearby": [
+        {
+          "route_id": "route2",
+          "stop_id": "mai_khao"
+        }
+      ],
+      "active": true,
+      "category": "hotel"
+    },
+    {
+      "id": "renaissance_phuket",
+      "name": {
+        "th": "เรเนซองส์ ภูเก็ต รีสอร์ท แอนด์ สปา",
+        "en": "Renaissance Phuket Resort & Spa"
+      },
+      "description": {
+        "th": "รีสอร์ทหรูริมหาดไม้ขาว ดีไซน์สมัยใหม่ สระว่ายน้ำอินฟินิตี้ ร้านอาหารบรรยากาศดี ใกล้สนามบิน",
+        "en": "Modern luxury resort on Mai Khao beach. Infinity pool, inspired dining and just minutes from Phuket Airport."
+      },
+      "images": [
+        "assets/uploads/attractions/hotel_renaissance_phuket.webp"
+      ],
+      "image": "assets/uploads/attractions/hotel_renaissance_phuket.webp",
+      "map_url": "https://maps.google.com/?q=Renaissance+Phuket+Resort+Spa",
+      "booking_url": "https://www.booking.com/hotel/th/renaissance-phuket-resort-and-spa.html",
+      "nearby": [
+        {
+          "route_id": "route2",
+          "stop_id": "mai_khao"
+        }
+      ],
+      "active": true,
+      "category": "hotel"
+    },
+    {
+      "id": "keemala_phuket",
+      "name": {
+        "th": "กีมาลา ภูเก็ต",
+        "en": "Keemala Phuket"
+      },
+      "description": {
+        "th": "รีสอร์ทบูติกที่ได้รับแรงบันดาลใจจากวัฒนธรรมชนเผ่า ตั้งอยู่ในป่าเขตร้อนกมลา วิลล่าพูลส่วนตัว วิวทะเลสวยงาม",
+        "en": "Tribe-inspired boutique resort nestled in Kamala's rainforest. Private pool villas with stunning sea views and award-winning spa."
+      },
+      "images": [
+        "assets/uploads/attractions/hotel_keemala_phuket.webp"
+      ],
+      "image": "assets/uploads/attractions/hotel_keemala_phuket.webp",
+      "map_url": "https://maps.google.com/?q=Keemala+Phuket+Kamala",
+      "booking_url": "https://www.booking.com/hotel/th/keemala.html",
+      "nearby": [
+        {
+          "route_id": "route1",
+          "stop_id": "kubur_kamala"
+        }
+      ],
+      "active": true,
+      "category": "hotel"
+    },
+    {
+      "id": "pavilions_phuket",
+      "name": {
+        "th": "เดอะ พาวิลเลียนส์ ภูเก็ต",
+        "en": "The Pavilions Phuket"
+      },
+      "description": {
+        "th": "วิลล่าพูลส่วนตัวสุดหรูบนยอดเขา วิวอ่าวบางเทาและอันดามัน ดีไซน์ผสมผสานศิลปะและธรรมชาติ",
+        "en": "Hilltop private pool villas with panoramic views of Bang Tao Bay and the Andaman Sea. Artful design meets tropical luxury."
+      },
+      "images": [
+        "assets/uploads/attractions/hotel_pavilions_phuket.webp"
+      ],
+      "image": "assets/uploads/attractions/hotel_pavilions_phuket.webp",
+      "map_url": "https://maps.google.com/?q=The+Pavilions+Phuket+Cherngtalay",
+      "booking_url": "https://www.booking.com/hotel/th/the-pavilions-phuket.html",
+      "nearby": [
+        {
+          "route_id": "route1",
+          "stop_id": "lotus"
+        }
+      ],
+      "active": true,
+      "category": "hotel"
+    },
+    {
+      "id": "the_slate_phuket",
+      "name": {
+        "th": "เดอะ สเลท ภูเก็ต",
+        "en": "The Slate Phuket"
+      },
+      "description": {
+        "th": "รีสอร์ทสุดล้ำสไตล์อุตสาหกรรมชิค ใกล้หาดในยาง สระว่ายน้ำที่ได้รับรางวัล สปา และบรรยากาศที่ไม่เหมือนใคร",
+        "en": "Award-winning industrial-chic resort near Nai Yang beach. Iconic pools, gallery-quality art and distinctive design."
+      },
+      "images": [
+        "assets/uploads/attractions/hotel_the_slate_phuket.webp"
+      ],
+      "image": "assets/uploads/attractions/hotel_the_slate_phuket.webp",
+      "map_url": "https://maps.google.com/?q=The+Slate+Phuket+Nai+Yang",
+      "booking_url": "https://www.booking.com/hotel/th/the-slate.html",
+      "nearby": [
+        {
+          "route_id": "route2",
+          "stop_id": "blue_canyon"
+        }
+      ],
+      "active": true,
+      "category": "hotel"
+    },
+    {
+      "id": "pullman_naithon",
+      "name": {
+        "th": "พูลแมน ภูเก็ต อาร์เคเดีย ไนทอน บีช",
+        "en": "Pullman Phuket Arcadia Naithon Beach"
+      },
+      "description": {
+        "th": "รีสอร์ท 5 ดาวบนหาดในทอน ชายหาดส่วนตัว สระว่ายน้ำ 3 แห่ง สปา และอาหารอาเซียนฟิวชั่น",
+        "en": "5-star resort on private Naithon beach with 3 pools, full-service spa and Asian fusion dining."
+      },
+      "images": [
+        "assets/uploads/attractions/hotel_pullman_naithon.webp"
+      ],
+      "image": "assets/uploads/attractions/hotel_pullman_naithon.webp",
+      "map_url": "https://maps.google.com/?q=Pullman+Phuket+Arcadia+Naithon+Beach",
+      "booking_url": "https://www.booking.com/hotel/th/pullman-phuket-arcadia-naithon-beach.html",
+      "nearby": [
+        {
+          "route_id": "route2",
+          "stop_id": "blue_canyon"
+        }
+      ],
+      "active": true,
+      "category": "hotel"
+    },
+    {
+      "id": "sala_phuket",
+      "name": {
+        "th": "ศาลา ภูเก็ต รีสอร์ท แอนด์ สปา",
+        "en": "SALA Phuket Mai Khao Beach Resort"
+      },
+      "description": {
+        "th": "รีสอร์ทวิลล่าพูลส่วนตัวริมหาดไม้ขาว บรรยากาศสงบเป็นส่วนตัว สปาระดับโลกและอาหารไทยรสเลิศ",
+        "en": "Private pool villa resort on secluded Mai Khao beach. Serene, intimate retreat with world-class spa and authentic Thai cuisine."
+      },
+      "images": [
+        "assets/uploads/attractions/hotel_sala_phuket.webp"
+      ],
+      "image": "assets/uploads/attractions/hotel_sala_phuket.webp",
+      "map_url": "https://maps.google.com/?q=SALA+Phuket+Mai+Khao+Beach+Resort",
+      "booking_url": "https://www.booking.com/hotel/th/sala-phuket-resort-and-spa.html",
+      "nearby": [
+        {
+          "route_id": "route2",
+          "stop_id": "mai_khao"
+        }
+      ],
+      "active": true,
+      "category": "hotel"
+    },
+    {
+      "id": "centara_kata",
+      "name": {
+        "th": "เซ็นทารา กะตะ รีสอร์ท ภูเก็ต",
+        "en": "Centara Kata Resort Phuket"
+      },
+      "description": {
+        "th": "รีสอร์ทระดับ 4 ดาวใจกลางกะตะ ใกล้หาด สระว่ายน้ำ สปา ร้านอาหารหลากหลาย เหมาะทั้งครอบครัวและคู่รัก",
+        "en": "4-star resort in the heart of Kata, close to the beach. Multiple pools, spa and diverse dining for families and couples."
+      },
+      "images": [
+        "assets/uploads/attractions/hotel_centara_kata.webp"
+      ],
+      "image": "assets/uploads/attractions/hotel_centara_kata.webp",
+      "map_url": "https://maps.google.com/?q=Centara+Kata+Resort+Phuket",
+      "booking_url": "https://www.booking.com/hotel/th/centara-kata-resort.html",
+      "nearby": [
+        {
+          "route_id": "route1",
+          "stop_id": "kata_stadium"
+        }
+      ],
+      "active": true,
+      "category": "hotel"
+    },
+    {
+      "id": "holiday_inn_express_patong",
+      "name": {
+        "th": "ฮอลิเดย์ อินน์ เอ็กซ์เพรส ภูเก็ต ป่าตอง บีช",
+        "en": "Holiday Inn Express Phuket Patong Beach Central"
+      },
+      "description": {
+        "th": "โรงแรมบูดเจ็ทแบรนด์ IHG ใจกลางป่าตอง ห้องพักทันสมัย อาหารเช้าฟรี ใกล้หาดป่าตองและแหล่งบันเทิง",
+        "en": "Smart IHG budget hotel in central Patong. Modern rooms, free breakfast and steps from Patong Beach and nightlife."
+      },
+      "images": [
+        "assets/uploads/attractions/hotel_holiday_inn_express_patong.webp"
+      ],
+      "image": "assets/uploads/attractions/hotel_holiday_inn_express_patong.webp",
+      "map_url": "https://maps.google.com/?q=Holiday+Inn+Express+Phuket+Patong+Beach+Central",
+      "booking_url": "https://www.booking.com/hotel/th/holiday-inn-express-phuket-patong-beach.html",
+      "nearby": [
+        {
+          "route_id": "route1",
+          "stop_id": "patong"
+        }
+      ],
+      "active": true,
+      "category": "hotel"
+    },
+    {
+      "id": "shore_katathani",
+      "name": {
+        "th": "เดอะ ชอร์ แอท กะทะธานี",
+        "en": "The Shore at Katathani"
+      },
+      "description": {
+        "th": "วิลล่าพูลส่วนตัวริมหาดกะตะน้อย วิลล่าทุกหลังมีสระว่ายน้ำและวิวทะเล บริการระดับ 5 ดาวสุดเอ็กซ์คลูซีฟ",
+        "en": "Exclusive private pool villas on Kata Noi beach. Every villa has a private pool and sea view with five-star butler service."
+      },
+      "images": [
+        "assets/uploads/attractions/hotel_shore_katathani.webp"
+      ],
+      "image": "assets/uploads/attractions/hotel_shore_katathani.webp",
+      "map_url": "https://maps.google.com/?q=The+Shore+at+Katathani+Kata+Noi",
+      "booking_url": "https://www.booking.com/hotel/th/the-shore-at-katathani.html",
+      "nearby": [
+        {
+          "route_id": "route1",
+          "stop_id": "kata_stadium"
+        }
+      ],
+      "active": true,
+      "category": "hotel"
+    },
+    {
+      "id": "aleenta_phuket",
+      "name": {
+        "th": "อเลนต้า ภูเก็ต พังงา รีสอร์ท แอนด์ สปา",
+        "en": "Aleenta Phuket – Phang Nga Resort & Spa"
+      },
+      "description": {
+        "th": "รีสอร์ทบูติกหรูบนหาดเขาหลัก วิลล่าพูลส่วนตัว บริการส่วนตัวสูงสุด วิวทะเลอันดามันที่สวยงาม",
+        "en": "Boutique luxury resort on Natai Beach, Phang Nga. Private pool villas, personalized service and pristine Andaman views."
+      },
+      "images": [
+        "assets/uploads/attractions/hotel_aleenta_phuket.webp"
+      ],
+      "image": "assets/uploads/attractions/hotel_aleenta_phuket.webp",
+      "map_url": "https://maps.google.com/?q=Aleenta+Phuket+Phang+Nga+Resort",
+      "booking_url": "https://www.booking.com/hotel/th/aleenta-phuket-phangnga.html",
+      "nearby": [
+        {
+          "route_id": "route2",
+          "stop_id": "mai_khao"
+        }
+      ],
+      "active": true,
+      "category": "hotel"
+    },
+    {
+      "id": "westin_siray",
+      "name": {
+        "th": "เดอะ เวสทิน สิเหร่ เบย์ รีสอร์ท แอนด์ สปา ภูเก็ต",
+        "en": "The Westin Siray Bay Resort & Spa Phuket"
+      },
+      "description": {
+        "th": "รีสอร์ทหรูบนอ่าวสิเหร่ วิวทะเลสวยงาม ห้องพักและวิลล่าพูลส่วนตัว สปา Heavenly และร้านอาหารระดับโลก",
+        "en": "Hillside luxury resort on Siray Bay with stunning sea views. Pool villas, Heavenly Spa and world-class dining near Phuket Town."
+      },
+      "images": [
+        "assets/uploads/attractions/hotel_westin_siray.webp"
+      ],
+      "image": "assets/uploads/attractions/hotel_westin_siray.webp",
+      "map_url": "https://maps.google.com/?q=The+Westin+Siray+Bay+Resort+Spa+Phuket",
+      "booking_url": "https://www.booking.com/hotel/th/westin-siray-bay-resort-spa-phuket.html",
+      "nearby": [
+        {
+          "route_id": "route3",
+          "stop_id": "phuket_town"
+        }
+      ],
+      "active": true,
+      "category": "hotel"
+    },
+    {
+      "id": "novotel_phokeethra",
+      "name": {
+        "th": "โนโวเทล ภูเก็ต โพธิ์กีธรา",
+        "en": "Novotel Phuket Phokeethra"
+      },
+      "description": {
+        "th": "โรงแรม 4 ดาวใจกลางเมืองภูเก็ต สระว่ายน้ำ ฟิตเนส และร้านอาหารบรรยากาศดี เดินทางสะดวกทั้งธุรกิจและท่องเที่ยว",
+        "en": "4-star city hotel in central Phuket Town. Rooftop pool, fitness centre and convenient for business and leisure travellers."
+      },
+      "images": [
+        "assets/uploads/attractions/hotel_novotel_phokeethra.webp"
+      ],
+      "image": "assets/uploads/attractions/hotel_novotel_phokeethra.webp",
+      "map_url": "https://maps.google.com/?q=Novotel+Phuket+Phokeethra",
+      "booking_url": "https://www.booking.com/hotel/th/novotel-phuket-phokeethra.html",
+      "nearby": [
+        {
+          "route_id": "route3",
+          "stop_id": "phuket_town"
+        }
+      ],
+      "active": true,
+      "category": "hotel"
+    },
+    {
+      "id": "marriott_nai_yang",
+      "name": {
+        "th": "ภูเก็ต แมริออท รีสอร์ท แอนด์ สปา ไนยาง บีช",
+        "en": "Phuket Marriott Resort & Spa, Nai Yang Beach"
+      },
+      "description": {
+        "th": "รีสอร์ทระดับ 5 ดาวริมหาดในยาง ใกล้สนามบินภูเก็ต สระว่ายน้ำ สปา และอาหารไทยนานาชาติ",
+        "en": "5-star beachfront resort on peaceful Nai Yang Beach, minutes from Phuket Airport. Pools, spa and diverse dining options."
+      },
+      "images": [
+        "assets/uploads/attractions/hotel_marriott_nai_yang.webp"
+      ],
+      "image": "assets/uploads/attractions/hotel_marriott_nai_yang.webp",
+      "map_url": "https://maps.google.com/?q=Phuket+Marriott+Resort+Spa+Nai+Yang+Beach",
+      "booking_url": "https://www.booking.com/hotel/th/phuket-marriott-nai-yang.html",
+      "nearby": [
+        {
+          "route_id": "route2",
+          "stop_id": "blue_canyon"
+        }
+      ],
+      "active": true,
+      "category": "hotel"
+    },
+    {
+      "id": "la_flora_patong",
+      "name": {
+        "th": "ลา ฟลอร่า รีสอร์ท ป่าตอง",
+        "en": "La Flora Resort Patong"
+      },
+      "description": {
+        "th": "รีสอร์ทบูติกสุดชิคใจกลางป่าตอง ห้องพักหรูหรา สระว่ายน้ำบนดาดฟ้า ใกล้หาดป่าตองและย่านช้อปปิ้ง",
+        "en": "Chic boutique resort in central Patong. Luxurious rooms, rooftop pool and ideal location near Patong Beach and shopping."
+      },
+      "images": [
+        "assets/uploads/attractions/hotel_la_flora_patong.webp"
+      ],
+      "image": "assets/uploads/attractions/hotel_la_flora_patong.webp",
+      "map_url": "https://maps.google.com/?q=La+Flora+Resort+Patong+Phuket",
+      "booking_url": "https://www.booking.com/hotel/th/la-flora-resort-patong.html",
+      "nearby": [
+        {
+          "route_id": "route1",
+          "stop_id": "patong"
+        }
+      ],
+      "active": true,
+      "category": "hotel"
+    },
+    {
+      "id": "the_nai_harn",
+      "name": {
+        "th": "เดอะ ไนหาน ภูเก็ต",
+        "en": "The Nai Harn Phuket"
+      },
+      "description": {
+        "th": "รีสอร์ทระดับ 5 ดาวบนหาดในหาน วิวทะเลอันดามันงดงาม สระว่ายน้ำอินฟินิตี้ สปา ร้านอาหารบนหน้าผา",
+        "en": "Acclaimed 5-star resort perched above Nai Harn beach. Infinity-edge pool, cliffside dining and sweeping Andaman views."
+      },
+      "images": [
+        "assets/uploads/attractions/hotel_the_nai_harn.webp"
+      ],
+      "image": "assets/uploads/attractions/hotel_the_nai_harn.webp",
+      "map_url": "https://maps.google.com/?q=The+Nai+Harn+Phuket",
+      "booking_url": "https://www.booking.com/hotel/th/the-nai-harn.html",
+      "nearby": [
+        {
+          "route_id": "route1",
+          "stop_id": "rawai"
+        }
+      ],
+      "active": true,
+      "category": "hotel"
+    },
+    {
+      "id": "big_buddha_phuket",
+      "name": {
+        "th": "พระพุทธมิ่งมงคลเอกนาคคีรี (บิ๊กบุดด้า)",
+        "en": "Big Buddha Phuket"
+      },
+      "description": {
+        "th": "พระพุทธรูปหินอ่อนขาวขนาดยักษ์บนยอดเขานาคเกิด มองเห็นได้ไกลทั่วภูเก็ต จุดชมวิว 360 องศาที่งดงาม",
+        "en": "Iconic 45-metre white marble Buddha on Nakkerd Hill. Visible across Phuket with spectacular 360° panoramic views."
+      },
+      "images": [
+        "assets/uploads/attractions/dest_big_buddha.jpg"
+      ],
+      "image": "assets/uploads/attractions/dest_big_buddha.jpg",
+      "map_url": "https://maps.google.com/?q=Big+Buddha+Phuket",
+      "nearby": [
+        {
+          "route_id": "route1",
+          "stop_id": "karon_circle"
+        }
+      ],
+      "active": true,
+      "category": "attraction"
+    },
+    {
+      "id": "wat_chalong",
+      "name": {
+        "th": "วัดฉลอง (วัดไชยธาราราม)",
+        "en": "Wat Chalong"
+      },
+      "description": {
+        "th": "วัดพุทธที่สำคัญที่สุดในภูเก็ต มีเจดีย์สูง 60 เมตรบรรจุพระธาตุ นักท่องเที่ยวนับล้านเข้าชมทุกปี",
+        "en": "Phuket's most revered Buddhist temple with a magnificent 60-metre chedi enshrining a relic of the Lord Buddha."
+      },
+      "images": [
+        "assets/uploads/attractions/dest_wat_chalong.jpg"
+      ],
+      "image": "assets/uploads/attractions/dest_wat_chalong.jpg",
+      "map_url": "https://maps.google.com/?q=Wat+Chalong+Phuket",
+      "nearby": [
+        {
+          "route_id": "route1",
+          "stop_id": "rawai"
+        }
+      ],
+      "active": true,
+      "category": "attraction"
+    },
+    {
+      "id": "promthep_cape",
+      "name": {
+        "th": "แหลมพรหมเทพ",
+        "en": "Promthep Cape"
+      },
+      "description": {
+        "th": "จุดใต้สุดของเกาะภูเก็ต ชมพระอาทิตย์ตกที่สวยที่สุดในไทย มีศาลาชมวิว กังหันลม และประภาคาร",
+        "en": "Phuket's southernmost point famous for breathtaking sunsets. Features a viewpoint pavilion, windmills and a lighthouse."
+      },
+      "images": [
+        "assets/uploads/attractions/dest_promthep_cape.jpg"
+      ],
+      "image": "assets/uploads/attractions/dest_promthep_cape.jpg",
+      "map_url": "https://maps.google.com/?q=Promthep+Cape+Phuket",
+      "nearby": [
+        {
+          "route_id": "route1",
+          "stop_id": "sal_yuan"
+        }
+      ],
+      "active": true,
+      "category": "attraction"
+    },
+    {
+      "id": "elephant_sanctuary_phuket",
+      "name": {
+        "th": "สถานอนุรักษ์ช้างภูเก็ต",
+        "en": "Phuket Elephant Sanctuary"
+      },
+      "description": {
+        "th": "สถานอนุรักษ์ช้างที่มีจริยธรรม ดูแลช้างที่ได้รับการช่วยเหลือจากอุตสาหกรรมการท่องเที่ยว ไม่มีการขี่ช้างหรือการแสดง",
+        "en": "Ethical sanctuary caring for rescued elephants. Observe and feed elephants in their natural habitat — no riding or shows."
+      },
+      "images": [
+        "assets/uploads/attractions/dest_elephant_sanctuary.jpg"
+      ],
+      "image": "assets/uploads/attractions/dest_elephant_sanctuary.jpg",
+      "map_url": "https://maps.google.com/?q=Phuket+Elephant+Sanctuary",
+      "nearby": [
+        {
+          "route_id": "route1",
+          "stop_id": "kubur_kamala"
+        }
+      ],
+      "active": true,
+      "category": "attraction"
+    },
+    {
+      "id": "nai_harn_beach",
+      "name": {
+        "th": "หาดในหาน",
+        "en": "Nai Harn Beach"
+      },
+      "description": {
+        "th": "หาดทรายขาวละเอียดทางใต้ของภูเก็ต น้ำใสเขียวมรกต บรรยากาศเงียบสงบ มีทะเลสาบน้ำจืดที่สวยงาม",
+        "en": "A picturesque white-sand beach in south Phuket with crystal-clear waters. Less crowded with a serene freshwater lagoon nearby."
+      },
+      "images": [
+        "assets/uploads/attractions/dest_nai_harn_beach.jpg"
+      ],
+      "image": "assets/uploads/attractions/dest_nai_harn_beach.jpg",
+      "map_url": "https://maps.google.com/?q=Nai+Harn+Beach+Phuket",
+      "nearby": [
+        {
+          "route_id": "route1",
+          "stop_id": "rawai"
+        }
+      ],
+      "active": true,
+      "category": "attraction"
+    },
+    {
+      "id": "karon_viewpoint",
+      "name": {
+        "th": "จุดชมวิวกะรน (3 หาด)",
+        "en": "Karon Viewpoint (Three Beaches)"
+      },
+      "description": {
+        "th": "จุดชมวิวที่มีชื่อเสียงที่สุดในภูเก็ต มองเห็นหาดกะรน หาดกะตะใหญ่ และหาดกะตะน้อยพร้อมกัน วิวสวยงามมาก",
+        "en": "Phuket's most famous viewpoint overlooking Karon, Kata and Kata Noi beaches in one sweeping panorama."
+      },
+      "images": [
+        "assets/uploads/attractions/dest_karon_viewpoint.jpg"
+      ],
+      "image": "assets/uploads/attractions/dest_karon_viewpoint.jpg",
+      "map_url": "https://maps.google.com/?q=Karon+Viewpoint+Phuket",
+      "nearby": [
+        {
+          "route_id": "route1",
+          "stop_id": "karon_circle"
+        }
+      ],
+      "active": true,
+      "category": "attraction"
+    },
+    {
+      "id": "naka_weekend_market",
+      "name": {
+        "th": "ตลาดนัดนาคา (ตลาดสุดสัปดาห์)",
+        "en": "Naka Weekend Market"
+      },
+      "description": {
+        "th": "ตลาดกลางคืนยอดนิยมที่สุดในภูเก็ต เปิดทุกศุกร์-เสาร์-อาทิตย์ อาหาร เสื้อผ้า ของฝาก ราคาถูก บรรยากาศสนุกสนาน",
+        "en": "Phuket's most popular weekend night market. Open Fri–Sun with street food, fashion, souvenirs and live music."
+      },
+      "images": [
+        "assets/uploads/attractions/dest_naka_market.jpg"
+      ],
+      "image": "assets/uploads/attractions/dest_naka_market.jpg",
+      "map_url": "https://maps.google.com/?q=Naka+Weekend+Market+Phuket",
+      "nearby": [
+        {
+          "route_id": "route3",
+          "stop_id": "phuket_town"
+        }
+      ],
+      "active": true,
+      "category": "attraction"
+    },
+    {
+      "id": "bang_tao_beach",
+      "name": {
+        "th": "หาดบางเทา (ลากูน่า)",
+        "en": "Bang Tao Beach (Laguna)"
+      },
+      "description": {
+        "th": "หาดทรายขาวยาว 8 กม. ในย่านลากูน่า โรงแรมหรู สนามกอล์ฟ และสิ่งอำนวยความสะดวกครบครัน",
+        "en": "8km of white sand in Laguna Phuket. Luxury resorts, golf course, water sports and the Bang Tao Lagoon."
+      },
+      "images": [
+        "assets/uploads/attractions/dest_bang_tao_beach.jpg"
+      ],
+      "image": "assets/uploads/attractions/dest_bang_tao_beach.jpg",
+      "map_url": "https://maps.google.com/?q=Bang+Tao+Beach+Phuket+Laguna",
+      "nearby": [
+        {
+          "route_id": "route1",
+          "stop_id": "lotus"
+        }
+      ],
+      "active": true,
+      "category": "attraction"
+    },
+    {
+      "id": "old_town_walking_street",
+      "name": {
+        "th": "ถนนเดินเล่นเมืองเก่าภูเก็ต (ซอยรมณีย์)",
+        "en": "Phuket Old Town Walking Street (Soi Rommanee)"
+      },
+      "description": {
+        "th": "ถนนประวัติศาสตร์สไตล์ชิโน-โปรตุกีสที่มีสีสันสดใส ร้านกาแฟ ศิลปะ งานศิลป์ และอาหารพื้นเมืองภูเก็ต",
+        "en": "Vibrant Sino-Portuguese heritage street with colourful shophouses, art galleries, local cafés and authentic Phuket cuisine."
+      },
+      "images": [
+        "assets/uploads/attractions/dest_old_town_walking.jpg"
+      ],
+      "image": "assets/uploads/attractions/dest_old_town_walking.jpg",
+      "map_url": "https://maps.google.com/?q=Soi+Rommanee+Phuket+Old+Town",
+      "nearby": [
+        {
+          "route_id": "route3",
+          "stop_id": "phuket_town"
+        }
+      ],
+      "active": true,
+      "category": "attraction"
+    },
+    {
+      "id": "phuket_aquarium",
+      "name": {
+        "th": "พิพิธภัณฑ์สัตว์น้ำภูเก็ต",
+        "en": "Phuket Aquarium"
+      },
+      "description": {
+        "th": "พิพิธภัณฑ์สัตว์น้ำที่บริหารโดยกรมประมง จัดแสดงสิ่งมีชีวิตในทะเลกว่า 100 ชนิด ที่แหลมพันวา บางประตู",
+        "en": "Government-run aquarium at Cape Panwa displaying over 100 marine species. Great for families and marine biology enthusiasts."
+      },
+      "images": [
+        "assets/uploads/attractions/dest_phuket_aquarium.jpg"
+      ],
+      "image": "assets/uploads/attractions/dest_phuket_aquarium.jpg",
+      "map_url": "https://maps.google.com/?q=Phuket+Aquarium+Cape+Panwa",
+      "nearby": [
+        {
+          "route_id": "route1",
+          "stop_id": "cape_panwa"
+        }
+      ],
+      "active": true,
+      "category": "attraction"
     }
   ]
 }
