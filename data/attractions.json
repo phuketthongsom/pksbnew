@@ -10,7 +10,7 @@
         "th": "หาดทรายขาวสวยงามท่ามกลางน้ำทะเลสีฟ้าใส บรรยากาศสงบเหมาะสำหรับผ่อนคลาย มีร้านอาหารและร้านขายของฝากริมชายหาด",
         "en": "Beautiful white sand beach with crystal clear blue water. A peaceful spot perfect for relaxing with beachside restaurants and souvenir shops."
       },
-      "image": "",
+      "image": "assets/uploads/attractions/dest_surin_beach.jpg",
       "map_url": "https://maps.google.com/?q=Surin+Beach+Phuket",
       "nearby": [
         {
@@ -19,7 +19,10 @@
         }
       ],
       "active": true,
-      "category": "attraction"
+      "category": "attraction",
+      "images": [
+        "assets/uploads/attractions/dest_surin_beach.jpg"
+      ]
     },
     {
       "id": "kamala_beach",
@@ -31,16 +34,19 @@
         "th": "หาดทรายยาวและเงียบสงบ บรรยากาศผ่อนคลาย เหมาะสำหรับครอบครัว ใกล้หมู่บ้านชาวประมงและตลาดเช้า",
         "en": "A long, quiet sandy beach with a relaxed atmosphere. Ideal for families, close to a fishing village and morning market."
       },
-      "image": "",
+      "image": "assets/uploads/attractions/dest_kamala_beach.jpg",
       "map_url": "https://maps.google.com/?q=Kamala+Beach+Phuket",
       "nearby": [
         {
           "route_id": "route1",
-          "stop_id": "kubur_kamala"
+          "stop_id": "kamala"
         }
       ],
       "active": true,
-      "category": "attraction"
+      "category": "attraction",
+      "images": [
+        "assets/uploads/attractions/dest_kamala_beach.jpg"
+      ]
     },
     {
       "id": "phuket_fantasea",
@@ -52,7 +58,7 @@
         "th": "สวนสนุกและโชว์แสดงระดับโลก ผสมผสานวัฒนธรรมไทยกับเทคโนโลยีทันสมัย เปิดทุกคืนยกเว้นวันพฤหัสบดี",
         "en": "World-class theme park and cultural show combining Thai heritage with modern technology. Open every night except Thursday."
       },
-      "image": "",
+      "image": "assets/uploads/attractions/dest_phuket_fantasea.jpg",
       "map_url": "https://maps.google.com/?q=Phuket+FantaSea+Kamala",
       "nearby": [
         {
@@ -61,7 +67,10 @@
         }
       ],
       "active": true,
-      "category": "attraction"
+      "category": "attraction",
+      "images": [
+        "assets/uploads/attractions/dest_phuket_fantasea.jpg"
+      ]
     },
     {
       "id": "patong_beach",
@@ -73,20 +82,19 @@
         "th": "หาดที่มีชีวิตชีวาที่สุดในภูเก็ต เต็มไปด้วยร้านอาหาร บาร์ และกิจกรรมทางน้ำ ศูนย์กลางความบันเทิงยามค่ำคืน",
         "en": "The most vibrant beach in Phuket, packed with restaurants, bars, water sports and nightlife. The island's entertainment hub."
       },
-      "image": "",
+      "image": "assets/uploads/attractions/dest_patong_beach.jpg",
       "map_url": "https://maps.google.com/?q=Patong+Beach+Phuket",
       "nearby": [
         {
           "route_id": "route1",
           "stop_id": "pea"
-        },
-        {
-          "route_id": "route2",
-          "stop_id": "patong"
         }
       ],
       "active": true,
-      "category": "attraction"
+      "category": "attraction",
+      "images": [
+        "assets/uploads/attractions/dest_patong_beach.jpg"
+      ]
     },
     {
       "id": "karon_beach",
@@ -98,7 +106,7 @@
         "th": "หาดทรายขาวยาวงดงาม น้ำทะเลใสสะอาด เหมาะสำหรับการเล่นน้ำและดำน้ำตื้น บรรยากาศเป็นส่วนตัวกว่าหาดป่าตอง",
         "en": "A long beautiful white sand beach with clean water, great for swimming and snorkeling. More relaxed and spacious than Patong."
       },
-      "image": "",
+      "image": "assets/uploads/attractions/dest_karon_beach.jpg",
       "map_url": "https://maps.google.com/?q=Karon+Beach+Phuket",
       "nearby": [
         {
@@ -107,7 +115,10 @@
         }
       ],
       "active": true,
-      "category": "attraction"
+      "category": "attraction",
+      "images": [
+        "assets/uploads/attractions/dest_karon_beach.jpg"
+      ]
     },
     {
       "id": "kata_beach",
@@ -119,16 +130,19 @@
         "th": "หาดทรายขาวสวยงาม เหมาะสำหรับการเล่นเซิร์ฟในช่วงมรสุม และว่ายน้ำในช่วงหน้าแล้ง มีร้านอาหารและที่พักหลากหลาย",
         "en": "Beautiful white sand beach ideal for surfing in the monsoon season and swimming in the dry season. Variety of restaurants and accommodation."
       },
-      "image": "",
+      "image": "assets/uploads/attractions/dest_kata_beach.jpg",
       "map_url": "https://maps.google.com/?q=Kata+Beach+Phuket",
       "nearby": [
         {
           "route_id": "route1",
-          "stop_id": "kata_stadium"
+          "stop_id": "kata_palm"
         }
       ],
       "active": true,
-      "category": "attraction"
+      "category": "attraction",
+      "images": [
+        "assets/uploads/attractions/dest_kata_beach.jpg"
+      ]
     },
     {
       "id": "rawai_beach",
@@ -140,7 +154,7 @@
         "th": "หาดของชาวประมงและชาวเล มีอาหารทะเลสดราคาย่อมเยา เป็นจุดออกเดินทางสู่เกาะต่างๆ บรรยากาศเงียบสงบและเป็นธรรมชาติ",
         "en": "A fishing and sea gypsy beach with fresh affordable seafood. The departure point for island-hopping trips. Quiet and natural atmosphere."
       },
-      "image": "",
+      "image": "assets/uploads/attractions/dest_rawai_beach.jpg",
       "map_url": "https://maps.google.com/?q=Rawai+Beach+Phuket",
       "nearby": [
         {
@@ -149,7 +163,10 @@
         }
       ],
       "active": true,
-      "category": "attraction"
+      "category": "attraction",
+      "images": [
+        "assets/uploads/attractions/dest_rawai_beach.jpg"
+      ]
     },
     {
       "id": "phuket_old_town",
@@ -169,7 +186,7 @@
       "nearby": [
         {
           "route_id": "route3",
-          "stop_id": ""
+          "stop_id": "mongkhonnimittemple"
         }
       ],
       "active": true,
@@ -193,7 +210,7 @@
       "nearby": [
         {
           "route_id": "route3",
-          "stop_id": ""
+          "stop_id": "mongkhonnimittemple"
         }
       ],
       "active": true,
@@ -269,10 +286,6 @@
         {
           "route_id": "route1",
           "stop_id": "pea"
-        },
-        {
-          "route_id": "route2",
-          "stop_id": "patong"
         }
       ],
       "active": true,
@@ -322,7 +335,7 @@
       "nearby": [
         {
           "route_id": "route1",
-          "stop_id": "cherngtalay"
+          "stop_id": "lotus"
         }
       ],
       "active": true,
@@ -347,7 +360,7 @@
       "nearby": [
         {
           "route_id": "route1",
-          "stop_id": "cherngtalay"
+          "stop_id": "lotus"
         }
       ],
       "active": true,
@@ -422,7 +435,7 @@
       "nearby": [
         {
           "route_id": "route1",
-          "stop_id": "kubur_kamala"
+          "stop_id": "cherngtalay"
         }
       ],
       "active": true,
@@ -447,11 +460,7 @@
       "nearby": [
         {
           "route_id": "route1",
-          "stop_id": "pea"
-        },
-        {
-          "route_id": "route2",
-          "stop_id": "patong"
+          "stop_id": "karon_circle"
         }
       ],
       "active": true,
@@ -477,10 +486,6 @@
         {
           "route_id": "route1",
           "stop_id": "pea"
-        },
-        {
-          "route_id": "route2",
-          "stop_id": "patong"
         }
       ],
       "active": true,
@@ -505,7 +510,7 @@
       "nearby": [
         {
           "route_id": "route1",
-          "stop_id": "karon_circle"
+          "stop_id": "karon_night"
         }
       ],
       "active": true,
@@ -530,7 +535,7 @@
       "nearby": [
         {
           "route_id": "route1",
-          "stop_id": "kata_stadium"
+          "stop_id": "kata_palm"
         }
       ],
       "active": true,
@@ -555,7 +560,7 @@
       "nearby": [
         {
           "route_id": "route1",
-          "stop_id": "kata_stadium"
+          "stop_id": "kata_palm"
         }
       ],
       "active": true,
@@ -580,7 +585,7 @@
       "nearby": [
         {
           "route_id": "route1",
-          "stop_id": "kata_stadium"
+          "stop_id": "kata_palm"
         }
       ],
       "active": true,
@@ -654,8 +659,8 @@
       "booking_url": "https://www.booking.com/hotel/th/cape-panwa.html",
       "nearby": [
         {
-          "route_id": "route1",
-          "stop_id": "sal_yuan"
+          "route_id": "route3",
+          "stop_id": "mongkhonnimittemple"
         }
       ],
       "active": true,
@@ -680,7 +685,7 @@
       "nearby": [
         {
           "route_id": "route1",
-          "stop_id": "kata_stadium"
+          "stop_id": "kata_palm"
         }
       ],
       "active": true,
@@ -780,7 +785,7 @@
       "nearby": [
         {
           "route_id": "route1",
-          "stop_id": "patong"
+          "stop_id": "karon_circle"
         }
       ],
       "active": true,
@@ -804,8 +809,8 @@
       "booking_url": "https://www.booking.com/hotel/th/jw-marriott-phuket.html",
       "nearby": [
         {
-          "route_id": "route2",
-          "stop_id": "mai_khao"
+          "route_id": "route1",
+          "stop_id": "airport"
         }
       ],
       "active": true,
@@ -829,8 +834,8 @@
       "booking_url": "https://www.booking.com/hotel/th/renaissance-phuket-resort-and-spa.html",
       "nearby": [
         {
-          "route_id": "route2",
-          "stop_id": "mai_khao"
+          "route_id": "route1",
+          "stop_id": "airport"
         }
       ],
       "active": true,
@@ -855,7 +860,7 @@
       "nearby": [
         {
           "route_id": "route1",
-          "stop_id": "kubur_kamala"
+          "stop_id": "kamala"
         }
       ],
       "active": true,
@@ -904,8 +909,8 @@
       "booking_url": "https://www.booking.com/hotel/th/the-slate.html",
       "nearby": [
         {
-          "route_id": "route2",
-          "stop_id": "blue_canyon"
+          "route_id": "route1",
+          "stop_id": "airport"
         }
       ],
       "active": true,
@@ -929,8 +934,8 @@
       "booking_url": "https://www.booking.com/hotel/th/pullman-phuket-arcadia-naithon-beach.html",
       "nearby": [
         {
-          "route_id": "route2",
-          "stop_id": "blue_canyon"
+          "route_id": "route1",
+          "stop_id": "airport"
         }
       ],
       "active": true,
@@ -954,8 +959,8 @@
       "booking_url": "https://www.booking.com/hotel/th/sala-phuket-resort-and-spa.html",
       "nearby": [
         {
-          "route_id": "route2",
-          "stop_id": "mai_khao"
+          "route_id": "route1",
+          "stop_id": "airport"
         }
       ],
       "active": true,
@@ -1005,7 +1010,7 @@
       "nearby": [
         {
           "route_id": "route1",
-          "stop_id": "patong"
+          "stop_id": "pea"
         }
       ],
       "active": true,
@@ -1030,7 +1035,7 @@
       "nearby": [
         {
           "route_id": "route1",
-          "stop_id": "kata_stadium"
+          "stop_id": "kata_palm"
         }
       ],
       "active": true,
@@ -1054,8 +1059,8 @@
       "booking_url": "https://www.booking.com/hotel/th/aleenta-phuket-phangnga.html",
       "nearby": [
         {
-          "route_id": "route2",
-          "stop_id": "mai_khao"
+          "route_id": "route1",
+          "stop_id": "airport"
         }
       ],
       "active": true,
@@ -1080,7 +1085,7 @@
       "nearby": [
         {
           "route_id": "route3",
-          "stop_id": "phuket_town"
+          "stop_id": "mongkhonnimittemple"
         }
       ],
       "active": true,
@@ -1105,7 +1110,7 @@
       "nearby": [
         {
           "route_id": "route3",
-          "stop_id": "phuket_town"
+          "stop_id": "mongkhonnimittemple"
         }
       ],
       "active": true,
@@ -1129,8 +1134,8 @@
       "booking_url": "https://www.booking.com/hotel/th/phuket-marriott-nai-yang.html",
       "nearby": [
         {
-          "route_id": "route2",
-          "stop_id": "blue_canyon"
+          "route_id": "route1",
+          "stop_id": "airport"
         }
       ],
       "active": true,
@@ -1155,7 +1160,7 @@
       "nearby": [
         {
           "route_id": "route1",
-          "stop_id": "patong"
+          "stop_id": "karon_circle"
         }
       ],
       "active": true,
@@ -1204,7 +1209,7 @@
       "nearby": [
         {
           "route_id": "route1",
-          "stop_id": "karon_circle"
+          "stop_id": "kata_stadium"
         }
       ],
       "active": true,
@@ -1228,7 +1233,7 @@
       "nearby": [
         {
           "route_id": "route1",
-          "stop_id": "rawai"
+          "stop_id": "kata_stadium"
         }
       ],
       "active": true,
@@ -1252,7 +1257,7 @@
       "nearby": [
         {
           "route_id": "route1",
-          "stop_id": "sal_yuan"
+          "stop_id": "rawai"
         }
       ],
       "active": true,
@@ -1275,8 +1280,8 @@
       "map_url": "https://maps.google.com/?q=Phuket+Elephant+Sanctuary",
       "nearby": [
         {
-          "route_id": "route1",
-          "stop_id": "kubur_kamala"
+          "route_id": "route2",
+          "stop_id": "kathu"
         }
       ],
       "active": true,
@@ -1300,7 +1305,7 @@
       "nearby": [
         {
           "route_id": "route1",
-          "stop_id": "rawai"
+          "stop_id": "sal_yuan"
         }
       ],
       "active": true,
@@ -1324,7 +1329,7 @@
       "nearby": [
         {
           "route_id": "route1",
-          "stop_id": "karon_circle"
+          "stop_id": "kata_stadium"
         }
       ],
       "active": true,
@@ -1347,8 +1352,8 @@
       "map_url": "https://maps.google.com/?q=Naka+Weekend+Market+Phuket",
       "nearby": [
         {
-          "route_id": "route3",
-          "stop_id": "phuket_town"
+          "route_id": "route2",
+          "stop_id": "samkong"
         }
       ],
       "active": true,
@@ -1396,7 +1401,7 @@
       "nearby": [
         {
           "route_id": "route3",
-          "stop_id": "phuket_town"
+          "stop_id": "mongkhonnimittemple"
         }
       ],
       "active": true,
@@ -1419,8 +1424,8 @@
       "map_url": "https://maps.google.com/?q=Phuket+Aquarium+Cape+Panwa",
       "nearby": [
         {
-          "route_id": "route1",
-          "stop_id": "cape_panwa"
+          "route_id": "route3",
+          "stop_id": "mongkhonnimittemple"
         }
       ],
       "active": true,
