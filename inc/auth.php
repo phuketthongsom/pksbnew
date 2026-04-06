@@ -4,6 +4,7 @@ require_once __DIR__ . '/helpers.php';
 function auth_start(): void {
     if (session_status() === PHP_SESSION_NONE) {
         session_name('pksb_session');
+        session_set_cookie_params(['lifetime'=>0,'path'=>'/','secure'=>true,'httponly'=>true,'samesite'=>'Lax']);
         session_start();
     }
 }

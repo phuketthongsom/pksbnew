@@ -1,5 +1,5 @@
 <?php
-$page_title       = 'ติดต่อเรา / Contact';
+$page_title       = 'Contact Phuket Smart Bus – Phone & Location';
 $active_nav       = 'contact';
 $page_description = 'Contact Phuket Smart Bus – Phone: 086-306-1257, Email: info@phuketsmartbus.com. Office in Wichit, Phuket 83000. Open daily 06:00–20:00.';
 $page_keywords    = 'Phuket Smart Bus contact,Phuket bus phone number,ติดต่อภูเก็ต สมาร์ท บัส,เบอร์โทรรถโดยสารภูเก็ต';
@@ -56,20 +56,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       <h2 class="sec-title"><?= $l==='th'?'ส่ง<span>ข้อความ</span>':'Send <span>Message</span>' ?></h2>
       <form method="post" style="margin-top:16px">
         <div class="form-group">
-          <label><?= $l==='th'?'ชื่อ-นามสกุล':'Full Name' ?></label>
-          <input type="text" name="name" required value="<?= esc($_POST['name']??'') ?>" placeholder="<?= $l==='th'?'กรอกชื่อของคุณ':'Your name' ?>">
+          <label for="contact-name"><?= $l==='th'?'ชื่อ-นามสกุล':'Full Name' ?></label>
+          <input id="contact-name" type="text" name="name" required value="<?= esc($_POST['name']??'') ?>" placeholder="<?= $l==='th'?'กรอกชื่อของคุณ':'Your name' ?>">
         </div>
         <div class="form-group">
-          <label>Email</label>
-          <input type="email" name="email" required value="<?= esc($_POST['email']??'') ?>" placeholder="your@email.com">
+          <label for="contact-email">Email</label>
+          <input id="contact-email" type="email" name="email" required value="<?= esc($_POST['email']??'') ?>" placeholder="your@email.com">
         </div>
         <div class="form-group">
-          <label><?= $l==='th'?'หัวข้อ':'Subject' ?></label>
-          <input type="text" name="subject" value="<?= esc($_POST['subject']??'') ?>" placeholder="<?= $l==='th'?'หัวข้อข้อความ':'Message subject' ?>">
+          <label for="contact-subject"><?= $l==='th'?'หัวข้อ':'Subject' ?></label>
+          <input id="contact-subject" type="text" name="subject" value="<?= esc($_POST['subject']??'') ?>" placeholder="<?= $l==='th'?'หัวข้อข้อความ':'Message subject' ?>">
         </div>
         <div class="form-group">
-          <label><?= $l==='th'?'ข้อความ':'Message' ?></label>
-          <textarea name="message" required placeholder="<?= $l==='th'?'พิมพ์ข้อความของคุณที่นี่':'Type your message here' ?>"><?= esc($_POST['message']??'') ?></textarea>
+          <label for="contact-message"><?= $l==='th'?'ข้อความ':'Message' ?></label>
+          <textarea id="contact-message" name="message" required placeholder="<?= $l==='th'?'พิมพ์ข้อความของคุณที่นี่':'Type your message here' ?>"><?= esc($_POST['message']??'') ?></textarea>
         </div>
         <button type="submit" class="btn btn-teal"><?= $l==='th'?'ส่งข้อความ':'Send Message' ?></button>
       </form>

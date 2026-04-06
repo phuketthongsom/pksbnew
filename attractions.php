@@ -1,5 +1,5 @@
 <?php
-$page_title       = 'สถานที่ใกล้เคียง / Nearby Places';
+$page_title       = 'Hotels & Attractions Near Phuket Smart Bus Stops';
 $active_nav       = 'attractions';
 $page_description = 'Discover top Phuket nearby places accessible by Phuket Smart Bus – beaches, hotels, restaurants and landmarks near every bus stop.';
 $page_keywords    = 'Phuket nearby places,Phuket beaches,Phuket hotels,Phuket restaurants,things to do Phuket,สถานที่ใกล้เคียงภูเก็ต';

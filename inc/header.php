@@ -12,7 +12,7 @@ if (isset($_GET['lang']) && in_array($_GET['lang'], ['th','en'])) {
 $cfg        = load_json('config.json');
 $l          = lang();
 $_pt_base   = $page_title ?? '';
-$page_title = $_pt_base !== '' ? $_pt_base . ' — ' . t($cfg['site_name']) : t($cfg['site_name']);
+$page_title = $_pt_base !== '' ? $_pt_base . ' | ' . t($cfg['site_name']) : t($cfg['site_name']);
 $_lang_params = $_GET; unset($_lang_params['lang']);
 $_lang_params['lang'] = ($l==='th' ? 'en' : 'th');
 $lang_url   = '?' . http_build_query($_lang_params);
@@ -27,7 +27,9 @@ $_page_kw      = isset($page_keywords)    ? $page_keywords    : t($_kw_default);
 // Canonical & hreflang URLs (strip lang query param)
 $_qs_extra  = $_GET; unset($_qs_extra['lang']);
 $_page_path = basename($_SERVER['SCRIPT_NAME'] ?? 'index.php');
-$_canonical = base_url($_page_path) . ($_qs_extra ? '?' . http_build_query($_qs_extra) : '');
+$_canonical = ($_page_path === 'index.php')
+    ? base_url() . ($_qs_extra ? '?' . http_build_query($_qs_extra) : '')
+    : base_url($_page_path) . ($_qs_extra ? '?' . http_build_query($_qs_extra) : '');
 $_sep       = $_qs_extra ? '&' : '?';
 $_url_th    = $_canonical . $_sep . 'lang=th';
 $_url_en    = $_canonical . $_sep . 'lang=en';
@@ -99,15 +101,37 @@ $cur = $active_nav ?? '';
 
   <!-- Twitter Card -->
   <meta name="twitter:card"        content="summary_large_image">
+  <meta name="twitter:site"        content="@PhuketSmartBus">
   <meta name="twitter:title"       content="<?= esc($page_title) ?>">
   <meta name="twitter:description" content="<?= esc($_page_desc) ?>">
   <meta name="twitter:image"       content="<?= esc($_og_image) ?>">
 
-  <!-- Structured Data -->
+  <!-- Geo meta -->
+  <meta name="geo.region"    content="TH-83">
+  <meta name="geo.placename" content="Phuket, Thailand">
+  <meta name="geo.position"  content="7.869;98.394">
+  <meta name="ICBM"          content="7.869, 98.394">
+
+  <!-- Structured Data: LocalBusiness -->
   <script type="application/ld+json"><?= $_jsonld ?></script>
+<?php if ($_page_path === 'index.php'): ?>
+  <!-- Structured Data: WebSite + SearchAction -->
+  <script type="application/ld+json"><?= json_encode([
+    '@context' => 'https://schema.org',
+    '@type'    => 'WebSite',
+    'name'     => 'Phuket Smart Bus',
+    'url'      => base_url(),
+    'potentialAction' => [
+      '@type'       => 'SearchAction',
+      'target'      => ['@type'=>'EntryPoint','urlTemplate'=> base_url('attractions.php') . '?q={search_term_string}'],
+      'query-input' => 'required name=search_term_string',
+    ],
+  ], JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES) ?></script>
+<?php endif; ?>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://connect.facebook.net">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;600;700;800;900&display=swap" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;600;700;800;900&display=swap"></noscript>
   <link rel="stylesheet" href="<?= asset('css/style.css') ?>">
@@ -117,7 +141,7 @@ $cur = $active_nav ?? '';
   <link rel="apple-touch-icon" href="/assets/images/icon-192.png">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="apple-mobile-web-app-title" content="PKSB">
+  <meta name="apple-mobile-web-app-title" content="Smart Bus">
   <meta name="mobile-web-app-capable" content="yes">
 </head>
 <body class="page-<?= esc($active_nav ?? 'home') ?>">
@@ -133,7 +157,7 @@ $cur = $active_nav ?? '';
   </a>
 
   <!-- Desktop nav -->
-  <nav class="main-nav">
+  <nav class="main-nav" aria-label="Main navigation">
     <a href="<?= $nav['home']['url'] ?>"        class="<?= $cur==='home'?'active':'' ?>"><?= $nav['home'][$l] ?></a>
     <span class="nav-sep"></span>
     <a href="<?= $nav['tracking']['url'] ?>"    class="<?= $cur==='tracking'?'active':'' ?>"><?= $nav['tracking'][$l] ?></a>
@@ -145,6 +169,9 @@ $cur = $active_nav ?? '';
     <a href="<?= $nav['about']['url'] ?>"       class="<?= $cur==='about'?'active':'' ?>"><?= $nav['about'][$l] ?></a>
     <a href="<?= $nav['contact']['url'] ?>"     class="<?= $cur==='contact'?'active':'' ?>"><?= $nav['contact'][$l] ?></a>
     <a href="<?= $lang_url ?>" class="lang-btn"><?= $lang_lbl ?></a>
+    <button id="pwa-install-btn" onclick="pwaInstall()" aria-label="Install app">
+      📲 <?= $l==='th'?'ติดตั้ง':'Install' ?>
+    </button>
   </nav>
 
   <!-- Mobile: lang toggle only -->
@@ -154,7 +181,7 @@ $cur = $active_nav ?? '';
 </header>
 
 <!-- Mobile bottom nav -->
-<nav class="bottom-nav">
+<nav class="bottom-nav" aria-label="Mobile navigation">
   <a href="<?= base_url() ?>" class="<?= $cur==='home'?'active':'' ?>">
     <span class="ico">🏠</span><span><?= $nav['home'][$l] ?></span>
   </a>

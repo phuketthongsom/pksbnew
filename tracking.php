@@ -1,5 +1,5 @@
 <?php
-$page_title       = 'ตำแหน่งรถ / Live Tracking';
+$page_title       = 'Live Bus Tracking – Phuket Smart Bus GPS Map';
 $active_nav       = 'tracking';
 $page_description = 'Track Phuket Smart Bus in real-time. Live GPS map showing bus locations on route 8357 Airport–Rawai and route 8537 Terminal–Patong.';
 $page_keywords    = 'Phuket bus tracker,live bus tracking Phuket,Phuket Smart Bus location,GPS bus Phuket,ติดตามรถ ภูเก็ต,แผนที่รถโดยสารภูเก็ต';

@@ -1,6 +1,6 @@
 {
   "name": "ภูเก็ต สมาร์ท บัส",
-  "short_name": "PKSB",
+  "short_name": "Smart Bus",
   "description": "ตารางเดินรถ ติดตามรถสด และสถานที่ท่องเที่ยวภูเก็ต",
   "start_url": "/",
   "display": "standalone",

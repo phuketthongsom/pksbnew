@@ -1,5 +1,5 @@
 <?php
-$page_title       = 'บัตรโดยสาร / Passes';
+$page_title       = 'Smart Day Pass – Unlimited Bus Phuket from ฿299';
 $active_nav       = 'payment';
 $page_description = 'Smart Day Pass for Phuket Smart Bus – unlimited rides from ฿299/day. Valid on routes 8357 Airport–Rawai & 8537 Terminal–Patong. Buy on-board or contact us.';
 $page_keywords    = 'Smart Day Pass Phuket,Phuket bus pass,unlimited bus Phuket,bus ticket Phuket price,บัตรโดยสารภูเก็ต,สมาร์ท เดย์ พาส';

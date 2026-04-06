@@ -129,7 +129,18 @@ require_once __DIR__ . '/inc/header.php';
       🛒 <?= $l==='th'?'ซื้อบัตรโดยสาร':'Buy This Pass' ?> — ฿<?= number_format($pass['price']) ?>
     </a>
     <?php else: ?>
-    <p style="font-size:.95rem;color:var(--mid)"><?= $l==='th'?'ซื้อได้บนรถ (เงินสด / QR Code / บัตรเครดิต)':'Purchase on-board (Cash / QR Code / Credit Card)' ?></p>
+    <p style="font-size:.95rem;color:var(--mid);margin-bottom:16px"><?= $l==='th'?'ซื้อได้บนรถ (เงินสด / QR Code / บัตรเครดิต)':'Purchase on-board (Cash / QR Code / Credit Card)' ?></p>
+    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+      <?php $cfg_inner = load_json('config.json'); ?>
+      <a href="https://line.me/ti/p/~<?= esc($cfg_inner['line_id']) ?>" target="_blank" rel="noopener"
+         style="display:inline-flex;align-items:center;gap:8px;background:#06c755;color:#fff;border-radius:12px;padding:12px 22px;font-weight:700;font-size:.95rem;text-decoration:none">
+        💬 LINE: <?= esc($cfg_inner['line_id']) ?>
+      </a>
+      <a href="tel:<?= esc(preg_replace('/[^0-9+]/','',$cfg_inner['phone'])) ?>"
+         style="display:inline-flex;align-items:center;gap:8px;background:var(--teal);color:#fff;border-radius:12px;padding:12px 22px;font-weight:700;font-size:.95rem;text-decoration:none">
+        📞 <?= esc($cfg_inner['phone']) ?>
+      </a>
+    </div>
     <?php endif; ?>
     <div style="margin-top:14px">
       <a href="<?= base_url('payment.php') ?>" style="color:var(--mid);font-size:.88rem">

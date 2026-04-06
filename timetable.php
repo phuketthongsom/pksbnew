@@ -1,5 +1,5 @@
 <?php
-$page_title       = 'เวลาเดินรถ / Timetable';
+$page_title       = 'Bus Timetable – Route 8357 & 8537 Schedule';
 $active_nav       = 'timetable';
 $page_description = 'Phuket Smart Bus timetable – full schedules for route 8357 Airport to Rawai and route 8537 Terminal to Patong. Daily service 06:00–20:00.';
 $page_keywords    = 'Phuket bus timetable,Phuket bus schedule,route 8357 timetable,route 8537 timetable,airport bus Phuket schedule,ตารางรถโดยสารภูเก็ต';

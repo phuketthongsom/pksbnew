@@ -11,7 +11,7 @@
       <h4><?= $l==='th'?'ติดต่อเรา':'Contact' ?></h4>
       <p>📞 <?= esc($cfg['phone']) ?></p>
       <a href="mailto:<?= esc($cfg['email']) ?>">✉️ <?= esc($cfg['email']) ?></a>
-      <p>💬 LINE: <?= esc($cfg['line_id']) ?></p>
+      <a href="https://line.me/ti/p/~<?= esc($cfg['line_id']) ?>" target="_blank" rel="noopener">💬 LINE: <?= esc($cfg['line_id']) ?></a>
     </div>
     <div class="footer-col">
       <h4><?= $l==='th'?'เมนู':'Menu' ?></h4>
