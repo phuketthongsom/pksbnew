@@ -7,6 +7,10 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Intervention\Image\ImageManager;
 use Intervention\Image\Drivers\Gd\Driver as GdDriver;
+use Intervention\Image\Encoders\JpegEncoder;
+use Intervention\Image\Encoders\PngEncoder;
+use Intervention\Image\Encoders\WebpEncoder;
+use Intervention\Image\Encoders\GifEncoder;
 
 /**
  * Pream's note for the team:
@@ -39,19 +43,17 @@ class ImageUploadService
      */
     public function storeStripped(UploadedFile $file, string $directory): string
     {
-        $img = $this->manager->read($file->getRealPath());
+        $img = $this->manager->decode($file->getRealPath());
 
         // Honor EXIF orientation, then drop the metadata.
-        // (Intervention 4 calls orient() automatically when reading via the
-        // public API, but we call it explicitly here to be obvious.)
         $img->orient();
 
         // Pick output format & extension from the source mime
         [$ext, $encoder] = match (strtolower($file->getClientMimeType())) {
-            'image/png'                   => ['png',  fn ($i) => $i->toPng()],
-            'image/webp'                  => ['webp', fn ($i) => $i->toWebp(82)],
-            'image/gif'                   => ['gif',  fn ($i) => $i->toGif()],
-            default                       => ['jpg',  fn ($i) => $i->toJpeg(85)],
+            'image/png'  => ['png',  fn ($i) => $i->encode(new PngEncoder())],
+            'image/webp' => ['webp', fn ($i) => $i->encode(new WebpEncoder(quality: 82))],
+            'image/gif'  => ['gif',  fn ($i) => $i->encode(new GifEncoder())],
+            default      => ['jpg',  fn ($i) => $i->encode(new JpegEncoder(quality: 85))],
         };
 
         $base = trim($directory, '/').'/'.Str::random(40);
@@ -61,7 +63,7 @@ class ImageUploadService
         // WebP companion (skipped if the source itself is already WebP).
         if ($ext !== 'webp') {
             try {
-                Storage::disk('public')->put($base.'.webp', (string) $img->toWebp(80));
+                Storage::disk('public')->put($base.'.webp', (string) $img->encode(new WebpEncoder(quality: 80)));
             } catch (\Throwable $e) {
                 // Don't fail the upload if WebP encoding hiccups — the JPG/PNG
                 // is the source of truth, the WebP is opportunistic.
