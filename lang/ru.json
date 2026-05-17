@@ -46,9 +46,15 @@
   "blog.gallery": "Фотогалерея",
 
   "timetable.title": "Расписание",
-  "timetable.subtitle": "Аэропорт — Патонг — Равай · 100 ฿ единый тариф",
+  "timetable.subtitle": "Выберите маршрут, чтобы увидеть расписание",
+  "timetable.select_route": "Выбрать маршрут",
   "timetable.airport_to_rawai": "Аэропорт → Равай",
   "timetable.rawai_to_airport": "Равай → Аэропорт",
+  "timetable.terminal_to_patong": "Автостанция → Патонг",
+  "timetable.patong_to_terminal": "Патонг → Автостанция",
+  "timetable.dragon.desc": "Бесплатный городской шаттл по кольцевому маршруту: Central Festival — Старый город — рынок OTOP.",
+  "timetable.no_schedule": "Подробное расписание скоро появится. Свяжитесь с нашей командой или отследите автобус онлайн.",
+  "timetable.uploaded_images": "Расписание маршрута",
   "timetable.note": "Внимание:",
   "timetable.note_text": "Время указано приблизительно и может меняться в зависимости от трафика.",
 

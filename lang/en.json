@@ -46,9 +46,15 @@
   "blog.gallery": "Photo gallery",
 
   "timetable.title": "Timetable",
-  "timetable.subtitle": "Airport — Patong — Rawai · 100 ฿ flat fare",
+  "timetable.subtitle": "Select a route to see departure times",
+  "timetable.select_route": "Select Route",
   "timetable.airport_to_rawai": "Airport → Rawai",
   "timetable.rawai_to_airport": "Rawai → Airport",
+  "timetable.terminal_to_patong": "Bus Terminal → Patong",
+  "timetable.patong_to_terminal": "Patong → Bus Terminal",
+  "timetable.dragon.desc": "Free circular city shuttle connecting Central Festival, Old Town and OTOP Market.",
+  "timetable.no_schedule": "Detailed schedule coming soon. Please check with our team or track the bus live.",
+  "timetable.uploaded_images": "Route Timetable",
   "timetable.note": "Note:",
   "timetable.note_text": "Times are approximate and may vary with traffic.",
 

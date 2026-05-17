@@ -46,9 +46,15 @@
   "blog.gallery": "รูปภาพ",
 
   "timetable.title": "ตารางเวลา",
-  "timetable.subtitle": "สนามบิน — ป่าตอง — ราไวย์ · 100 ฿ ตลอดสาย",
+  "timetable.subtitle": "เลือกเส้นทางเพื่อดูเวลาออกรถ",
+  "timetable.select_route": "เลือกเส้นทาง",
   "timetable.airport_to_rawai": "สนามบิน → ราไวย์",
   "timetable.rawai_to_airport": "ราไวย์ → สนามบิน",
+  "timetable.terminal_to_patong": "บขส. → ป่าตอง",
+  "timetable.patong_to_terminal": "ป่าตอง → บขส.",
+  "timetable.dragon.desc": "รถรับ-ส่งฟรีวนรอบเมือง เซ็นทรัล เฟสติวัล – เมืองเก่า – ตลาด OTOP",
+  "timetable.no_schedule": "รายละเอียดตารางเวลาเพิ่มเติมเร็วๆ นี้ โปรดติดต่อทีมงานหรือติดตามรถสด",
+  "timetable.uploaded_images": "ตารางเวลาเส้นทาง",
   "timetable.note": "หมายเหตุ:",
   "timetable.note_text": "เวลาเป็นค่าโดยประมาณ อาจคลาดเคลื่อนตามสภาพการจราจร",
 

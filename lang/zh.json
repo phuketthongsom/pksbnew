@@ -46,9 +46,15 @@
   "blog.gallery": "照片画廊",
 
   "timetable.title": "时刻表",
-  "timetable.subtitle": "机场 — 芭东 — 拉威 · 100 ฿ 全程统一价",
+  "timetable.subtitle": "选择线路查看发车时间",
+  "timetable.select_route": "选择线路",
   "timetable.airport_to_rawai": "机场 → 拉威",
   "timetable.rawai_to_airport": "拉威 → 机场",
+  "timetable.terminal_to_patong": "巴士总站 → 芭东",
+  "timetable.patong_to_terminal": "芭东 → 巴士总站",
+  "timetable.dragon.desc": "免费城市循环巴士，连接中央节日购物中心、旧城区和OTOP市场。",
+  "timetable.no_schedule": "详细时刻表即将发布，请联系我们的团队或实时追踪巴士。",
+  "timetable.uploaded_images": "线路时刻表",
   "timetable.note": "注意：",
   "timetable.note_text": "时间为大致估算，可能因路况而异。",
 

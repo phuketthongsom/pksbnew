@@ -30,6 +30,7 @@ $publicRoutes = function (): void {
     Route::view('/about', 'pages.about')->name('about');
     Route::view('/contact', 'pages.contact')->name('contact');
     Route::view('/timetable', 'pages.timetable')->name('timetable');
+    Route::view('/timetable/{route}', 'pages.timetable')->name('timetable.route')->where('route', 'rawai|patong|dragon');
     Route::view('/tracking', 'pages.tracking')->name('tracking');
     Route::view('/payment', 'pages.payment')->name('payment');
     Route::view('/pass', 'pages.pass')->name('pass');
