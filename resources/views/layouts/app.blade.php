@@ -161,6 +161,7 @@
     <nav class="hidden md:flex items-center gap-6 lg:gap-8 text-white text-sm font-medium" aria-label="Primary">
       <a href="{{ lurl('home') }}" class="nav-link {{ request()->routeIs('home') ? 'active' : '' }}">{{ __('nav.home') }}</a>
       <a href="{{ lurl('blog') }}" class="nav-link {{ request()->routeIs('blog*') ? 'active' : '' }}">{{ __('nav.destinations') }}</a>
+      <a href="{{ lurl('tracking') }}" class="nav-link {{ request()->routeIs('tracking') ? 'active' : '' }}">{{ __('nav.tracking') }}</a>
       <a href="{{ lurl('about') }}" class="nav-link {{ request()->routeIs('about') ? 'active' : '' }}">{{ __('nav.about') }}</a>
       <a href="{{ lurl('contact') }}" class="nav-link {{ request()->routeIs('contact') ? 'active' : '' }}">{{ __('nav.contact') }}</a>
     </nav>
