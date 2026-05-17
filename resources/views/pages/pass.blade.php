@@ -6,11 +6,24 @@
 <script type="application/ld+json">
 {
   "@@context": "https://schema.org",
-  "@@type": "BreadcrumbList",
-  "@@id": "{{ url('/pass') }}#breadcrumb",
-  "itemListElement": [
-    {"@@type":"ListItem","position":1,"name":"Home","item":"{{ url('/') }}"},
-    {"@@type":"ListItem","position":2,"name":"Day Passes"}
+  "@@graph": [
+    {
+      "@@type": "WebPage",
+      "@@id": "{{ url('/pass') }}",
+      "url": "{{ url('/pass') }}",
+      "name": "Day Pass and Multi-Day Pass — Phuket Smart Bus",
+      "description": "Unlimited Phuket Smart Bus rides with our multi-day passes. Airport to Patong, Karon, Kata and Rawai.",
+      "isPartOf": {"@@id": "{{ url('/') }}"},
+      "breadcrumb": {"@@id": "{{ url('/pass') }}#breadcrumb"}
+    },
+    {
+      "@@type": "BreadcrumbList",
+      "@@id": "{{ url('/pass') }}#breadcrumb",
+      "itemListElement": [
+        {"@@type":"ListItem","position":1,"name":"Home","item":"{{ url('/') }}"},
+        {"@@type":"ListItem","position":2,"name":"Day Passes"}
+      ]
+    }
   ]
 }
 </script>
@@ -60,7 +73,7 @@
         <div class="relative h-40 bg-cover bg-center bg-gray-200">
           <picture>
             @if($hasWebp)<source srcset="{{ asset($coverWebp) }}" type="image/webp">@endif
-            <img src="{{ asset($coverPath) }}" alt=""
+            <img src="{{ asset($coverPath) }}" alt="{{ $p['name'] }} — Phuket Smart Bus Day Pass"
                  class="absolute inset-0 w-full h-full object-cover" loading="lazy" width="540" height="200">
           </picture>
           @unless($coverIsCustomDesign)
