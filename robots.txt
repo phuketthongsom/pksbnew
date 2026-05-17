@@ -1,9 +1,0 @@
-User-agent: *
-Allow: /
-
-Disallow: /admin/
-Disallow: /data/
-Disallow: /inc/
-Disallow: /api/
-
-Sitemap: https://phuketsmartbus.dataxlsx.com/sitemap.php

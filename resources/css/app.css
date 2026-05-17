@@ -1,0 +1,46 @@
+/* Self-hosted Inter — kills the runtime Google Fonts request and lets us
+   tighten Content-Security-Policy. Only the weights we actually use are
+   bundled. */
+@import '@fontsource/inter/400.css';
+@import '@fontsource/inter/500.css';
+@import '@fontsource/inter/600.css';
+@import '@fontsource/inter/700.css';
+@import '@fontsource/inter/800.css';
+@import 'tailwindcss';
+@plugin '@tailwindcss/typography';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.js';
+
+@theme {
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
+  --color-teal-brand: #01aaa8;
+  --color-teal-600:   #0a8d8b;
+  --color-navy-brand: #1a1a2e;
+  --color-yellow-brand: #f5c518;
+}
+
+@layer base {
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--font-sans); }
+  :focus-visible {
+    outline: 3px solid #01aaa8;
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+}
+
+@layer components {
+  .hero-overlay { background: linear-gradient(180deg, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0.6) 100%); }
+  .nav-link { transition: color .15s; }
+  .nav-link:hover, .nav-link.active { color: #01aaa8; }
+
+  /* Admin sidebar — slide-in drawer on mobile, fixed on desktop.
+     Tailwind 4's `-translate-x-full` wasn't reliably emitting in this
+     project, so we ship the rule explicitly. */
+  .admin-sidebar { transform: translateX(-100%); transition: transform .2s ease-out; }
+  .admin-sidebar.is-open { transform: translateX(0); }
+  @media (min-width: 1024px) { .admin-sidebar { transform: translateX(0); } }
+}

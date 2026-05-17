@@ -1,0 +1,23 @@
+User-agent: *
+Allow: /
+
+# Admin panel — private
+Disallow: /admin/
+Disallow: /admin
+
+# Internal API proxy
+Disallow: /api/
+
+# Private storage (uploaded originals, backups)
+Disallow: /storage/app/private/
+Disallow: /storage/backups/
+
+# Laravel framework internals
+Disallow: /_ignition/
+Disallow: /telescope/
+
+# Avoid indexing raw pagination or search params
+Disallow: /*?page=
+Disallow: /*?lang=
+
+Sitemap: https://phuketsmartbus.com/sitemap.xml

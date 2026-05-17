@@ -1,0 +1,15 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "pksb-web",
+      "runtimeExecutable": "php",
+      "runtimeArgs": [
+        "artisan", "serve",
+        "--host=127.0.0.1",
+        "--port=8090"
+      ],
+      "port": 8090
+    }
+  ]
+}
