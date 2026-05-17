@@ -190,9 +190,7 @@
         </ul>
       </div>
 
-      <a href="{{ lurl('pass') }}" class="hidden sm:inline-flex items-center justify-center w-10 h-10 rounded-full bg-teal-brand text-white shadow-md hover:bg-teal-600 transition" aria-label="{{ __('nav.pass') }}">
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M3 10h18M7 15h2m4 0h4M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-      </a>
+
       <button id="mobileMenuBtn" type="button" aria-controls="mobileMenu" aria-expanded="false" aria-label="Toggle menu"
         class="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-md bg-white/20 backdrop-blur text-white">
         <svg id="iconOpen" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
