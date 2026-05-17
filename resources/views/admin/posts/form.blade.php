@@ -47,6 +47,17 @@
   </div>
 </nav>
 
+@if($errors->any())
+  <div class="mb-4 rounded-xl bg-red-50 ring-1 ring-red-200 p-4">
+    <p class="text-sm font-semibold text-red-700 mb-1">Please fix the following errors:</p>
+    <ul class="list-disc list-inside text-sm text-red-600 space-y-0.5">
+      @foreach($errors->all() as $error)
+        <li>{{ $error }}</li>
+      @endforeach
+    </ul>
+  </div>
+@endif
+
 <form method="POST" action="{{ $action }}" enctype="multipart/form-data" class="grid lg:grid-cols-3 gap-6 pb-20 lg:pb-0">
   @csrf
   @if(!$isNew) @method('PUT') @endif
@@ -185,28 +196,59 @@
         <div id="photoPreviews" class="grid grid-cols-3 gap-2 mt-3 hidden"></div>
       </div>
       <script>
-        // Live thumbnail previews + drag-drop onto the dashed zone.
+        // Live thumbnail previews + drag-drop + multi-select accumulation.
         (function () {
           const input = document.getElementById('f-photos');
           const grid = document.getElementById('photoPreviews');
           const drop = document.getElementById('photoDrop');
           if (!input || !grid || !drop) return;
 
+          // Keep a running DataTransfer so selecting files multiple times accumulates them.
+          let dt = new DataTransfer();
+
+          function mergeFiles(newFiles) {
+            const existing = new Set(Array.from(dt.files).map(f => f.name + f.size));
+            Array.from(newFiles).forEach(f => {
+              if (f.type.startsWith('image/') && !existing.has(f.name + f.size)) {
+                dt.items.add(f);
+              }
+            });
+            input.files = dt.files;
+            renderPreviews();
+          }
+
           function renderPreviews() {
             grid.innerHTML = '';
-            const files = Array.from(input.files || []);
+            const files = Array.from(dt.files);
             grid.classList.toggle('hidden', files.length === 0);
-            files.forEach((file) => {
-              if (!file.type.startsWith('image/')) return;
+            // Update drop zone label
+            drop.querySelector('span').textContent = files.length
+              ? `${files.length} photo${files.length > 1 ? 's' : ''} selected — tap to add more`
+              : 'Tap to choose or drag photos here';
+            files.forEach((file, i) => {
               const url = URL.createObjectURL(file);
               const tile = document.createElement('div');
-              tile.className = 'relative aspect-square rounded-md overflow-hidden ring-1 ring-gray-200 bg-gray-50';
+              tile.className = 'relative aspect-square rounded-md overflow-hidden ring-1 ring-gray-200 bg-gray-50 group';
               tile.innerHTML = `<img src="${url}" class="w-full h-full object-cover" alt="">
+                ${i === 0 ? '<span class="absolute top-1 left-1 px-1.5 py-0.5 text-[9px] font-bold bg-yellow-400 text-gray-900 rounded">Cover</span>' : ''}
+                <button type="button" data-idx="${i}" class="remove-photo absolute top-1 right-1 w-5 h-5 rounded-full bg-red-600 text-white text-xs leading-none hidden group-hover:flex items-center justify-center">✕</button>
                 <span class="absolute bottom-0 inset-x-0 px-1 py-0.5 text-[9px] text-white bg-black/60 truncate">${file.name}</span>`;
               grid.appendChild(tile);
             });
+            // Remove individual photo
+            grid.querySelectorAll('.remove-photo').forEach(btn => {
+              btn.addEventListener('click', () => {
+                const idx = parseInt(btn.dataset.idx);
+                const newDt = new DataTransfer();
+                Array.from(dt.files).forEach((f, i) => { if (i !== idx) newDt.items.add(f); });
+                dt = newDt;
+                input.files = dt.files;
+                renderPreviews();
+              });
+            });
           }
-          input.addEventListener('change', renderPreviews);
+
+          input.addEventListener('change', () => mergeFiles(input.files));
 
           ['dragenter', 'dragover'].forEach((evt) => drop.addEventListener(evt, (e) => {
             e.preventDefault();
@@ -219,8 +261,7 @@
           drop.addEventListener('drop', (e) => {
             const files = e.dataTransfer?.files;
             if (!files || !files.length) return;
-            input.files = files;
-            renderPreviews();
+            mergeFiles(files);
           });
         })();
       </script>

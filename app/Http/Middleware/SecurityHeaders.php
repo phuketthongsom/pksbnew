@@ -36,11 +36,11 @@ class SecurityHeaders
         // tighter admin-only policy.
         $csp = [
             "default-src 'self'",
-            "script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net",
+            "script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://www.googletagmanager.com",
             "style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net",
             "font-src 'self' data:",
-            "img-src 'self' data: blob: https://*.tile.openstreetmap.org",
-            "connect-src 'self'",
+            "img-src 'self' data: blob: https://*.tile.openstreetmap.org https://www.google-analytics.com https://www.googletagmanager.com",
+            "connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://stats.g.doubleclick.net",
             "frame-src https://smartbus.phuket.cloud",
             "frame-ancestors 'self'",
             "base-uri 'self'",
