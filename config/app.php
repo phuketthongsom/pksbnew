@@ -41,6 +41,9 @@ return [
 
     'debug' => (bool) env('APP_DEBUG', false),
 
+    // Admin password — checked at boot. config() works after config:cache; env() does not.
+    'admin_password' => env('ADMIN_PASSWORD', ''),
+
     /*
     |--------------------------------------------------------------------------
     | Application URL

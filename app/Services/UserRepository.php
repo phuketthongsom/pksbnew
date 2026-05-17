@@ -162,8 +162,8 @@ class UserRepository
     protected function seedIfMissing(): void
     {
         if (file_exists($this->jsonPath)) return;
-        $username = env('ADMIN_USERNAME', 'admin');
-        $password = env('ADMIN_PASSWORD', 'admin123');
+        $username = config('app.admin_username', env('ADMIN_USERNAME', 'admin'));
+        $password = config('app.admin_password', env('ADMIN_PASSWORD', 'admin123'));
         $this->save([[
             'id' => (string) Str::uuid(),
             'username' => $username,

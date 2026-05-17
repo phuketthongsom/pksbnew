@@ -21,14 +21,16 @@ class AppServiceProvider extends ServiceProvider
         // Dev keeps `admin123` for convenience; production must rotate it before
         // first request, or the app refuses to serve.
         if ($this->app->environment('production')) {
+            // Use config() not env() — env() returns null after config:cache.
             $weak = ['admin123', 'password', 'changeme', '', null];
-            if (in_array(env('ADMIN_PASSWORD'), $weak, true)) {
+            $adminPw = config('app.admin_password') ?: env('ADMIN_PASSWORD');
+            if (in_array($adminPw, $weak, true)) {
                 throw new \RuntimeException(
                     'Refusing to boot: ADMIN_PASSWORD is unset or matches a known weak default. '.
                     'Generate a strong value (e.g. `php -r "echo bin2hex(random_bytes(16));"`) and set it in .env.'
                 );
             }
-            if (env('APP_DEBUG') === true || env('APP_DEBUG') === 'true') {
+            if (config('app.debug') === true) {
                 throw new \RuntimeException(
                     'Refusing to boot: APP_DEBUG must be false in production.'
                 );
