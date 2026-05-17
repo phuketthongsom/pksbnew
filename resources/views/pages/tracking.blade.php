@@ -68,7 +68,6 @@
         title="Live GPS map — {{ $routes[$active]['label'] }}"
         class="w-full h-[70vh] min-h-[420px] sm:h-[600px] border-0"
         loading="lazy"
-        sandbox="allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"
         referrerpolicy="no-referrer-when-downgrade"></iframe>
       <noscript>
         <p class="p-6 text-sm text-gray-700">
