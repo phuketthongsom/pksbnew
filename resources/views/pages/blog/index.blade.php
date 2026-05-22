@@ -62,19 +62,22 @@
 
         {{-- All tab --}}
         <a href="{{ lurl('blog') }}"
-           class="flex-none inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-semibold whitespace-nowrap transition-all
+           class="flex-none inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full text-sm font-bold whitespace-nowrap transition-all ring-2
                   {{ $activeCatSlug === 'all'
-                       ? 'bg-navy-brand text-white shadow'
-                       : 'bg-gray-100 text-gray-600 hover:bg-gray-200' }}">
+                       ? 'bg-navy-brand text-white ring-navy-brand shadow-lg scale-105'
+                       : 'bg-white text-gray-500 ring-gray-200 hover:ring-gray-400 hover:text-gray-800' }}">
           {!! $catIcons['list'] !!}
-          {{ __('blog.all_categories') ?? 'All' }}
+          {{ __('blog.all_categories') }}
         </a>
 
         @foreach($categories as $cat)
+          @php $isActive = $activeCatSlug === $cat['slug']; $acc = $cat['accent'] ?? '#01aaa8'; @endphp
           <a href="{{ lurl('blog.category', $cat['slug']) }}"
-             class="flex-none inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-semibold whitespace-nowrap transition-all border-2
-                    {{ $activeCatSlug === $cat['slug'] ? 'text-white border-transparent shadow' : 'bg-white text-gray-600 border-gray-200 hover:border-gray-400' }}"
-             @if($activeCatSlug === $cat['slug']) style="background-color:{{ $cat['accent'] ?? '#01aaa8' }}" @endif>
+             class="flex-none inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full text-sm font-bold whitespace-nowrap transition-all ring-2
+                    {{ $isActive ? 'text-white ring-transparent shadow-lg scale-105' : 'bg-white text-gray-500 ring-gray-200 hover:text-gray-800' }}"
+             style="{{ $isActive ? 'background-color:'.$acc.';box-shadow:0 4px 14px '.$acc.'55' : '' }}"
+             onmouseover="if(!this.classList.contains('scale-105')){this.style.ringColor='{{ $acc }}';this.style.borderColor='{{ $acc }}';this.style.color='{{ $acc }}'}"
+             onmouseout="if(!this.classList.contains('scale-105')){this.style.color='';this.style.borderColor=''}">
             {!! $catIcons[$cat['icon'] ?? 'camera'] ?? $catIcons['camera'] !!}
             {{ $cat['name'] }}
           </a>
