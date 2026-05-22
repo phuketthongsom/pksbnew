@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\PostsController;
 use App\Http\Controllers\Admin\TimetablesController;
 use App\Http\Controllers\Admin\PassesController;
+use App\Http\Controllers\Admin\CategoriesController;
 use App\Http\Controllers\Admin\UsersController;
 
 /*
@@ -36,6 +37,7 @@ $publicRoutes = function (): void {
     Route::view('/pass', 'pages.pass')->name('pass');
 
     Route::get('/blog', [BlogController::class, 'index'])->name('blog');
+    Route::get('/blog/category/{category}', [BlogController::class, 'category'])->name('blog.category');
     Route::get('/blog/{slug}', [BlogController::class, 'show'])->name('blog.show');
 };
 
@@ -92,6 +94,14 @@ Route::prefix('admin')->name('admin.')->group(function () {
             Route::match(['put', 'post'], '/passes/{id}', [PassesController::class, 'update'])->name('passes.update');
             Route::post('/passes/{id}/reorder', [PassesController::class, 'reorder'])->name('passes.reorder');
             Route::delete('/passes/{id}', [PassesController::class, 'destroy'])->name('passes.destroy');
+        });
+
+        // Categories (posts.manage permission)
+        Route::middleware('admin.can:posts.manage')->group(function () {
+            Route::get('/categories', [CategoriesController::class, 'index'])->name('categories.index');
+            Route::post('/categories', [CategoriesController::class, 'store'])->name('categories.store');
+            Route::put('/categories/{slug}', [CategoriesController::class, 'update'])->name('categories.update');
+            Route::delete('/categories/{slug}', [CategoriesController::class, 'destroy'])->name('categories.destroy');
         });
 
         // Users (owner-only)

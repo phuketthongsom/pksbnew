@@ -22,6 +22,7 @@ class StorePostRequest extends FormRequest
             'route_recommendation' => 'required|in:all,rawai,patong,dragon',
             'reading_minutes' => 'required|integer|min:1|max:60',
             'published_at' => 'required|date',
+            'category' => 'nullable|string|max:100',
             'photos.*' => 'nullable|image|max:8192',
         ];
     }

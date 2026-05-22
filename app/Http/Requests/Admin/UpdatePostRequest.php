@@ -33,6 +33,7 @@ class UpdatePostRequest extends FormRequest
             'published_at' => $isTranslatorOnly ? 'nullable' : 'required|date',
             // SECURITY: cover must be one of (a) the bundled hero, or
             // (b) a file inside this slug's gallery folder.
+            'category' => 'nullable|string|max:100',
             'cover' => ['nullable', 'string', 'regex:#^(images/[a-z0-9_\-./]+|storage/destinations/'.preg_quote($slug, '#').'/[a-zA-Z0-9._\-/]+)$#'],
             'photos.*' => 'nullable|image|max:8192',
         ];

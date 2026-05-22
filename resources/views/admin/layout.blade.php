@@ -24,6 +24,13 @@
       'icon'  => '<path stroke-linecap="round" stroke-linejoin="round" d="M12 21s-7-7.5-7-12a7 7 0 1114 0c0 4.5-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/>',
     ],
     [
+      'route' => 'admin.categories.index',
+      'label' => 'Categories',
+      'match' => 'admin.categories.*',
+      'can'   => fn () => current_admin_can('posts.manage'),
+      'icon'  => '<path stroke-linecap="round" stroke-linejoin="round" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"/>',
+    ],
+    [
       'route' => 'admin.timetables.index',
       'label' => 'Timetables',
       'match' => 'admin.timetables.*',

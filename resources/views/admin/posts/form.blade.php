@@ -148,6 +148,18 @@
   <aside class="space-y-5">
     @if(current_admin_can('posts.manage'))
       <div id="sec-settings" class="bg-white rounded-2xl shadow ring-1 ring-gray-100 p-6 space-y-4 scroll-mt-20">
+        @php $allCategories = app(\App\Services\CategoriesRepository::class)->all(); @endphp
+        <div>
+          <label for="f-category" class="block text-sm font-semibold text-gray-700 mb-1">Category</label>
+          <select id="f-category" name="category"
+                  class="w-full rounded-md border border-gray-300 px-3 py-2 focus:border-teal-brand focus:ring-1 focus:ring-teal-brand outline-none">
+            <option value="">— none —</option>
+            @foreach($allCategories as $cat)
+              @php $currentCat = old('category', $post['category'] ?? ''); @endphp
+              <option value="{{ $cat['slug'] }}" @selected($currentCat === $cat['slug'])>{{ $cat['name'] }}</option>
+            @endforeach
+          </select>
+        </div>
         <div>
           <label for="f-area" class="block text-sm font-semibold text-gray-700 mb-1">Area</label>
           <input id="f-area" name="area" required maxlength="100" placeholder="Patong, Old Town…"

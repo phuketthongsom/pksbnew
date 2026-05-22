@@ -2,15 +2,29 @@
 
 namespace App\Http\Controllers;
 
+use App\Services\CategoriesRepository;
 use App\Services\PostsRepository;
 use Illuminate\Http\Request;
 
 class BlogController extends Controller
 {
-    public function index(PostsRepository $repo)
+    public function index(PostsRepository $repo, CategoriesRepository $catRepo)
     {
         $posts = collect($repo->all())->map(fn ($p) => $repo->localized($p));
-        return view('pages.blog.index', compact('posts'));
+        $categories = $catRepo->all();
+        $grouped = $posts->groupBy(fn ($p) => $p['category'] ?? '');
+        return view('pages.blog.index', compact('posts', 'categories', 'grouped'));
+    }
+
+    public function category(string $cat, PostsRepository $repo, CategoriesRepository $catRepo)
+    {
+        $activeCategory = $catRepo->find($cat);
+        abort_if(!$activeCategory, 404);
+
+        $posts = collect($repo->all())->map(fn ($p) => $repo->localized($p));
+        $categories = $catRepo->all();
+        $grouped = $posts->groupBy(fn ($p) => $p['category'] ?? '');
+        return view('pages.blog.index', compact('posts', 'categories', 'grouped', 'activeCategory'));
     }
 
     public function show(string $slug, PostsRepository $repo, Request $request)

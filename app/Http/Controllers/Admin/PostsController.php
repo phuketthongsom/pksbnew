@@ -38,6 +38,7 @@ class PostsController extends Controller
             'route_recommendation' => $data['route_recommendation'],
             'reading_minutes' => (int) $data['reading_minutes'],
             'published_at' => $data['published_at'],
+            'category' => $data['category'] ?? '',
             'translations' => $data['translations'],
             'title' => $data['translations']['en']['title'],
             'excerpt' => $data['translations']['en']['excerpt'],
@@ -94,6 +95,7 @@ class PostsController extends Controller
             $update['route_recommendation'] = $data['route_recommendation'];
             $update['reading_minutes'] = (int) $data['reading_minutes'];
             $update['published_at'] = $data['published_at'];
+            $update['category'] = $data['category'] ?? '';
             $update['cover'] = $data['cover'] ?? $post['cover'];
         }
 
