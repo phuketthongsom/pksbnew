@@ -176,6 +176,17 @@
   </div>
 </div>
 
+{{-- Confirm dialog must be in the DOM BEFORE the script reads it --}}
+<div id="adminConfirm" class="hidden fixed inset-0 z-50 bg-black/50 flex items-center justify-center px-4" role="dialog" aria-modal="true" aria-labelledby="adminConfirmMsg">
+  <div class="bg-white rounded-2xl shadow-xl max-w-sm w-full p-6">
+    <p id="adminConfirmMsg" class="text-navy-brand font-semibold mb-5">Are you sure?</p>
+    <div class="flex gap-2 justify-end">
+      <button id="adminConfirmCancel" type="button" class="px-4 py-2 rounded-md bg-gray-100 text-navy-brand text-sm font-semibold hover:bg-gray-200">Cancel</button>
+      <button id="adminConfirmOk" type="button" class="px-4 py-2 rounded-md bg-red-600 text-white text-sm font-semibold hover:bg-red-700">Confirm</button>
+    </div>
+  </div>
+</div>
+
 <script>
   (function () {
     const sidebar = document.getElementById('adminSidebar');
@@ -277,16 +288,6 @@
   })();
 </script>
 
-{{-- Reusable confirm dialog (mounted once at the layout level) --}}
-<div id="adminConfirm" class="hidden fixed inset-0 z-50 bg-black/50 flex items-center justify-center px-4" role="dialog" aria-modal="true" aria-labelledby="adminConfirmMsg">
-  <div class="bg-white rounded-2xl shadow-xl max-w-sm w-full p-6">
-    <p id="adminConfirmMsg" class="text-navy-brand font-semibold mb-5">Are you sure?</p>
-    <div class="flex gap-2 justify-end">
-      <button id="adminConfirmCancel" type="button" class="px-4 py-2 rounded-md bg-gray-100 text-navy-brand text-sm font-semibold hover:bg-gray-200">Cancel</button>
-      <button id="adminConfirmOk" type="button" class="px-4 py-2 rounded-md bg-red-600 text-white text-sm font-semibold hover:bg-red-700">Confirm</button>
-    </div>
-  </div>
-</div>
 
 </body>
 </html>
